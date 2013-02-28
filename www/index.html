@@ -23,6 +23,7 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+		<style type="text/css" media="screen">@import "css/jqtouch.css";</style>
         <title>Rising Star</title>
     </head>
     <body>
@@ -33,10 +34,18 @@
                 <p class="status complete blink hide">Device is Ready</p>
             </div>
         </div>
-        <script type="text/javascript" src="phonegap.js"></script>
+        <!--<script type="text/javascript" src="phonegap.js"></script>-->
         <script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="js/jqtouch.js"></script>
+		<script type="text/javascript" src="js/jqtouch-jquery.min.js"></script>
         <script type="text/javascript">
             app.initialize();
+			$.jQTouch({
+				icon: 'jqtouch.png',
+				statusBar: 'black-translucent',
+				preloadImages: []
+			});
         </script>
     </body>
 </html>
