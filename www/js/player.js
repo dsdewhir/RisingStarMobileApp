@@ -1,5 +1,5 @@
 function newPlayer(player_name) {
-	Q = "INSERT INTO Player (name) VALUES '" + player_name + "')";
+	Q = "INSERT INTO Player (name) VALUES ('" + player_name + "')";
 	query(Q);
 }
 
@@ -9,7 +9,8 @@ function createPlayerTable() {
 }
 
 if (reset==true) {
-	query("DROP TABLE Player");
+	query("DROP TABLE IF EXISTS Player");
 }
 
 createPlayerTable();
+newPlayer("Jesse Briggs");
