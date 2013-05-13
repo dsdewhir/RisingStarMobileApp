@@ -71,5 +71,5 @@ function AddUserToDB() {
 }
 
 onBodyLoad();
-AddUserToDB();
+//AddUserToDB();
 //ListUsers();

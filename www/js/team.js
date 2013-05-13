@@ -15,4 +15,3 @@ if (reset == true) {
 	log("Table Team dropped");
 }
 createTeamTable(); //always call this in case there's no team table
-
