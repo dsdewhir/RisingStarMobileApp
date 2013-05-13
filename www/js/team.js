@@ -1,6 +1,7 @@
 function newTeam(team_name, season, sport) {
 	Q = "INSERT INTO Team (name, season, sport) VALUES ('" + team_name + "', '" + season + "', '" + sport + "')";
 	query(Q);
+	log("Created new team: " + team_name);
 }
 
 function createTeamTable() {

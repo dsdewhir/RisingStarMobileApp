@@ -1,6 +1,11 @@
+function loadPlayers() {
+
+}
+
 function newPlayer(player_name) {
 	Q = "INSERT INTO Player (name) VALUES ('" + player_name + "')";
 	query(Q);
+	log("Saved new player: " + player_name);
 }
 
 function createPlayerTable() {
@@ -14,4 +19,4 @@ if (reset==true) {
 }
 
 createPlayerTable();
-newPlayer("Jesse Briggs");
+//newPlayer("Jesse Briggs");

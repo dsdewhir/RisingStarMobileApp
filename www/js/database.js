@@ -35,6 +35,11 @@ function onBodyLoad(){
 
 	db = openDatabase(shortName, version, displayName,maxSize); //openOrCreate
 	log(db);
+	if (reset==true) {
+		Q = "DROP TABLE IF EXISTS User";
+		query(Q);
+		log("Dropped table User");
+	}
 	Q = 'CREATE TABLE IF NOT EXISTS User(UserId INTEGER NOT NULL PRIMARY KEY, FirstName TEXT NOT NULL, LastName TEXT NOT NULL)';
 	query(Q);
 } 
