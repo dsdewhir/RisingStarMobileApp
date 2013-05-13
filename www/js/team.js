@@ -1,3 +1,20 @@
+function loadTeams() {
+ $("#teamlist").html("");
+ db.transaction(function(transaction) { 
+   transaction.executeSql('SELECT * FROM Team;', [], 
+     function(transaction, result) { 
+      if (result != null && result.rows != null) { 
+        for (var i = 0; i < result.rows.length; i++) { 
+          var row = result.rows.item(i); 
+          $('#teamlist').append('<li class="forward"><a href="#team">' + row.season + ' ' + row.name + '</a></li>'); 
+        } 
+      }
+     },errorHandler); 
+ },errorHandler,nullHandler); 
+ log("Teams loaded");
+
+}
+
 function newTeam(team_name, season, sport) {
 	Q = "INSERT INTO Team (name, season, sport) VALUES ('" + team_name + "', '" + season + "', '" + sport + "')";
 	query(Q);
@@ -15,3 +32,10 @@ if (reset == true) {
 	log("Table Team dropped");
 }
 createTeamTable(); //always call this in case there's no team table
+
+if (reset == true) {
+	newTeam("Cubs", "2012", "baseball");
+	newTeam("Celtics", "2013", "basketball");
+}
+
+loadTeams();
