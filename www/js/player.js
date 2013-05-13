@@ -10,6 +10,7 @@ function createPlayerTable() {
 
 if (reset==true) {
 	query("DROP TABLE IF EXISTS Player");
+	log("Table Player dropped.");
 }
 
 createPlayerTable();

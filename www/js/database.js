@@ -11,7 +11,7 @@ function errorHandler(transaction, error) {
 } 
 
 function successCallBack() { 
-   console.log("DEBUG: Transaction success"); 
+   log("DEBUG: Transaction success"); 
 } 
 
 function testDatabase() {
@@ -34,7 +34,7 @@ function onBodyLoad(){
 	if (!testDatabase()) { return; }
 
 	db = openDatabase(shortName, version, displayName,maxSize); //openOrCreate
-	console.log(db);
+	log(db);
 	Q = 'CREATE TABLE IF NOT EXISTS User(UserId INTEGER NOT NULL PRIMARY KEY, FirstName TEXT NOT NULL, LastName TEXT NOT NULL)';
 	query(Q);
 } 
@@ -48,7 +48,7 @@ function ListUsers() {
           var row = result.rows.item(i); 
           $('#lbUsers').append('<br>' + row.UserId + '. ' + 
 row.FirstName+ ' ' + row.LastName); 
-		  console.log("ROW: " + row.UserId + '. ' + row.FirstName + ' ' + row.LastName);
+		  log("ROW: " + row.UserId + '. ' + row.FirstName + ' ' + row.LastName);
         } 
       } 
      },errorHandler); 
