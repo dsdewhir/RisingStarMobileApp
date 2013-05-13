@@ -10,7 +10,7 @@ function createTeamTable() {
 }
 
 if (reset == true) {
-	query("DROP TABLE Team");
+	query("DROP TABLE IF EXISTS Team");
 }
 createTeamTable(); //always call this in case there's no team table
 
