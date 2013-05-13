@@ -1,26 +1,17 @@
-/*
-<!-- 
-The application will create a database called WebSqlDb with a 
-table in it called User, which contains three fields  UserId, 
-FirstName and LastName 
---> 
-*/
-
-// global variables 
+// Global Variables 
 var db; 
 var shortName = 'rising-star'; 
 var version = '1.0'; 
 var displayName = 'WebSqlDB'; 
 var maxSize = 65535; 
+var reset = true;
 
-// this is called when an error happens in a transaction 
 function errorHandler(transaction, error) { 
-   alert('Error: ' + error.message + ' code: ' + error.code); 
+   console.log('Error: ' + error.message + ' code: ' + error.code); 
 } 
 
-// this is called when a successful transaction happens 
 function successCallBack() { 
-   console.log("DEBUGGING: transaction success"); 
+   console.log("DEBUG: Transaction success"); 
 } 
 
 function testDatabase() {
@@ -31,7 +22,7 @@ function testDatabase() {
 	return true;
 }
 
-function make_query(Q) {
+function query(Q) {
 	db.transaction(function(tx) {
 		tx.executeSql(Q, [], nullHandler, errorHandler);	
 	}, errorHandler, successCallBack);
@@ -44,8 +35,8 @@ function onBodyLoad(){
 
 	db = openDatabase(shortName, version, displayName,maxSize); //openOrCreate
 	console.log(db);
-	query = 'CREATE TABLE IF NOT EXISTS User(UserId INTEGER NOT NULL PRIMARY KEY, FirstName TEXT NOT NULL, LastName TEXT NOT NULL)';
-	make_query(query);
+	Q = 'CREATE TABLE IF NOT EXISTS User(UserId INTEGER NOT NULL PRIMARY KEY, FirstName TEXT NOT NULL, LastName TEXT NOT NULL)';
+	query(Q);
 } 
 
 function ListUsers() { 
@@ -76,4 +67,4 @@ function AddUserToDB() {
 
 onBodyLoad();
 AddUserToDB();
-ListUsers();
+//ListUsers();
