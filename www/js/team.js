@@ -12,7 +12,6 @@ function loadTeams() {
      },errorHandler); 
  },errorHandler,nullHandler); 
  log("Teams loaded");
-
 }
 
 function newTeam(team_name, season, sport) {

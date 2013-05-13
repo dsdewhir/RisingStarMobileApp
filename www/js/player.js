@@ -31,7 +31,7 @@ if (reset==true) {
 }
 
 createPlayerTable();
-if (reset==true) {
+if (reset == true) {
 	newPlayer("Jesse Briggs");
 	newPlayer("Dan Briggs");
 }
