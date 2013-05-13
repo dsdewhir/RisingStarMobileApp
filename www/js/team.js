@@ -1,4 +1,4 @@
-function loadTeams() {
+function oldloadTeams() {
  $("#teamlist").html("");
  db.transaction(function(transaction) { 
    transaction.executeSql('SELECT * FROM Team;', [], 
@@ -12,6 +12,22 @@ function loadTeams() {
      },errorHandler); 
  },errorHandler,nullHandler); 
  log("Teams loaded");
+}
+
+function loadTeams() {
+ $("#teamlist").html("");
+ Q = 'SELECT * FROM Team;';
+ rows = query_with_results(Q);
+
+ eachRow(rows, function(row) { 
+	 $('#teamlist').append('<li class="forward"><a href="#team">' + row.season + ' ' + row.name + '</a></li>'); 
+ });
+
+ log("Teams loaded");
+}
+
+function sayHi() {
+	console.log("HI");
 }
 
 function newTeam(team_name, season, sport) {

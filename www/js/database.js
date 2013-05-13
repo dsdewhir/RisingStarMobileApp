@@ -10,8 +10,31 @@ function errorHandler(transaction, error) {
    console.log('Error: ' + error.message + ' code: ' + error.code); 
 } 
 
+function query_with_results(Q) {
+	db.transaction(function(transaction) {
+		transaction.executeSql(Q, [],
+			function(transaction, result) {
+				log("RESULT: " + result);
+				log("RESULT.ROWS: " + result.rows);
+				if (result != null && result.rows != null) {
+					log("Returning a result");
+					return result.rows;
+				}
+			}
+		);
+	});
+}
+
+function eachRow(rows, do_this) {
+	log("eachRow.ROWS: " + rows);
+	for (var i=0; i < rows.length; i++) {
+		var row = rows.item(i);
+		do_this(row);
+	}
+}
+
 function successCallBack() { 
-   log("DEBUG: Transaction success"); 
+   //log("DEBUG: Transaction success"); 
 } 
 
 function testDatabase() {
