@@ -10,15 +10,28 @@ function errorHandler(transaction, error) {
    console.log('Error: ' + error.message + ' code: ' + error.code); 
 } 
 
+function act_on_results(Q, doThis) {
+ db.transaction(function(transaction, doThis) { 
+   transaction.executeSql(Q, [], 
+     function(transaction, result, doThis) { 
+      if (result != null && result.rows != null) { 
+        for (var i = 0; i < result.rows.length; i++) { 
+          var row = result.rows.item(i); 
+		  doThis(row);
+        } 
+      }
+     },errorHandler); 
+ },errorHandler,nullHandler); 
+ log("Teams loaded");
+}
+
 function query_with_results(Q) {
 	db.transaction(function(transaction) {
 		transaction.executeSql(Q, [],
 			function(transaction, result) {
-				log("RESULT: " + result);
-				log("RESULT.ROWS: " + result.rows);
 				if (result != null && result.rows != null) {
-					log("Returning a result");
-					return result.rows;
+					log("Returning a result: " + result.rows);
+					return(result.rows);
 				}
 			}
 		);
