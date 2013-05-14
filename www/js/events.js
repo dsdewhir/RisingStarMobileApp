@@ -9,5 +9,6 @@ $(document).ready(function() {
 		newTeam($("#team_name").val(),
 				$("#season").val(),
 				$("#sport").val()); 
+		loadTeams();
 	});
 });
