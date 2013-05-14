@@ -6,6 +6,10 @@ var displayName = 'WebSqlDB';
 var maxSize = 65535; 
 var reset = true;
 
+if (reset == true) {
+	log("Tables are being reset.");
+}
+
 function errorHandler(transaction, error) { 
    console.log('Error: ' + error.message + ' code: ' + error.code); 
 } 
@@ -25,12 +29,12 @@ function act_on_results(Q, doThis) {
  log("Teams loaded");
 }
 
-function query_with_results(Q) {
+function act_on_results(Q, doThis) {
 	db.transaction(function(transaction) {
 		transaction.executeSql(Q, [],
 			function(transaction, result) {
 				if (result != null && result.rows != null) {
-					log("Returning a result: " + result.rows);
+					eachRow(result.rows, doThis); //doThis is anonymous function from caller
 					return(result.rows);
 				}
 			}
@@ -39,7 +43,6 @@ function query_with_results(Q) {
 }
 
 function eachRow(rows, do_this) {
-	log("eachRow.ROWS: " + rows);
 	for (var i=0; i < rows.length; i++) {
 		var row = rows.item(i);
 		do_this(row);
@@ -74,7 +77,6 @@ function onBodyLoad(){
 	if (reset==true) {
 		Q = "DROP TABLE IF EXISTS User";
 		query(Q);
-		log("Dropped table User");
 	}
 	Q = 'CREATE TABLE IF NOT EXISTS User(UserId INTEGER NOT NULL PRIMARY KEY, FirstName TEXT NOT NULL, LastName TEXT NOT NULL)';
 	query(Q);

@@ -11,13 +11,13 @@ function loadPlayers() {
       }
      },errorHandler); 
  },errorHandler,nullHandler); 
- log("Players loaded");
+ //log("Players loaded");
 }
 
 function newPlayer(player_name) {
 	Q = "INSERT INTO Player (name) VALUES ('" + player_name + "')";
 	query(Q);
-	log("Saved new player: " + player_name);
+	//log("Saved new player: " + player_name);
 }
 
 function createPlayerTable() {
@@ -27,7 +27,6 @@ function createPlayerTable() {
 
 if (reset==true) {
 	query("DROP TABLE IF EXISTS Player");
-	log("Table Player dropped.");
 }
 
 createPlayerTable();
