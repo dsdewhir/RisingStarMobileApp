@@ -73,7 +73,7 @@ function onBodyLoad(){
 	if (!testDatabase()) { return; }
 
 	db = openDatabase(shortName, version, displayName,maxSize); //openOrCreate
-	log(db);
+	//log(db);
 	if (reset==true) {
 		Q = "DROP TABLE IF EXISTS User";
 		query(Q);

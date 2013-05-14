@@ -66,10 +66,12 @@
 					<h1>2012 Red Sox</h1>
 					<a href="#" class="back" style>Back</a>
 				</div>
-				<ul class="rounded" id="teamlist">
+				<ul class="rounded" id="gamelist">
+					<!--
 					<li class="forward"><a href="#game">@ Tigers</a></li>
 					<li class="forward"><a href="#game">vs Yankees</a></li>
 					<li class="forward"><a href="#game">vs Yankees</a></li>
+					-->
                 </ul>
 				<a href="#newgame" class="whiteButton" style="">Create a new game</a>
 			</div><!-- end id=team -->
@@ -98,7 +100,7 @@
 					<li><input type="text" name="name" placeholder="Sport" id="sport"></li>
 					<li><input type="text" name="name" placeholder="Logo" id="team_logo"><a href="#add" class="button add slideup" style="">+</a></li>
                 </ul>
-				<a href="#home" id="saveteam" class="whiteButton" style="">Save</a>
+				<a href="#player" id="saveteam" class="whiteButton" style="">Save</a>
 			</div><!-- end id=newteam -->
 			
 			<div id="newgame" class>
@@ -135,6 +137,7 @@
 		<script type="text/javascript" src="js/player.js"></script>
 		<script type="text/javascript" src="js/baseball.js"></script>
 		<script type="text/javascript" src="js/events.js"></script>
+		<script type="text/javascript" src="js/game.js"></script>
         <script type="text/javascript">
             app.initialize();
 			$.jQTouch({
