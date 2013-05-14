@@ -34,10 +34,12 @@
                 </div>
                 <div class="scroll">
 					<h2>Players</h2>
-                    <ul class="rounded">
+                    <ul class="rounded" id="playerlist">
+						<!--
                         <li class="forward"><a href="#player">Joe Dimaggio</a> </li>
                         <li class="forward"><a href="#player">Magic Johnson</a></li>
                         <li class="forward"><a href="#player">Babe Ruth</a></li>
+						-->
                     </ul>
 					<a href="#newplayer" class="whiteButton" style="">Create a new player</a>
                 </div>
@@ -48,10 +50,12 @@
 					<h1>Joe DiMaggio</h1>
 					<a href="#" class="back" style>Back</a>
 				</div>
-				<ul class="rounded">
+				<ul class="rounded" id="teamlist">
+					<!--
 					<li class="forward"><a href="#team">2012 Red Sox</a></li>
 					<li class="forward"><a href="#team">2011 Red Sox</a></li>
 					<li class="forward"><a href="#team">2011 Knicks</a></li>
+					-->
                 </ul>
 				<a href="#stats" class="whiteButton" style="">Stats</a>
 				<a href="#newteam" class="whiteButton" style="">Create a new team</a>
@@ -62,7 +66,7 @@
 					<h1>2012 Red Sox</h1>
 					<a href="#" class="back" style>Back</a>
 				</div>
-				<ul class="rounded">
+				<ul class="rounded" id="teamlist">
 					<li class="forward"><a href="#game">@ Tigers</a></li>
 					<li class="forward"><a href="#game">vs Yankees</a></li>
 					<li class="forward"><a href="#game">vs Yankees</a></li>
@@ -80,7 +84,7 @@
 					
 					<li><input type="text" name="name" placeholder="Photo" id="player_photo"><a href="#add" class="button add slideup" style="">+</a></li>
                 </ul>
-				<a href="#home" class="whiteButton" style="">Save</a>
+				<a href="#home" id="saveplayer" class="whiteButton" style="">Save</a>
 			</div><!-- end id=newplayer -->
 			
 			<div id="newteam" class>
@@ -94,7 +98,7 @@
 					<li><input type="text" name="name" placeholder="Sport" id="sport"></li>
 					<li><input type="text" name="name" placeholder="Logo" id="team_logo"><a href="#add" class="button add slideup" style="">+</a></li>
                 </ul>
-				<a href="#home" class="whiteButton" style="">Save</a>
+				<a href="#home" id="saveteam" class="whiteButton" style="">Save</a>
 			</div><!-- end id=newteam -->
 			
 			<div id="newgame" class>
@@ -125,7 +129,12 @@
 		<script type="text/javascript" src="js/jquery-1.7.min.js"></script>
 		<script type="text/javascript" src="js/jqtouch.js"></script>
 		<script type="text/javascript" src="js/jqtouch-jquery.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/database.js"></script>
+		<script type="text/javascript" src="js/team.js"></script>
+		<script type="text/javascript" src="js/player.js"></script>
+		<script type="text/javascript" src="js/baseball.js"></script>
+		<script type="text/javascript" src="js/events.js"></script>
         <script type="text/javascript">
             app.initialize();
 			$.jQTouch({
