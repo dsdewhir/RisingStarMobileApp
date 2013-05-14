@@ -1,21 +1,20 @@
-function loadTeams() {
+function loadTeams(player_id) {
 	$("#teamlist").html("");
-	Q = 'SELECT * FROM Team;';
+	Q = 'SELECT * FROM Team WHERE player_id = ' + player_id + ';';
 	act_on_results(Q, function(row) { 
-		$('#teamlist').append('<li class="forward"><a href="#team">' + row.season + ' ' + row.name + '</a></li>'); 
+		$('#teamlist').append('<li class="forward"><a href="#team">' + row.season + ' ' + row.name + '<input type="hidden" value="' + row.id + '" /></a></li>'); 
 	});
 	//log("Teams loaded");
 }
 
-function newTeam(team_name, season, sport) {
-	Q = "INSERT INTO Team (name, season, sport) VALUES ('" + team_name + "', '" + season + "', '" + sport + "')";
+function newTeam(team_name, player_id, season, sport) {
+	Q = "INSERT INTO Team (name, player_id, season, sport) VALUES ('" + team_name + "', '" + player_id + "', '" + season + "', '" + sport + "')";
 	query(Q);
-	//log("Created new team: " + team_name);
 }
 
 function createTeamTable() {
 	//set up team table on a blank DB
-	Q = "CREATE TABLE IF NOT EXISTS Team(id INTEGER NOT NULL PRIMARY KEY, name TEXT NOT NULL, season TEXT NOT NULL, sport TEXT NOT NULL)";
+	Q = "CREATE TABLE IF NOT EXISTS Team(id INTEGER NOT NULL PRIMARY KEY, player_id INTEGER NOT NULL, name TEXT NOT NULL, season TEXT NOT NULL, sport TEXT NOT NULL)";
 	query(Q);
 }
 
@@ -25,8 +24,8 @@ if (reset == true) {
 createTeamTable(); //always call this in case there's no team table
 
 if (reset == true) {
-	newTeam("Cubs", "2012", "baseball");
-	newTeam("Celtics", "2013", "basketball");
+	newTeam("Cubs", currentPlayer, "2012", "baseball");
+	newTeam("Celtics", currentPlayer, "2013", "basketball");
 }
 
-loadTeams();
+loadTeams(currentPlayer);

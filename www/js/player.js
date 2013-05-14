@@ -6,7 +6,7 @@ function loadPlayers() {
       if (result != null && result.rows != null) { 
         for (var i = 0; i < result.rows.length; i++) { 
           var row = result.rows.item(i); 
-          $('#playerlist').append('<li class="forward"><a href="#player">' + row.name + '</a></li>'); 
+          $('#playerlist').append('<li class="playerselect forward" ><a href="#player">' + row.name + '<input type="hidden" value="' + row.id + '" /></a></li>'); 
         } 
       }
      },errorHandler); 

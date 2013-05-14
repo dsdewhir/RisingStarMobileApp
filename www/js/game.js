@@ -32,7 +32,7 @@ if (reset == true) {
 createGameTable(); //always call this in case there's no game table (first load)
 
 if (reset == true) {
-	newGame(1, "Bobcats", "baseball", "14124", 0);
+	newGame(currentTeam, "Bobcats", "baseball", "14124", 0);
 }
 
-loadGames(currentGame);
+loadGames(currentTeam);
