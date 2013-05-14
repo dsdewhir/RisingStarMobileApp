@@ -24,4 +24,7 @@ $(document).ready(function() {
 				$("#sport").val()); 
 		loadTeams(currentPlayer);
 	});
+	$("#savegame").click(function() {
+		alert("Need to save this game like a boss.");
+	});
 });
