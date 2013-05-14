@@ -35,4 +35,4 @@ if (reset == true) {
 	newGame(1, "Bobcats", "baseball", "14124", 0);
 }
 
-loadGames(1);
+loadGames(currentGame);
