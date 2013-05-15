@@ -8,3 +8,9 @@ function log(log_text) {
 		console.log(log_text);
 	}
 }
+
+function empty_list(x) {
+	if (x.find("li").length == 0) {
+		x.append("<li>Didn't find any</li>");
+	}
+}
