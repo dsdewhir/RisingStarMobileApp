@@ -97,8 +97,14 @@
 				<ul class="edit rounded">
 					<li><input type="text" name="name" placeholder="Name" id="team_name"></li>
 					<li><input type="text" name="name" placeholder="Season" id="season"></li>
-					<li><input type="text" name="name" placeholder="Sport" id="sport"></li>
-					<li><input type="text" name="name" placeholder="Logo" id="team_logo"><a href="#add" class="button add slideup" style="">+</a></li>
+					<li>
+						<select id="sport" name="sport">
+							<option value="baseball">Baseball</option>
+							<option value="basketball">Basketball</option>
+						</select>
+					</li>
+					<!--<li><input type="text" name="name" placeholder="Sport" id="sport"></li>-->
+					<!--<li><input type="text" name="name" placeholder="Logo" id="team_logo"><a href="#add" class="button add slideup" style="">+</a></li>-->
                 </ul>
 				<a href="#player" id="saveteam" class="whiteButton" style="">Save</a>
 			</div><!-- end id=newteam -->
