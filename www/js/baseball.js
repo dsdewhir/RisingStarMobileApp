@@ -1,16 +1,12 @@
 /* in the file we make baseball queries */
+var currentRow;
 
-function addOne(rowid) {
-	Q = "UPDATE Score SET amt=amt+1 WHERE id = '" + rowid + "'";
-	query(Q);
-}
-
-function getRow(game_id, stat) { //returns a row_id for stat for currentGame
+function loadBaseballScores(game_id) {
 	
 }
 
 /* EVENTS */
-$(".baseball-single").click(function() {
-	addOne(getRow(currentGame, "single"));
-	loadScores(currentGame); //or just add one to the counter field
+$("#baseball-single-add").click(function() {
+	addOne(getRow(currentGame, "single"), "single");
+	loadBaseballScores(currentGame); //or just add one to the counter field
 });

@@ -9,6 +9,11 @@ function loadGames(team_id) {
 	
 }
 
+function scoreShow(team_id) {
+	//loadify all teh scores!
+	log("Loading scores");
+}
+
 function newGame(team_id, opponent, sport, date, at_home) {
 	Q = "INSERT INTO Game (team_id, opponent, sport, date, at_home) VALUES ('" + team_id + "', '" + opponent + "', '" + sport + "', '2013-05-15', " + at_home + ")";
 	query(Q);
@@ -36,3 +41,4 @@ if (reset == true) {
 }
 
 loadGames(currentTeam);
+scoreShow(currentGame);

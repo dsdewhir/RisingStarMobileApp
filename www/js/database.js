@@ -61,6 +61,20 @@ function testDatabase() {
 	return true;
 }
 
+function selectID(Q, callBack) {
+	var result = [];
+	db.transaction(function(tx) {
+		tx.executeSql(Q, [], function(tx, rs) {
+			for (var i=0; i<rs.rows.length; i++) {
+				var row = rs.rows.item(i);
+				result[i] = {id: row['id']}
+			}
+			log(result);
+			callBack(result);
+		}, errorHandler);
+	});
+}
+
 function query(Q) {
 	db.transaction(function(tx) {
 		tx.executeSql(Q, [], nullHandler, errorHandler);	
