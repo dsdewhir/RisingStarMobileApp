@@ -25,6 +25,12 @@ $(document).ready(function() {
 		loadTeams(currentPlayer);
 	});
 	$("#savegame").click(function() {
-		alert("Need to save this game like a boss.");
+		var at_home = ($("input[name=homeaway]:checked").val() == "home") ? 1 : 0;
+		newGame(currentTeam,
+				$("#gameopponent").val(),
+				'dynamic sport here',
+				$("#gamedate").val(),
+				at_home);
+		loadGames(currentTeam);
 	});
 });

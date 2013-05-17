@@ -84,7 +84,7 @@
 				<ul class="edit rounded">
 					<li><input type="text" name="name" placeholder="Name" id="player_name"></li>
 					
-					<li><input type="text" name="name" placeholder="Photo" id="player_photo"><a href="#add" class="button add slideup" style="">+</a></li>
+					<!--<li><input type="text" name="name" placeholder="Photo" id="player_photo"><a href="#add" class="button add slideup" style="">+</a></li>-->
                 </ul>
 				<a href="#home" id="saveplayer" class="whiteButton" style="">Save</a>
 			</div><!-- end id=newplayer -->
@@ -97,8 +97,14 @@
 				<ul class="edit rounded">
 					<li><input type="text" name="name" placeholder="Name" id="team_name"></li>
 					<li><input type="text" name="name" placeholder="Season" id="season"></li>
-					<li><input type="text" name="name" placeholder="Sport" id="sport"></li>
-					<li><input type="text" name="name" placeholder="Logo" id="team_logo"><a href="#add" class="button add slideup" style="">+</a></li>
+					<li>
+						<select id="sport" name="sport">
+							<option value="baseball">Baseball</option>
+							<option value="basketball">Basketball</option>
+						</select>
+					</li>
+					<!--<li><input type="text" name="name" placeholder="Sport" id="sport"></li>-->
+					<!--<li><input type="text" name="name" placeholder="Logo" id="team_logo"><a href="#add" class="button add slideup" style="">+</a></li>-->
                 </ul>
 				<a href="#player" id="saveteam" class="whiteButton" style="">Save</a>
 			</div><!-- end id=newteam -->
@@ -109,16 +115,15 @@
 					<a href="#" class="back" style>Back</a>
 				</div>
 				<ul class="edit rounded">
-					<li><input type="text" name="name" placeholder="Name" id="team_name"></li>
 					<li>
-					  <input type="radio" name="bag" value="paper" title="Home">
+					  <input id="gameathome" type="radio" name="homeaway" value="home" title="Home">
 					</li>
 					<li>
-					  <input type="radio" name="bag" value="paper" title="Away">
+					  <input id="gameaway" type="radio" name="homeaway" value="away" title="Away">
 					</li>
 					<li><input type="text" name="name" placeholder="Date" id="date"></li>
-					<li><input type="text" name="name" placeholder="Location" id="location"><a href="#add" class="button add slideup" style="">+</a></li>
-					<li class="forward"><a href="#newteam">Opponent</a></li>
+					<!--<li><input type="text" name="name" placeholder="Location" id="location"><a href="#add" class="button add slideup" style="">+</a></li>-->
+					<li><input type="text" name="opponent" placeholder="Opponent" id="gameopponent"></li>
                 </ul>
 				<a href="#newopponent" class="whiteButton" style="">Add new opponent</a>
 				<a id="savegame" href="#team" class="whiteButton" style="">Save</a>
