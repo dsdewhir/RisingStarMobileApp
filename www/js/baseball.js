@@ -1,7 +1,16 @@
 /* in the file we make baseball queries */
 
-function newBaseballTeam(team_name, season) {
-	newTeam(team_name, season, "baseball");
+function addOne(rowid) {
+	Q = "UPDATE Score SET amt=amt+1 WHERE id = '" + rowid + "'";
+	query(Q);
 }
 
-//newBaseballTeam("Red Sox", "2012-2013");
+function getRow(game_id, stat) { //returns a row_id for stat for currentGame
+	
+}
+
+/* EVENTS */
+$(".baseball-single").click(function() {
+	addOne(getRow(currentGame, "single"));
+	loadScores(currentGame); //or just add one to the counter field
+});
