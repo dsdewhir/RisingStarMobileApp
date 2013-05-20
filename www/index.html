@@ -76,17 +76,21 @@
 				<a href="#newgame" class="whiteButton" style="">Create a new game</a>
 			</div><!-- end id=team -->
 			
-			<div id="game" class>
+			<div id="baseballgame" class>
 				<div class="toolbar">
 					<h1>Game Title</h1>
 					<a href="#" class="back" style>Back</a>
 				</div>
-				<ul class="rounded" id="gamelist">
-					<!--
-					<li class="forward"><a href="#team">2011 Knicks</a></li>
-					-->
+				<ul class="rounded" id="statlist">
+					<li id="stat_single">
+						<!--<div class="incrementor minus">-</div> Single-->
+						<a href="#" class="button add minus"></a> Single
+						<a href="#" class="button add plus"></a>
+						<small id="amt_single" class="counter">1</small>
+						<!--<div class="incrementor plus">+</div>-->
+					</li>
                 </ul>
-			</div><!--end id=player -->
+			</div><!--end id=game -->
 			
 			<div id="newplayer" class>
 				<div class="toolbar">
@@ -133,6 +137,7 @@
 					<li>
 					  <input id="gameaway" type="radio" name="homeaway" value="away" title="Away">
 					</li>
+					<!--<li><span class="toggle"><input type="checkbox" /></span></li>-->
 					<li><input type="text" name="name" placeholder="Date" id="date"></li>
 					<!--<li><input type="text" name="name" placeholder="Location" id="location"><a href="#add" class="button add slideup" style="">+</a></li>-->
 					<li><input type="text" name="opponent" placeholder="Opponent" id="gameopponent"></li>
@@ -155,6 +160,7 @@
 		<script type="text/javascript" src="js/baseball.js"></script>
 		<script type="text/javascript" src="js/events.js"></script>
 		<script type="text/javascript" src="js/game.js"></script>
+		<script type="text/javascript" src="js/score.js"></script>
         <script type="text/javascript">
             app.initialize();
 			$.jQTouch({

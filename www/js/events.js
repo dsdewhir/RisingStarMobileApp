@@ -16,7 +16,7 @@ $(document).ready(function() {
 	$("#gamelist li a").live("click", function() {
 		currentGame = $(this).find("input").val();
 		$("#game h1").text($(this).text());;
-		scoreShow(currentGame);
+		showScores(currentGame, "baseball");
 	});
 	$("#saveplayer").click(function() {		//save a new player
 		newPlayer($("#player_name").val()) 

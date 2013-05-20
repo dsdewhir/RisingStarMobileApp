@@ -5,7 +5,7 @@ function loadGames(team_id) {
 		$("#gamelist .empty").remove();
 		opponent = (row.at_home == 0) ? "Away @" : "Home vs ";
 		opponent += row.opponent;
-		$('#gamelist').append('<li class="forward"><a href="#game">' + opponent + ' ' + row.date + '</a></li>'); 
+		$('#gamelist').append('<li class="forward"><a href="#' + row.sport + 'game">' + opponent + ' ' + row.date + '</a></li>'); 
 	});
 	
 }

@@ -1,17 +1,40 @@
+function addOne(game_id, stat) {
+	Q = "SELECT id FROM Score WHERE game_id = " + game_id + " AND stat = '" + stat + "'";
+	act_on_results(Q, function(row) {
+		Qtoo = "UPDATE Score SET amt=amt+1 WHERE id = '" + row.id + "'";
+		query(Qtoo);
+	});
+}
 
-function addOne(rowid, stat) {
-	if (rowid != -1) {
-		Q = "UPDATE Score SET amt=amt+1 WHERE id = '" + rowid + "'";
-		query(Q);
-	} else {
-		Q = "INSERT INTO Score (game_id, stat, inning) VALUES (" + currentGame + ", '" + stat + "', " + currentInning + ")";
-		query(Q);
+function showScores(game_id, sport) {
+	log("showScores()" + game_id + sport);
+	if (sport == "baseball") {
+		loadBaseballScores(game_id);
+	} else if (sport == "basketball") {
+		loadBasketballScores(game_id);
 	}
 }
 
-function getRow(game_id, stat) { //returns a row_id for stat for currentGame
-	Q = "SELECT id FROM Score WHERE game_id = " + game_id + " AND stat = '" + stat + "'";
-	selectID(Q, function(x) {
-		currentRow = x[0]['id'];
-	});
+function createScoreTable() {
+	//set up team table on a blank DB
+	Q = "CREATE TABLE IF NOT EXISTS Score(id INTEGER NOT NULL PRIMARY KEY, game_id INTEGER NOT NULL, field TEXT NOT NULL, inn INTEGER NOT NULL, amt INTEGER NOT NULL)";
+	query(Q);
 }
+
+function newScore(game_id, field, inn, amt) {
+	Q = "INSERT INTO Score (game_id, field, inn, amt) VALUES (" + game_id + ", '" + field + "', " + inn + ", " + amt + " )";
+	query(Q);
+	//log("INSERTED a new Score");
+}
+
+if (reset == true) {
+	query("DROP TABLE IF EXISTS Score");
+}
+createScoreTable(); //always call this in case there's no team table
+
+if (reset == true) {
+	newScore(currentGame, "single", 1, 7);
+	newScore(currentGame, "double", 1, 0);
+}
+
+showScores(currentGame, "baseball");
