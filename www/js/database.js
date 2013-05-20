@@ -76,6 +76,7 @@ function selectID(Q, callBack) {
 }
 
 function query(Q) {
+	log(Q);
 	db.transaction(function(tx) {
 		tx.executeSql(Q, [], nullHandler, errorHandler);	
 	}, errorHandler, successCallBack);

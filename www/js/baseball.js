@@ -18,6 +18,6 @@ $("#baseball-single-add").click(function() {
 });
 $("#statlist #stat_single .plus").click(function() {
 	addOne(currentGame, "single");
-	log("addOne(" + currentGame + ", single)");
+	window.setTimeout(function() { showScores(currentGame, "baseball") }, 50);
 	//loadBaseballScores(currentGame); //or just add one to the counter field
 });

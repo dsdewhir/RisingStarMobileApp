@@ -1,7 +1,10 @@
 function addOne(game_id, stat) {
-	Q = "SELECT id FROM Score WHERE game_id = " + game_id + " AND stat = '" + stat + "'";
+	log("addOne:" + game_id + stat);
+	Q = "SELECT id FROM Score WHERE game_id = " + game_id + " AND field = '" + stat + "'";
+	log(Q);
 	act_on_results(Q, function(row) {
-		Qtoo = "UPDATE Score SET amt=amt+1 WHERE id = '" + row.id + "'";
+		log("Have a result");
+		Qtoo = "UPDATE Score SET amt=amt+1 WHERE id = " + row.id;
 		query(Qtoo);
 	});
 }
