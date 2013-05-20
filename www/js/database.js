@@ -26,7 +26,7 @@ function act_on_results(Q, doThis) {
       }
      },errorHandler); 
  },errorHandler,nullHandler); 
- log("Teams loaded");
+ log("act_on_results complete.");
 }
 
 function act_on_results(Q, doThis) {

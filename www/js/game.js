@@ -1,7 +1,8 @@
 function loadGames(team_id) {
-	$("#gamelist").html("");
+	$("#gamelist").html("<li class='empty'>No games found.</li>");
 	Q = "SELECT * FROM Game WHERE team_id = '" + team_id + "';";
 	act_on_results(Q, function(row) { 
+		$("#gamelist .empty").remove();
 		opponent = (row.at_home == 0) ? "Away @" : "Home vs ";
 		opponent += row.opponent;
 		$('#gamelist').append('<li class="forward"><a href="#game">' + opponent + ' ' + row.date + '</a></li>'); 

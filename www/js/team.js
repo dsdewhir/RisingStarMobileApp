@@ -1,7 +1,8 @@
 function loadTeams(player_id) {
-	$("#teamlist").html("");
+	$("#teamlist").html("<li class='empty'>No teams found.</li>");
 	Q = 'SELECT * FROM Team WHERE player_id = ' + player_id + ';';
 	act_on_results(Q, function(row) { 
+		$("#teamlist .empty").remove();
 		$('#teamlist').append('<li class="forward"><a href="#team">' + row.season + ' ' + row.name + '<input type="hidden" value="' + row.id + '" /></a></li>'); 
 	});
 	//log("Teams loaded");
