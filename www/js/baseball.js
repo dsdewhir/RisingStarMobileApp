@@ -12,12 +12,18 @@ function loadBaseballScores(game_id) {
 }
 
 /* EVENTS */
-$("#baseball-single-add").click(function() {
-	addOne(getRow(currentGame, "single"), "single");
-	showScores(currentGame, "baseball"); //or just add one to the counter field
-});
-$("#statlist #stat_single .plus").click(function() {
-	addOne(currentGame, "single");
-	window.setTimeout(function() { showScores(currentGame, "baseball") }, 50);
-	//loadBaseballScores(currentGame); //or just add one to the counter field
-});
+stats = ["single", "double", "triple", "homerun", "walk", "strikeout", "steal"];
+for (var i = 0; i < stats.length; i++ ) {
+	(function(i) {
+		$("#statlist #stat_" + stats[i] + " .plus").click(function() {
+			addOne(currentGame, stats[i]);
+			window.setTimeout(function() { showScores(currentGame, "baseball") }, 40);	
+		});
+	})(i);
+	(function(i) {
+		$("#statlist #stat_" + stats[i] + " .minus").click(function() {
+			minusOne(currentGame, stats[i]);
+			window.setTimeout(function() { showScores(currentGame, "baseball") }, 40);	
+		});
+	})(i);
+}

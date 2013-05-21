@@ -15,3 +15,11 @@ function empty_list(x) {
 		x.append("<li>Didn't find any</li>");
 	}
 }
+
+function get_function(func, value) {
+	return function() { func(value); };
+}
+
+function get_value(arr, i) {
+	return arr[i];
+}

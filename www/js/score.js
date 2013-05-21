@@ -9,6 +9,17 @@ function addOne(game_id, stat) {
 	});
 }
 
+function minusOne(game_id, stat) {
+	log("minusOne:" + game_id + stat);
+	Q = "SELECT id FROM Score WHERE game_id = " + game_id + " AND field = '" + stat + "'";
+	log(Q);
+	act_on_results(Q, function(row) {
+		log("Have a result");
+		Qtoo = "UPDATE Score SET amt=amt-1 WHERE id = " + row.id;
+		query(Qtoo);
+	});
+}
+
 function showScores(game_id, sport) {
 	log("showScores()" + game_id + sport);
 	if (sport == "baseball") {
@@ -38,6 +49,11 @@ createScoreTable(); //always call this in case there's no team table
 if (reset == true) {
 	newScore(currentGame, "single", 1, 7);
 	newScore(currentGame, "double", 1, 0);
+	newScore(currentGame, "triple", 1, 0);
+	newScore(currentGame, "homerun", 1, 0);
+	newScore(currentGame, "walk", 1, 0);
+	newScore(currentGame, "strikeout", 1, 0);
+	newScore(currentGame, "steal", 1, 0);
 }
 
 showScores(currentGame, "baseball");
