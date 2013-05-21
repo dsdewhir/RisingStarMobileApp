@@ -1,5 +1,5 @@
 function loadPlayers() {
- $("#playerlist").html("");
+ $("#playerlist").html("<li class='playerselect'>No players found</li>");
  db.transaction(function(transaction) { 
    transaction.executeSql('SELECT * FROM Player;', [], 
      function(transaction, result) { 
