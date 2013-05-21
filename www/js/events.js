@@ -38,4 +38,9 @@ $(document).ready(function() {
 				at_home);
 		loadGames(currentTeam);
 	});
+	$(".inning").live("click", function() {
+		currentInning = parseInt($(this).find("input").val());
+		log("Inning: " + currentInning);
+		showScores(currentGame, "baseball", currentInning);
+	});
 });

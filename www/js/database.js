@@ -29,13 +29,30 @@ function act_on_results(Q, doThis) {
  log("act_on_results complete.");
 }
 
-function act_on_results(Q, doThis) {
+function act_on_results(Q, doThis, emptyResultsFunction) {
 	db.transaction(function(transaction) {
 		transaction.executeSql(Q, [],
 			function(transaction, result) {
-				if (result != null && result.rows != null) {
+				if (result != null && result.rows != null && result.rows.length > 0) {
+					log(result.rows);
 					eachRow(result.rows, doThis); //doThis is anonymous function from caller
-					return(result.rows);
+					//return(result.rows);
+				} else {
+					emptyResultsFunction();
+				}
+			}
+		);
+	});
+}
+
+function test_for_none(Q, doThis) {
+	db.transaction(function(transaction) {
+		transaction.executeSql(Q, [],
+			function(transaction, result) {
+				log("TEST: rows: " + result.rows.length);
+				if (result.rows.length < 1) {
+					log("No results");
+					//doThis();
 				}
 			}
 		);

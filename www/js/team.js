@@ -4,7 +4,7 @@ function loadTeams(player_id) {
 	act_on_results(Q, function(row) { 
 		$("#teamlist .empty").remove();
 		$('#teamlist').append('<li class="forward"><a href="#team">' + row.season + ' ' + row.name + '<input type="hidden" value="' + row.id + '" /></a></li>'); 
-	});
+	}, function(){ console.log("No results"); });
 	//log("Teams loaded");
 }
 
