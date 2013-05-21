@@ -18,7 +18,7 @@ function scoreShow(team_id) {
 function newGame(team_id, opponent, sport, date, at_home) {
 	Q = "INSERT INTO Game (team_id, opponent, sport, date, at_home) VALUES ('" + team_id + "', '" + opponent + "', '" + sport + "', '2013-05-15', " + at_home + ")";
 	query(Q);
-	log("Created new game vs: " + opponent);
+	//log("Created new game vs: " + opponent);
 }
 
 function createGameTable() {
@@ -38,7 +38,7 @@ if (reset == true) {
 createGameTable(); //always call this in case there's no game table (first load)
 
 if (reset == true) {
-	newGame(currentTeam, "Bobcats", "baseball", "14124", 0);
+	newGame(currentTeam, "Bobcats", "baseball", "date", 0);
 }
 
 loadGames(currentTeam);
