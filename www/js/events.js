@@ -3,6 +3,7 @@
 $(document).ready(function() {
 	$("#teamlist li a").live("click", function() {	//player is selected
 		currentTeam = $(this).find("input").val();
+		currentSport = updateCurrentSport(currentTeam);
 		$("#team h1").text($(this).text());;
 		//log("var currentPlayer = " + currentPlayer);
 		loadGames(currentTeam);
@@ -31,6 +32,7 @@ $(document).ready(function() {
 		loadTeams(currentPlayer);
 	});
 	$("#savegame").click(function() {
+		updateCurrentSport(currentTeam);
 		var at_home = ($("input[name=homeaway]:checked").val() == "home") ? 1 : 0;
 		newGame(currentTeam,
 				$("#gameopponent").val(),

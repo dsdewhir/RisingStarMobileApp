@@ -19,7 +19,7 @@ function minusOne(game_id, stat, inning) {
 }
 
 function showScores(game_id, sport, inning) {
-	updateCurrentSport(game_id);
+	updateCurrentSport(currentTeam);
 	sport = currentSport; //ignore passed variable, so remove it from arguments
 	if (sport == "baseball") {
 		loadBaseballScores(game_id, inning);
@@ -29,11 +29,13 @@ function showScores(game_id, sport, inning) {
 }
 
 function updateCurrentSport(game_id) {
+	/*
 	Q = "SELECT team_id FROM Game WHERE id = " + game_id;
 	act_on_results(Q, function(row) {
 		update_sport(row.team_id);
 		log("TeamId: " + row.team_id);
 	});
+	*/
 	
 	function update_sport(team_id) {
 		Qx = "SELECT * FROM Team WHERE id = " + team_id;
@@ -42,6 +44,8 @@ function updateCurrentSport(game_id) {
 			log(currentSport);
 		});
 	}
+	
+	update_sport(game_id);
 }
 
 function createScoreTable() {
