@@ -1,6 +1,6 @@
 // Global Variables 
 var db; 
-var shortName = 'rising-star-3'; 
+var shortName = 'rising-star-4'; 
 var version = '1.0'; 
 var displayName = 'WebSqlDB'; 
 var maxSize = 65535; 

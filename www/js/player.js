@@ -1,11 +1,12 @@
 function loadPlayers() {
- $("#playerlist").html("<li class='playerselect'>No players found</li>");
+ $("#playerlist").html("<li class='playerselect empty'>No players found</li>");
  db.transaction(function(transaction) { 
    transaction.executeSql('SELECT * FROM Player;', [], 
      function(transaction, result) { 
       if (result != null && result.rows != null) { 
         for (var i = 0; i < result.rows.length; i++) { 
           var row = result.rows.item(i); 
+		  $("#playerlist .empty").remove();
           $('#playerlist').append('<li class="playerselect forward" ><a href="#player">' + row.name + '<input type="hidden" value="' + row.id + '" /></a></li>'); 
         } 
       }
