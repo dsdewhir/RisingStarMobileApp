@@ -5,7 +5,7 @@ function loadGames(team_id) {
 		$("#gamelist .empty").remove();
 		opponent = (row.at_home == 0) ? "Away @" : "Home vs ";
 		opponent += row.opponent;
-		$('#gamelist').append('<li class="forward"><a href="#' + row.sport + 'game">' + opponent + ' ' + row.date + '</a></li>'); 
+		$('#gamelist').append('<li class="forward"><a href="#' + row.sport + 'game">' + opponent + ' ' + row.date + '<input type="hidden" value="' + row.id + '"</a></li>'); 
 	}, function() { console.log("No results"); });
 	
 }
@@ -16,7 +16,7 @@ function scoreShow(team_id) {
 }
 
 function newGame(team_id, opponent, sport, date, at_home) {
-	Q = "INSERT INTO Game (team_id, opponent, sport, date, at_home) VALUES ('" + team_id + "', '" + opponent + "', '" + sport + "', '2013-05-15', " + at_home + ")";
+	Q = "INSERT INTO Game (team_id, opponent, sport, date, at_home) VALUES ('" + team_id + "', '" + opponent + "', '" + sport + "', '" + date + "', " + at_home + ")";
 	query(Q);
 	//log("Created new game vs: " + opponent);
 }

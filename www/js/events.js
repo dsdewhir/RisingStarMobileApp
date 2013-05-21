@@ -15,8 +15,9 @@ $(document).ready(function() {
 	});
 	$("#gamelist li a").live("click", function() {
 		currentGame = $(this).find("input").val();
-		$("#game h1").text($(this).text());;
-		showScores(currentGame, "baseball");
+		$("#game h1").text($(this).text());
+		currentSport = "baseball"; //need to set the sport here, dont we?
+		showScores(currentGame, currentSport);
 	});
 	$("#saveplayer").click(function() {		//save a new player
 		newPlayer($("#player_name").val()) 
@@ -33,7 +34,7 @@ $(document).ready(function() {
 		var at_home = ($("input[name=homeaway]:checked").val() == "home") ? 1 : 0;
 		newGame(currentTeam,
 				$("#gameopponent").val(),
-				'dynamic sport here',
+				currentSport,
 				$("#gamedate").val(),
 				at_home);
 		loadGames(currentTeam);

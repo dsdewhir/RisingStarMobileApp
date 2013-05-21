@@ -1,10 +1,10 @@
 // Global Variables 
 var db; 
-var shortName = 'rising-star'; 
+var shortName = 'rising-star-3'; 
 var version = '1.0'; 
 var displayName = 'WebSqlDB'; 
 var maxSize = 65535; 
-var reset = true;
+var reset = false;
 
 if (reset == true) {
 	log("Tables are being reset.");
