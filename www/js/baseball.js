@@ -11,16 +11,16 @@ function loadBaseballScores(game_id, inning) {
 }
 
 /* EVENTS */
-stats = ["single", "double", "triple", "homerun", "walk", "strikeout", "steal"];
+stats = ["single", "double", "triple", "homerun", "walk", "strikeout", "basesteal"];
 for (var i = 0; i < stats.length; i++ ) {
 	(function(i) {
-		$("#statlist #stat_" + stats[i] + " .plus").click(function() {
+		$("#baseballgame #statlist #stat_" + stats[i] + " .plus").click(function() {
 			addOne(currentGame, stats[i], currentInning);
 			window.setTimeout(function() { showScores(currentGame, "baseball", currentInning) }, 80);	
 		});
 	})(i);
 	(function(i) {
-		$("#statlist #stat_" + stats[i] + " .minus").click(function() {
+		$("#baseballgame #statlist #stat_" + stats[i] + " .minus").click(function() {
 			minusOne(currentGame, stats[i], currentInning);
 			window.setTimeout(function() { showScores(currentGame, "baseball", currentInning) }, 80);	
 		});

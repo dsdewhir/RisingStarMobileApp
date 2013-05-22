@@ -16,7 +16,7 @@ $(document).ready(function() {
 	});
 	$("#gamelist li a").live("click", function() {
 		currentGame = $(this).find("input").val();
-		currentSport = "baseball"; //need to set the sport here, dont we?
+		currentSport = updateCurrentSport(currentTeam); //need to set the sport here, dont we?
 		$("#" + currentSport + "game h1").text($(this).text());
 		showScores(currentGame, currentSport);
 	});
