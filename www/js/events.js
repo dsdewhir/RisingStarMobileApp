@@ -5,6 +5,7 @@ $(document).ready(function() {
 		currentTeam = $(this).find("input").val();
 		updateCurrentSport(currentTeam);
 		$("#team h1").text($(this).text());;
+		$("#team-stats-link").attr("href", "#show-" + currentSport);
 		//log("var currentPlayer = " + currentPlayer);
 		loadGames(currentTeam);
 	});
