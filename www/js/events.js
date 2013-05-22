@@ -3,7 +3,7 @@
 $(document).ready(function() {
 	$("#teamlist li a").live("click", function() {	//player is selected
 		currentTeam = $(this).find("input").val();
-		currentSport = updateCurrentSport(currentTeam);
+		updateCurrentSport(currentTeam);
 		$("#team h1").text($(this).text());;
 		//log("var currentPlayer = " + currentPlayer);
 		loadGames(currentTeam);
@@ -16,7 +16,8 @@ $(document).ready(function() {
 	});
 	$("#gamelist li a").live("click", function() {
 		currentGame = $(this).find("input").val();
-		currentSport = updateCurrentSport(currentTeam); //need to set the sport here, dont we?
+		updateCurrentSport(currentTeam); //need to set the sport here, dont we?
+		log("#" + currentSport + "game h1");
 		$("#" + currentSport + "game h1").text($(this).text());
 		showScores(currentGame, currentSport);
 	});

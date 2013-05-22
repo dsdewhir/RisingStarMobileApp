@@ -28,7 +28,7 @@ function showScores(game_id, sport, inning) {
 	}
 }
 
-function updateCurrentSport(game_id) {
+function updateCurrentSport(team_id) {
 	/*
 	Q = "SELECT team_id FROM Game WHERE id = " + game_id;
 	act_on_results(Q, function(row) {
@@ -39,13 +39,14 @@ function updateCurrentSport(game_id) {
 	
 	function update_sport(team_id) {
 		Qx = "SELECT * FROM Team WHERE id = " + team_id;
+		log(Qx);
 		act_on_results(Qx, function(row) {
 			currentSport = row.sport;
 			log(currentSport);
 		});
 	}
 	
-	update_sport(game_id);
+	update_sport(team_id);
 }
 
 function createScoreTable() {
