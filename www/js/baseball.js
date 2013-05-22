@@ -14,6 +14,14 @@ function resetBaseballStats() {
 	$("#show-baseball #stat-container span").text(0);	
 }
 
+function loadBaseballTeamStats(team_id) {
+	Q = "SELECT * FROM Game WHERE team_id = " + team_id; //Get all the games, so we can look them up by id
+	act_on_results(Q, function(row) {
+		log(row.opponent);
+		loadBaseballStats(row.id);
+	});
+}
+
 function loadBaseballStats(game_id) { //fill values in the stats show
 	resetBaseballStats();
 	//$("#show-baseball #stat-container #stat_display_atbats span")	
@@ -30,7 +38,6 @@ function loadBaseballStats(game_id) { //fill values in the stats show
 			at_bats += row.amt;
 		}
 		html_row = $("#show-baseball #stat-container #stat_display_" + row.field + " span");
-		console.log(html_row);
 		html_row.text(parseInt(html_row.text()) + row.amt);
 		update_global_stats(at_bats, hits);
 	});
@@ -40,7 +47,6 @@ function loadBaseballStats(game_id) { //fill values in the stats show
 		html_row = $("#show-baseball #stat-container #stat_display_hits span");
 		html_row.text(hits_l);
 	}
-		
 }
 
 /* EVENTS */

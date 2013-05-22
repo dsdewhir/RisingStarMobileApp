@@ -55,4 +55,7 @@ $(document).ready(function() {
 	$("#statshow-baseball").live("click", function() {
 		loadBaseballStats(currentGame);
 	});
+	$("#team-stats-link").live("click", function() {
+		loadBaseballTeamStats(currentTeam);
+	});
 });
