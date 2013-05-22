@@ -35,7 +35,6 @@ function loadBaseballStats(game_id) { //fill values in the stats show
 		update_global_stats(at_bats, hits);
 	});
 	function update_global_stats(at_bats_l, hits_l) {
-		console.log(at_bats_l); 
 		html_row = $("#show-baseball #stat-container #stat_display_atbats span");
 		html_row.text(at_bats_l);
 		html_row = $("#show-baseball #stat-container #stat_display_hits span");
