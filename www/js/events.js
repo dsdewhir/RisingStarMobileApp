@@ -19,7 +19,7 @@ $(document).ready(function() {
 		updateCurrentSport(currentTeam); //need to set the sport here, dont we?
 		log("#" + currentSport + "game h1");
 		$("#" + currentSport + "game h1").text($(this).text());
-		showScores(currentGame, currentSport);
+		showScores(currentGame, currentSport, currentInning);
 	});
 	$("#saveplayer").click(function() {		//save a new player
 		newPlayer($("#player_name").val()) 
@@ -45,7 +45,7 @@ $(document).ready(function() {
 	$(".inning").live("click", function() {
 		currentInning = parseInt($(this).find("input").val());
 		log("Inning: " + currentInning);
-		showScores(currentGame, "baseball", currentInning);
+		showScores(currentGame, currentSport, currentInning);
 	});
 	$("#statshow-baseball").live("click", function() {
 		loadBaseballStats(currentGame);
