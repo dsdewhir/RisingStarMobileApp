@@ -47,4 +47,7 @@ $(document).ready(function() {
 		log("Inning: " + currentInning);
 		showScores(currentGame, "baseball", currentInning);
 	});
+	$("#statshow-baseball").live("click", function() {
+		loadBaseballStats(currentGame);
+	});
 });

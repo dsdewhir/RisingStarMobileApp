@@ -14,6 +14,7 @@ function errorHandler(transaction, error) {
    console.log('Error: ' + error.message + ' code: ' + error.code); 
 } 
 
+/*
 function act_on_results(Q, doThis) {
  db.transaction(function(transaction, doThis) { 
    transaction.executeSql(Q, [], 
@@ -28,6 +29,7 @@ function act_on_results(Q, doThis) {
  },errorHandler,nullHandler); 
  log("act_on_results complete.");
 }
+*/
 
 function act_on_results(Q, doThis, emptyResultsFunction) {
 	db.transaction(function(transaction) {
