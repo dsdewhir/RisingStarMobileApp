@@ -16,6 +16,9 @@ $(document).ready(function() {
 	});
 	$("#gamelist li a").live("click", function() {
 		currentGame = $(this).find("input").val();
+		currentInning = 1;
+		$(".button.inning").removeClass("selected");
+		$(".button.inning input[value=" + String(currentInning) + "]").parent().addClass("selected");
 		updateCurrentSport(currentTeam); //need to set the sport here, dont we?
 		log("#" + currentSport + "game h1");
 		$("#" + currentSport + "game h1").text($(this).text());
@@ -44,6 +47,8 @@ $(document).ready(function() {
 	});
 	$(".inning").live("click", function() {
 		currentInning = parseInt($(this).find("input").val());
+		$(".button.inning").removeClass("selected");
+		$(".button.inning input[value=" + String(currentInning) + "]").parent().addClass("selected");
 		log("Inning: " + currentInning);
 		showScores(currentGame, currentSport, currentInning);
 	});
