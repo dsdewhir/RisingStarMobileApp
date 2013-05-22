@@ -32,14 +32,16 @@ function loadBaseballStats(game_id) { //fill values in the stats show
 		html_row = $("#show-baseball #stat-container #stat_display_" + row.field + " span");
 		console.log(html_row);
 		html_row.text(parseInt(html_row.text()) + row.amt);
+		update_global_stats(at_bats, hits);
 	});
-	window.setTimeout(function() {
-		console.log(at_bats); 
+	function update_global_stats(at_bats_l, hits_l) {
+		console.log(at_bats_l); 
 		html_row = $("#show-baseball #stat-container #stat_display_atbats span");
-		html_row.text(parseInt(html_row.text()) + at_bats);
+		html_row.text(at_bats_l);
 		html_row = $("#show-baseball #stat-container #stat_display_hits span");
-		html_row.text(parseInt(html_row.text()) + hits);
-		}, 300);
+		html_row.text(hits_l);
+	}
+		
 }
 
 /* EVENTS */
