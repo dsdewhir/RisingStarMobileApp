@@ -1,0 +1,7 @@
+#jqt > div {
+	background-image: url("img/background.jpg") !important;
+}
+
+#jqt > div .toolbar {
+	background-image: url("img/titlebar.jpg");
+}
