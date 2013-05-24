@@ -5,7 +5,7 @@ function loadGames(team_id) {
 		$("#gamelist .empty").remove();
 		opponent = (row.at_home == 0) ? "@ " : "vs ";
 		opponent += row.opponent;
-		$('#gamelist').append('<li class="forward"><a href="#' + row.sport + 'game">' + opponent + ' ' + row.date + '<input type="hidden" value="' + row.id + '"</a></li>'); 
+		$('#gamelist').append('<li class="forward"><a href="#' + row.sport + 'game">' + opponent + ' <span class="redfont">' + row.date + '</span><input type="hidden" value="' + row.id + '"</a></li>'); 
 	}, function() { console.log("No results"); });
 	
 }
