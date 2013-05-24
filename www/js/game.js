@@ -38,7 +38,7 @@ if (reset == true) {
 createGameTable(); //always call this in case there's no game table (first load)
 
 if (reset == true) {
-	newGame(currentTeam, "Bobcats", "baseball", "date", 0);
+	newGame(currentTeam, "Bobcats", "baseball", "Mar 5, 2012", 0);
 }
 
 loadGames(currentTeam);
