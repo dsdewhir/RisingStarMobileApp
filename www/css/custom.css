@@ -25,4 +25,6 @@
 #jqt #basketballgame li { text-transform: none; }
 #jqt #baseballgame li { text-transform: none; }
 
-#jqt .quarter { width: 25%; }
+#jqt .button.quarter { width: 22%; position: relative; float: left; left: 0px;}
+#jqt .button.ninth { width: 9.5%; position: relative; float: left; left: 0px;}
+#jqt .inningwrap { margin: auto; }
