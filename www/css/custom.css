@@ -9,3 +9,9 @@
 #jqt {
 	background-image: url("img/background.jpg");
 }
+
+#jqt a.whiteButton {
+	background-image: -webkit-linear-gradient(top, #3674a8, #123a5d);
+	color: black;
+	text-shadow: none;
+}
