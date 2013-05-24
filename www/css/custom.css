@@ -1,5 +1,4 @@
 #jqt > div {
-	background: none;
 	background-image: url("img/background.jpg") !important;
 }
 
@@ -8,6 +7,5 @@
 }
 
 #jqt {
-	background-color: white;
 	background-image: url("img/background.jpg");
 }
