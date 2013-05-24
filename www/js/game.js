@@ -3,7 +3,7 @@ function loadGames(team_id) {
 	Q = "SELECT * FROM Game WHERE team_id = '" + team_id + "';";
 	act_on_results(Q, function(row) { 
 		$("#gamelist .empty").remove();
-		opponent = (row.at_home == 0) ? "Away @" : "Home vs ";
+		opponent = (row.at_home == 0) ? "@ " : "vs ";
 		opponent += row.opponent;
 		$('#gamelist').append('<li class="forward"><a href="#' + row.sport + 'game">' + opponent + ' ' + row.date + '<input type="hidden" value="' + row.id + '"</a></li>'); 
 	}, function() { console.log("No results"); });
