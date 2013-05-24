@@ -60,13 +60,13 @@ $(document).ready(function() {
 		loadBaseballTeamStats(currentTeam);
 	});
 	$("#playerphoto").bind("tap", function() {
-		var options = {sourceType:Camera.PictureSourceType.PHOTOLIBRARY, destinationType:Camera.DestinationType.FILE_URI};
+		var options = {sourceType:Camera.PictureSourceType.PHOTOLIBRARY, destinationType:Camera.DestinationType.FILE_URI, quality:50};
 		navigator.Camera.getPicture(onCameraSuccess, onCameraError, options);
 	});
 });
 
 function onCameraError(message) {
-	log(message):
+	log(message);
 }
 
 function onCameraSuccess(imageURI) {
