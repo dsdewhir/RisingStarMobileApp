@@ -56,13 +56,18 @@ $(document).ready(function() {
 	$("#statshow-baseball").live("click", function() {
 		loadBaseballStats(currentGame);
 	});
+	$("#statshow-basketball").live("click", function() {
+		loadBaseballStats(currentGame);
+	});
 	$("#team-stats-link").live("click", function() {
 		loadBaseballTeamStats(currentTeam);
 	});
+	/*
 	$("#playerphoto").bind("tap", function() {
 		var options = {sourceType:Camera.PictureSourceType.PHOTOLIBRARY, destinationType:Camera.DestinationType.FILE_URI, quality:50};
 		navigator.Camera.getPicture(onCameraSuccess, onCameraError, options);
 	});
+	*/
 });
 
 function onCameraError(message) {
