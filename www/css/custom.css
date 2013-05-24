@@ -25,6 +25,7 @@
 #jqt #basketballgame li { text-transform: none; }
 #jqt #baseballgame li { text-transform: none; }
 
+#jqt .button.selected { color: yellow; background-image: none; background-color: red; }
 #jqt .button.quarter { width: 22%; position: relative; float: left; left: 0px;}
 #jqt .button.ninth { width: 9.5%; position: relative; float: left; left: 0px;}
 #jqt .inningwrap { margin: auto; }
