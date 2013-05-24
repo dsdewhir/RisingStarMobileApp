@@ -44,6 +44,12 @@ function updateCurrentSport(team_id) {
 			currentSport = row.sport;
 			log(currentSport);
 		});
+		setTimeout(set_teamstat_link, 200);
+	}
+
+	function set_teamstat_link() {
+		$("#team-stats-link").attr("href", "#show-" + currentSport);
+		console.log("Set link to " + currentSport);
 	}
 	
 	update_sport(team_id);
