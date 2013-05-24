@@ -16,4 +16,7 @@
 	text-shadow: none;
 }
 
-.redfont { color: #a62220; }
+.redfont { color: #a62220; margin-left: 45px; }
+
+#jqt .playerselect { text-transform: none; }
+#jqt #teamlist li { text-transform: none; }
