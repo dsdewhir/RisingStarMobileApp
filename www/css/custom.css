@@ -22,3 +22,7 @@
 #jqt .playerselect { text-transform: none; }
 #jqt #teamlist li { text-transform: none; }
 #jqt #gamelist li { text-transform: none; }
+#jqt #basketballgame li { text-transform: none; }
+#jqt #baseballgame li { text-transform: none; }
+
+#jqt .quarter { width: 25%; }
