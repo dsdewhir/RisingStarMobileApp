@@ -1,18 +1,7 @@
-#jqt > div {
-  background:#e9dccc url(../img/Default-568h@2x.png) no-repeat;
-  background-size:100%;
-  background-position:center bottom;
-}
 
-#jqt > div .toolbar {
-	/*background-image: url("img/titlebar.jpg");
-	color:red;
-}
-
-#jqt .toolbar > h1 {
-	color:#163f63 !important;
-}
 /*
+
+
 #jqt a.whiteButton {
 	background: -webkit-linear-gradient(top, #3d78a9, #163f63);
 	background: -moz-linear-gradient(top, #3d78a9, #163f63);
