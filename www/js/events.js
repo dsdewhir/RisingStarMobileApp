@@ -59,4 +59,16 @@ $(document).ready(function() {
 	$("#team-stats-link").live("click", function() {
 		loadBaseballTeamStats(currentTeam);
 	});
+	$("#playerphoto").bind("tap", function() {
+		var options = {sourceType:Camera.PictureSourceType.PHOTOLIBRARY, destinationType:Camera.DestinationType.FILE_URI};
+		navigator.Camera.getPicture(onCameraSuccess, onCameraError, options);
+	});
 });
+
+function onCameraError(message) {
+	log(message):
+}
+
+function onCameraSuccess(imageURI) {
+	$("#imagebox").attr("src", imageURI);
+}
