@@ -71,6 +71,7 @@ function newScore(game_id, field, inn, amt, callback_function) {
 
 function resetAllStats() {
 	log("function resetAllStats");
+	$("#statlist li small").text(0)
 	resetBaseballStats();
 	resetBasketballStats();
 }

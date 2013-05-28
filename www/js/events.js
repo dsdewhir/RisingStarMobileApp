@@ -45,6 +45,7 @@ $(document).ready(function() {
 				at_home);
 	});
 	$(".inning").live("click", function() {
+		resetAllStats();
 		currentInning = parseInt($(this).find("input").val());
 		$(".button.inning").removeClass("selected");
 		$(".button.inning input[value=" + String(currentInning) + "]").parent().addClass("selected");
