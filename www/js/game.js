@@ -17,7 +17,7 @@ function scoreShow(team_id) {
 
 function newGame(team_id, opponent, sport, date, at_home) {
 	Q = "INSERT INTO Game (team_id, opponent, sport, date, at_home) VALUES ('" + team_id + "', '" + opponent + "', '" + sport + "', '" + date + "', " + at_home + ")";
-	query(Q);
+	query(Q, function() { loadGames(currentTeam); });
 	//log("Created new game vs: " + opponent);
 }
 

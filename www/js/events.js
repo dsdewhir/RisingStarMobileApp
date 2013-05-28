@@ -42,7 +42,6 @@ $(document).ready(function() {
 				currentSport,
 				$("#gamedate").val(),
 				at_home);
-		loadGames(currentTeam);
 	});
 	$(".inning").live("click", function() {
 		currentInning = parseInt($(this).find("input").val());
