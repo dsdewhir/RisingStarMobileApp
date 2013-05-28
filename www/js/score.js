@@ -77,6 +77,14 @@ function resetAllStats() {
 	resetBasketballStats();
 }
 
+function loadTeamStats(team_id, sport) {
+	if (sport == "baseball") {
+		loadBaseballTeamStats(team_id);
+	} else if (sport == "basketball") {
+		loadBasketballTeamStats(team_id);
+	}
+}
+
 if (reset == true) {
 	query("DROP TABLE IF EXISTS Score");
 }

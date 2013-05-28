@@ -58,7 +58,7 @@ $(document).ready(function() {
 		loadBasketballStats(currentGame);
 	});
 	$("#team-stats-link").live("click", function() {
-		loadBaseballTeamStats(currentTeam);
+		loadTeamStats(currentTeam, currentSport);
 	});
 	/*
 	$("#playerphoto").bind("tap", function() {

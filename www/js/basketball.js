@@ -16,6 +16,7 @@ function resetBasketballStats() {
 }
 
 function loadBasketballTeamStats(team_id) {
+	log("function loadBasketballTeamStats");
 	Q = "SELECT * FROM Game WHERE team_id = " + team_id; //Get all the games, so we can look them up by id
 	act_on_results(Q, function(row) {
 		log(row.opponent);
