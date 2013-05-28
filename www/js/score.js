@@ -1,13 +1,18 @@
 function addOne(game_id, stat, inning) {
 	Q = "SELECT id FROM Score WHERE game_id = " + game_id + " AND field = '" + stat + "' AND inning = " + inning;
-	act_on_results(Q, function(row) {
-		Qtoo = "UPDATE Score SET amt=amt+1 WHERE id = " + row.id;
-		query(Qtoo, function() {
-			showScores(game_id, "none", inning);
-		});
-	}, function() {
-		newScore(game_id, stat, inning, 1);
-	});
+	act_on_results(Q, 
+					function(row) {
+						Qtoo = "UPDATE Score SET amt=amt+1 WHERE id = " + row.id;
+						query(Qtoo, update_scores_local);
+					}, 
+					function() {
+						newScore(game_id, stat, inning, 1);
+					}
+	);
+	
+	function update_scores_local() {
+		showScores(game_id, "none", inning);
+	}
 }
 
 function minusOne(game_id, stat, inning) {

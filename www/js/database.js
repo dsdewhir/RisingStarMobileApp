@@ -99,7 +99,7 @@ function query(Q, callback_function) {
 	log(Q);
 	db.transaction(function(tx) {
 		tx.executeSql(Q, [], nullHandler, errorHandler);	
-	}, errorHandler, callback_function);
+	}, errorHandler, function() { if (typeof(callback_function) != 'undefined') { callback_function(); } });
 	/*
 	if (typeof(callback_function) != 'undefined') {
 		callback_function();
