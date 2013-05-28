@@ -1,4 +1,5 @@
 function loadGames(team_id) {
+	log("function loadGames");
 	function list_game(row) {
 		log("function list_game");
 		$("#gamelist .empty").remove();
@@ -9,9 +10,9 @@ function loadGames(team_id) {
 	function log_no_results() {
 		log("Load Games: no results");
 	}
-	log("function loadGames");
 	$("#gamelist").html("<li class='empty'>No games found.</li>");
-	Q = "SELECT * FROM Game WHERE team_id = '" + team_id + "';";
+	Q = "SELECT * FROM Game WHERE team_id = " + team_id;
+	log(Q);
 	act_on_results(Q, list_game, log_no_results);
 }
 
@@ -21,6 +22,7 @@ function scoreShow(team_id) {
 }
 
 function newGame(team_id, opponent, sport, date, at_home) {
+	log("function newGame");
 	Q = "INSERT INTO Game (team_id, opponent, sport, date, at_home) VALUES ('" + team_id + "', '" + opponent + "', '" + sport + "', '" + date + "', " + at_home + ")";
 	query(Q, loadGames(team_id));
 }
