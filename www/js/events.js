@@ -16,6 +16,7 @@ $(document).ready(function() {
 		loadTeams(currentPlayer);
 	});
 	$("#gamelist li a").live("click", function() {
+		resetAllStats();
 		currentGame = $(this).find("input").val();
 		currentInning = 1;
 		$(".button.inning").removeClass("selected");

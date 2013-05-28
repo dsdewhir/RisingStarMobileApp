@@ -2,7 +2,7 @@
 var currentRow;
 
 function loadBaseballScores(game_id, inning) {
-	$("#statlist li small").text(0)
+	//$("#statlist li small").text(0)
 	Q = "SELECT * FROM Score WHERE game_id = " + game_id + " AND inning = " + inning;
 	log(Q);
 	act_on_results(Q, function(row) {
@@ -23,7 +23,7 @@ function loadBaseballTeamStats(team_id) {
 }
 
 function loadBaseballStats(game_id) { //fill values in the stats show
-	resetBaseballStats();
+	//resetBaseballStats();
 	//$("#show-baseball #stat-container #stat_display_atbats span")	
 	Q = "SELECT * FROM Score WHERE game_id = " + game_id;
 	at_bats = 0;

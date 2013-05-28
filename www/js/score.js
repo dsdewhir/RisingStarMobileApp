@@ -69,6 +69,12 @@ function newScore(game_id, field, inn, amt, callback_function) {
 	query(Q, callback_function);
 }
 
+function resetAllStats() {
+	log("function resetAllStats");
+	resetBaseballStats();
+	resetBasketballStats();
+}
+
 if (reset == true) {
 	query("DROP TABLE IF EXISTS Score");
 }

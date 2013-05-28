@@ -2,7 +2,7 @@
 var currentRow;
 
 function loadBasketballScores(game_id, inning) {
-	$("#statlist li small").text(0)
+	//$("#statlist li small").text(0)
 	Q = "SELECT * FROM Score WHERE game_id = " + game_id + " AND inning = " + inning;
 	log(Q);
 	act_on_results(Q, function(row) {
@@ -11,6 +11,7 @@ function loadBasketballScores(game_id, inning) {
 }
 
 function resetBasketballStats() {
+	log("function resetBasketballStats");
 	$("#show-basketball #stat-container span").text(0);	
 }
 
@@ -23,7 +24,7 @@ function loadBasketballTeamStats(team_id) {
 }
 
 function loadBasketballStats(game_id) { //fill values in the stats show
-	resetBasketballStats();
+	//resetBasketballStats();
 	//$("#show-baseball #stat-container #stat_display_atbats span")	
 	Q = "SELECT * FROM Score WHERE game_id = " + game_id;
 	act_on_results(Q, function(row) {
