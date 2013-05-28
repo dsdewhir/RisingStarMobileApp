@@ -26,15 +26,13 @@ $(document).ready(function() {
 		showScores(currentGame, currentSport, currentInning);
 	});
 	$("#saveplayer").click(function() {		//save a new player
-		newPlayer($("#player_name").val()) 
-		loadPlayers();
+		newPlayer($("#player_name").val());
 	});
 	$("#saveteam").click(function() {		//save a new team
 		newTeam($("#team_name").val(),
 				currentPlayer,
 				$("#season").val(),
 				$("#sport").val()); 
-		loadTeams(currentPlayer);
 	});
 	$("#savegame").click(function() {
 		updateCurrentSport(currentTeam);

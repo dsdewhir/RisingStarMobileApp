@@ -10,7 +10,7 @@ function loadTeams(player_id) {
 
 function newTeam(team_name, player_id, season, sport) {
 	Q = "INSERT INTO Team (name, player_id, season, sport) VALUES ('" + team_name + "', '" + player_id + "', '" + season + "', '" + sport + "')";
-	query(Q);
+	query(Q, function() {loadTeams(currentPlayer);});
 }
 
 function createTeamTable() {

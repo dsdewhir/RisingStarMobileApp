@@ -1,4 +1,5 @@
 function loadPlayers() {
+ log("function loadPlayers");
  $("#playerlist").html("<li class='playerselect empty'>No players found</li>");
  db.transaction(function(transaction) { 
    transaction.executeSql('SELECT * FROM Player;', [], 
@@ -17,7 +18,7 @@ function loadPlayers() {
 
 function newPlayer(player_name) {
 	Q = "INSERT INTO Player (name) VALUES ('" + player_name + "')";
-	query(Q);
+	query(Q, loadPlayers);
 	//log("Saved new player: " + player_name);
 }
 
