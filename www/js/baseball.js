@@ -55,13 +55,13 @@ for (var i = 0; i < stats.length; i++ ) {
 	(function(i) {
 		$("#baseballgame #statlist #stat_" + stats[i] + " .plus").click(function() {
 			addOne(currentGame, stats[i], currentInning);
-			window.setTimeout(function() { showScores(currentGame, "baseball", currentInning) }, 80);	
+			//window.setTimeout(function() { showScores(currentGame, "baseball", currentInning) }, 80);	
 		});
 	})(i);
 	(function(i) {
 		$("#baseballgame #statlist #stat_" + stats[i] + " .minus").click(function() {
 			minusOne(currentGame, stats[i], currentInning);
-			window.setTimeout(function() { showScores(currentGame, "baseball", currentInning) }, 80);	
+			//window.setTimeout(function() { showScores(currentGame, "baseball", currentInning) }, 80);	
 		});
 	})(i);
 }

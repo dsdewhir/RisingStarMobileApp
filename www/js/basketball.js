@@ -44,13 +44,13 @@ for (var i = 0; i < bbstats.length; i++ ) {
 	(function(i) {
 		$("#basketballgame #statlist #stat_" + bbstats[i] + " .plus").click(function() {
 			addOne(currentGame, bbstats[i], currentInning);
-			window.setTimeout(function() { showScores(currentGame, "basketball", currentInning) }, 80);	
+			//window.setTimeout(function() { showScores(currentGame, "basketball", currentInning) }, 80);	
 		});
 	})(i);
 	(function(i) {
 		$("#basketballgame #statlist #stat_" + bbstats[i] + " .minus").click(function() {
 			minusOne(currentGame, bbstats[i], currentInning);
-			window.setTimeout(function() { showScores(currentGame, "basketball", currentInning) }, 80);	
+			//window.setTimeout(function() { showScores(currentGame, "basketball", currentInning) }, 80);	
 		});
 	})(i);
 }

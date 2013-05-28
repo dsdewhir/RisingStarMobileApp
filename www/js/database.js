@@ -36,7 +36,7 @@ function act_on_results(Q, doThis, emptyResultsFunction) {
 		transaction.executeSql(Q, [],
 			function(transaction, result) {
 				if (result != null && result.rows != null && result.rows.length > 0) {
-					log(result.rows);
+					//log(result.rows);
 					eachRow(result.rows, doThis); //doThis is anonymous function from caller
 					//return(result.rows);
 				} else {

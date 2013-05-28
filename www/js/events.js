@@ -47,7 +47,6 @@ $(document).ready(function() {
 		currentInning = parseInt($(this).find("input").val());
 		$(".button.inning").removeClass("selected");
 		$(".button.inning input[value=" + String(currentInning) + "]").parent().addClass("selected");
-		log("Inning: " + currentInning);
 		showScores(currentGame, currentSport, currentInning);
 	});
 	$("#statshow-baseball").live("click", function() {

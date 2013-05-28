@@ -1,9 +1,10 @@
 function addOne(game_id, stat, inning) {
 	Q = "SELECT id FROM Score WHERE game_id = " + game_id + " AND field = '" + stat + "' AND inning = " + inning;
-	log(Q);
 	act_on_results(Q, function(row) {
 		Qtoo = "UPDATE Score SET amt=amt+1 WHERE id = " + row.id;
-		query(Qtoo);
+		query(Qtoo, function() {
+			showScores(game_id, "none", inning);
+		});
 	}, function() {
 		newScore(game_id, stat, inning, 1);
 	});
@@ -11,14 +12,16 @@ function addOne(game_id, stat, inning) {
 
 function minusOne(game_id, stat, inning) {
 	Q = "SELECT id FROM Score WHERE game_id = " + game_id + " AND field = '" + stat + "' AND inning = " + inning;
-	log(Q);
 	act_on_results(Q, function(row) {
 		Qtoo = "UPDATE Score SET amt=amt-1 WHERE id = " + row.id;
-		query(Qtoo);
+		query(Qtoo, function() {
+			showScores(game_id, "none", inning);
+		});
 	}, function(){ console.log("No results"); });
 }
 
 function showScores(game_id, sport, inning) {
+	log("function showScores");
 	updateCurrentSport(currentTeam);
 	sport = currentSport; //ignore passed variable, so remove it from arguments
 	if (sport == "baseball") {
@@ -42,14 +45,14 @@ function updateCurrentSport(team_id) {
 		log(Qx);
 		act_on_results(Qx, function(row) {
 			currentSport = row.sport;
-			log(currentSport);
+			//log(currentSport);
 		});
 		setTimeout(set_teamstat_link, 200);
 	}
 
 	function set_teamstat_link() {
 		$("#team-stats-link").attr("href", "#show-" + currentSport);
-		console.log("Set link to " + currentSport);
+		//log("Set link to " + currentSport);
 	}
 	
 	update_sport(team_id);
@@ -61,9 +64,9 @@ function createScoreTable() {
 	query(Q);
 }
 
-function newScore(game_id, field, inn, amt) {
+function newScore(game_id, field, inn, amt, callback_function) {
 	Q = "INSERT INTO Score (game_id, field, inning, amt) VALUES (" + game_id + ", '" + field + "', " + inn + ", " + amt + " )";
-	query(Q);
+	query(Q, callback_function);
 }
 
 if (reset == true) {
