@@ -40,6 +40,7 @@ function act_on_results(Q, doThis, emptyResultsFunction) {
 					eachRow(result.rows, doThis); //doThis is anonymous function from caller
 					//return(result.rows);
 				} else {
+					log("empty results, so executing emptyResultsFunction");
 					emptyResultsFunction();
 				}
 			}

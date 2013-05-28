@@ -36,7 +36,7 @@ $(document).ready(function() {
 				$("#sport").val()); 
 	});
 	$("#savegame").click(function() {
-		updateCurrentSport(currentTeam);
+		//updateCurrentSport(currentTeam);
 		var at_home = ($("input[name=homeaway]:checked").val() == "home") ? 1 : 0;
 		newGame(currentTeam,
 				$("#gameopponent").val(),
