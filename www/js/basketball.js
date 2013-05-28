@@ -33,6 +33,7 @@ function loadBasketballStats(game_id) { //fill values in the stats show
 		threes = parseInt($("#stat_display_threepointer span").text());
 		free_throws = parseInt($("#stat_display_freethrow span").text());
 		total_points = (field_goals * 2) + (threes * 3) + free_throws;
+		$("#stat_display_totalpoints span").text(total_points);
 	});
 }
 
