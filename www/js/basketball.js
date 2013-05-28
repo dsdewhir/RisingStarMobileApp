@@ -24,12 +24,15 @@ function loadBasketballTeamStats(team_id) {
 
 function loadBasketballStats(game_id) { //fill values in the stats show
 	resetBasketballStats();
-	alert("got here");
 	//$("#show-baseball #stat-container #stat_display_atbats span")	
 	Q = "SELECT * FROM Score WHERE game_id = " + game_id;
 	act_on_results(Q, function(row) {
 		html_row = $("#show-basketball #stat-container #stat_display_" + row.field + " span");
 		html_row.text(parseInt(html_row.text()) + row.amt);
+		field_goals = parseInt($("#stat_display_fieldgoal span").text());
+		threes = parseInt($("#stat_display_threepointer span").text());
+		free_throws = parseInt($("#stat_display_freethrow span").text());
+		total_points = (field_goals * 2) + (threes * 3) + free_throws;
 	});
 }
 
