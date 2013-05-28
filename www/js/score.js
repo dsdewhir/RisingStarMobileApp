@@ -3,16 +3,12 @@ function addOne(game_id, stat, inning) {
 	act_on_results(Q, 
 					function(row) {
 						Qtoo = "UPDATE Score SET amt=amt+1 WHERE id = " + row.id;
-						query(Qtoo, update_scores_local);
+						query(Qtoo, function() { showScores(game_id, "none", inning); });
 					}, 
 					function() {
-						newScore(game_id, stat, inning, 1);
+						newScore(game_id, stat, inning, 1, function() { showScores(game_id, "none", inning); });
 					}
 	);
-	
-	function update_scores_local() {
-		showScores(game_id, "none", inning);
-	}
 }
 
 function minusOne(game_id, stat, inning) {
