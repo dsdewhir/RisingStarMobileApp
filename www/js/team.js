@@ -1,3 +1,28 @@
+function Team (name, player_id, season, sport) {
+	this.name = 		name;
+	this.player_id = 	player_id;
+	this.season = 		season;
+	this.sport = 		sport;
+
+	this.save = save;
+	function save(cb) {
+		Q = "UPDATE Team SET name='" + this.name + "', player_id='" + this.player_id + "', season='" + this.season + "', sport='" + this.sport + "' WHERE id=" + this.id;	
+		query(Q);
+		cb();
+	}
+	
+	this.create = create;
+	function create(cb) {
+		Q = "INSERT INTO Team (name, player_id, season, sport) VALUES ('" + this.name + "', '" + this.player_id + "', '" + this.season + "', '" + this.sport + "')";
+		log(Q);
+		query(Q, function(tx, results) {
+			this.id = results.insertId;
+		});
+		cb();
+	}
+}
+
+
 function loadTeams(player_id) {
 	$("#teamlist").html("<li class='empty'>No teams found.</li>");
 	Q = 'SELECT * FROM Team WHERE player_id = ' + player_id + ';';
