@@ -3,6 +3,7 @@ function Team (name, player_id, season, sport) {
 	this.player_id = 	player_id;
 	this.season = 		season;
 	this.sport = 		sport;
+	this.id = 			0;
 
 	this.save = save;
 	function save(cb) {
@@ -15,9 +16,19 @@ function Team (name, player_id, season, sport) {
 	function create(cb) {
 		Q = "INSERT INTO Team (name, player_id, season, sport) VALUES ('" + this.name + "', '" + this.player_id + "', '" + this.season + "', '" + this.sport + "')";
 		log(Q);
+		/*
 		query(Q, function(tx, results) {
 			this.id = results.insertId;
 		});
+		*/
+
+		db.transaction(function(tx) {
+			tx.executeSql(Q, [], function(tx, results) {
+				//log(results.insertId);
+				this.id = results.insertId;
+			});	
+		}, errorHandler);
+
 		cb();
 	}
 }

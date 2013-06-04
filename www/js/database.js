@@ -100,12 +100,9 @@ function query(Q, callback_function) {
 	db.transaction(function(tx) {
 		tx.executeSql(Q, [], nullHandler, errorHandler);	
 	}, errorHandler, function() { if (typeof(callback_function) != 'undefined') { callback_function(); } });
-	/*
-	if (typeof(callback_function) != 'undefined') {
-		callback_function();
-	}
-	*/
 }
+
+
 
 function nullHandler(){}; 
 
