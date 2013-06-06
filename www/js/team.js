@@ -12,24 +12,25 @@ function Team (name, player_id, season, sport) {
 		cb();
 	}
 	
+	this.get_id = get_id;
+	function get_id() {
+		while (this.id == 0) { }
+		return this.id
+	}
+	
 	this.create = create;
 	function create(cb) {
+		var that = this;
 		Q = "INSERT INTO Team (name, player_id, season, sport) VALUES ('" + this.name + "', '" + this.player_id + "', '" + this.season + "', '" + this.sport + "')";
 		log(Q);
-		/*
-		query(Q, function(tx, results) {
-			this.id = results.insertId;
-		});
-		*/
 
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
-				//log(results.insertId);
-				this.id = results.insertId;
+				that.id = results.insertId;
 			});	
 		}, errorHandler);
 
-		cb();
+		if (typeof(cb) != "undefined") { cb(); }
 	}
 }
 
