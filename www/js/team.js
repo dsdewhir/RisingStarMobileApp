@@ -4,6 +4,7 @@ function Team (name, player_id, season, sport) {
 	this.season = 		season;
 	this.sport = 		sport;
 	this.id = 			0;
+	this.id_cached = 	0;
 
 	this.save = save;
 	function save(cb) {
@@ -12,10 +13,15 @@ function Team (name, player_id, season, sport) {
 		cb();
 	}
 	
-	this.get_id = get_id;
-	function get_id() {
-		while (this.id == 0) { }
-		return this.id
+	this.set_id = set_id;
+	function set_id(element) {
+		//We can't get an ID, but we can set one on the form
+		if (this.id == 0 || this.id == "undefined") {
+			that = this;
+			setTimeout(function() { that.set_id(element); }, 100);
+			return;
+		}
+		console.log(element + ": " + this.id);
 	}
 	
 	this.create = create;
@@ -31,6 +37,23 @@ function Team (name, player_id, season, sport) {
 		}, errorHandler);
 
 		if (typeof(cb) != "undefined") { cb(); }
+	}
+}
+
+var Teams = new function () {
+	this.find = find;
+	function find(id, callback) {
+		Q = "SELECT * FROM Team WHERE id IN [" + id + "];"
+		log(Q);
+		db.transaction(function(tx) {
+			tx.executeSql(Q, [], function(tx, results) {
+				//callback(results);
+				log(results.rows.length);
+				for (var i=0; i < results.rows.length; i++) {
+					res.push(results.rows.item(i));
+				}
+			});	
+		}, errorHandler);
 	}
 }
 
@@ -67,3 +90,5 @@ if (reset == true) {
 }
 
 loadTeams(currentPlayer);
+
+t = new Team("Cubs", 1, "2012", "baseball");
