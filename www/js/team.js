@@ -1,16 +1,35 @@
-function Team (name, player_id, season, sport) {
-	this.name = 		name;
-	this.player_id = 	player_id;
-	this.season = 		season;
-	this.sport = 		sport;
-	this.id = 			0;
-	this.id_cached = 	0;
+function Team (id, name, player_id, season, sport) {
+	this.id = 			id;
+	this.id_cached = 	id;
+	this.list =			$("#teamlist");
+
+	this.populate = populate;
+	function populate() {
+		Q = "SELECT * FROM Team WHERE id = " + this.id;
+		log("POPULATE: " + Q);
+		that = this;
+		db.transaction(function(tx) {
+			tx.executeSql(Q, [], function(tx, results) {
+				log(results.rows.item(0));
+				it = results.rows.item(0);
+				that.name = it['name'];
+				that.season = it['season'];
+				that.player_id = it['player_id'];
+				that.sport = it['sport'];
+			});	
+		}, errorHandler);
+	}
 
 	this.save = save;
 	function save(cb) {
 		Q = "UPDATE Team SET name='" + this.name + "', player_id='" + this.player_id + "', season='" + this.season + "', sport='" + this.sport + "' WHERE id=" + this.id;	
 		query(Q);
 		cb();
+	}
+
+	this.listInsert = listInsert;
+	function listInsert() {
+		this.list.append('<li class="forward"><a href="#team">' + this.season + ' ' + this.name + '<input type="hidden" value="' + this.id + '" /></a></li');
 	}
 	
 	this.set_id = set_id;
@@ -37,6 +56,15 @@ function Team (name, player_id, season, sport) {
 		}, errorHandler);
 
 		if (typeof(cb) != "undefined") { cb(); }
+	}
+
+	if (this.id == 0) {
+		this.name = 		name;
+		this.player_id = 	player_id;
+		this.season = 		season;
+		this.sport = 		sport;
+	} else {
+		this.populate();
 	}
 }
 
@@ -91,4 +119,4 @@ if (reset == true) {
 
 loadTeams(currentPlayer);
 
-t = new Team("Cubs", 1, "2012", "baseball");
+t = new Team(5, "Cubs", 1, "2012", "baseball");
