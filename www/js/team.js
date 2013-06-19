@@ -2,20 +2,39 @@ function Team (id, name, player_id, season, sport) {
 	this.id = 			id;
 	this.id_cached = 	id;
 	this.list =			$("#teamlist");
+	this.games =		[];
+
+	this.populateGames = populateGames;
+	function populateGames() {
+		Q = "SELECT * FROM Game WHERE id = " + this.id;
+		that = this;
+		db.transaction(function(tx) {
+			tx.executeSql(Q, [], function(tx, results) {
+				log(results.rows);
+				for (var i = 0; i < results.rows.length; i++) {
+					//NEED TO CONVERT THIS TO GAME OBJECT
+					that.games.push(results.rows.item(i));
+				}
+			});	
+		}, errorHandler);
+
+	}
 
 	this.populate = populate;
 	function populate() {
 		Q = "SELECT * FROM Team WHERE id = " + this.id;
-		log("POPULATE: " + Q);
 		that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
-				log(results.rows.item(0));
+				log(results.rows);
 				it = results.rows.item(0);
+				log("populate result");
+				log(it);
 				that.name = it['name'];
 				that.season = it['season'];
 				that.player_id = it['player_id'];
 				that.sport = it['sport'];
+				that.populateGames();
 			});	
 		}, errorHandler);
 	}
@@ -40,7 +59,7 @@ function Team (id, name, player_id, season, sport) {
 			setTimeout(function() { that.set_id(element); }, 100);
 			return;
 		}
-		console.log(element + ": " + this.id);
+		log(element + ": " + this.id);
 	}
 	
 	this.create = create;
@@ -57,15 +76,25 @@ function Team (id, name, player_id, season, sport) {
 
 		if (typeof(cb) != "undefined") { cb(); }
 	}
+	
+	this.initialize = initialize;
+	function initialize() {
+		if (this.id == 0) {
+			setTimeout(this.initialize(), 50);
+			return;
+		}
+		this.populate();
+	}
 
 	if (this.id == 0) {
 		this.name = 		name;
 		this.player_id = 	player_id;
 		this.season = 		season;
 		this.sport = 		sport;
-	} else {
-		this.populate();
+		this.create();
 	}
+	this.initialize();
+
 }
 
 var Teams = new function () {
@@ -119,4 +148,4 @@ if (reset == true) {
 
 loadTeams(currentPlayer);
 
-t = new Team(5, "Cubs", 1, "2012", "baseball");
+//t = new Team(1, "Cubs", 1, "2012", "baseball");
