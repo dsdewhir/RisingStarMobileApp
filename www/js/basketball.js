@@ -4,19 +4,19 @@ var currentRow;
 function loadBasketballScores(game_id, inning) {
 	//$("#statlist li small").text(0)
 	Q = "SELECT * FROM Score WHERE game_id = " + game_id + " AND inning = " + inning;
-	log(Q);
+	//log(Q);
 	act_on_results(Q, function(row) {
 		$("#basketballgame #amt_" + row.field).text(row.amt);
 	}, function(){} );
 }
 
 function resetBasketballStats() {
-	log("function resetBasketballStats");
+	//log("function resetBasketballStats");
 	$("#show-basketball #stat-container span").text(0);	
 }
 
 function loadBasketballTeamStats(team_id) {
-	log("function loadBasketballTeamStats");
+	//log("function loadBasketballTeamStats");
 	Q = "SELECT * FROM Game WHERE team_id = " + team_id; //Get all the games, so we can look them up by id
 	act_on_results(Q, function(row) {
 		log(row.opponent);
@@ -42,7 +42,7 @@ function loadBasketballStats(game_id) { //fill values in the stats show
 /* EVENTS */
 bbstats = ["fieldgoal", "threepointer", "freethrow", "rebound", "steal", "block", "turnover"];
 for (var i = 0; i < bbstats.length; i++ ) {
-	console.log(bbstats[i]);
+	//console.log(bbstats[i]);
 	(function(i) {
 		$("#basketballgame #statlist #stat_" + bbstats[i] + " .plus").click(function() {
 			addOne(currentGame, bbstats[i], currentInning);

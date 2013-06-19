@@ -96,7 +96,7 @@ function selectID(Q, callBack) {
 }
 
 function query(Q, callback_function) {
-	log(Q);
+	//log(Q);
 	db.transaction(function(tx) {
 		tx.executeSql(Q, [], nullHandler, errorHandler);	
 	}, errorHandler, function() { if (typeof(callback_function) != 'undefined') { callback_function(); } });
