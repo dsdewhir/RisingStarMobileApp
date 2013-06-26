@@ -3,7 +3,7 @@ function Game (id, name) {
 	this.id_cached = 	id;
 	this.list =			$("#gamelist");
 
-	this.populateTeams = populateScores;
+	this.populateScores = populateScores;
 	function populateScores() {
 		var Q = "SELECT * FROM Score WHERE team_id = " + this.id;
 		var that = this;
@@ -29,7 +29,7 @@ function Game (id, name) {
 				that.opponent = it['opponent'];
 				that.sport = it['sport'];
 				that.at_home = it['at_home'];
-				that.populateScores();
+				//that.populateScores();
 			});	
 		}, errorHandler);
 	}

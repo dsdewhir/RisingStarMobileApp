@@ -72,19 +72,22 @@ function Player (id, name) {
 	
 	this.initialize = initialize;
 	function initialize() {
+		/*
 		if (this.id == 0) {
 			setTimeout(this.initialize(), 50);
 			return;
 		}
+		*/
 		this.populate();
 	}
 
 	if (this.id == 0) {
 		this.name = 		name;
 		this.teams = 		[];
-		this.create();
+		this.create(this.populate);
+	} else {
+		this.initialize();
 	}
-	this.initialize();
 
 }
 
@@ -144,7 +147,10 @@ if (reset==true) {
 
 createPlayerTable();
 if (reset == true) {
-	newPlayer("Jesse Briggs");
-	newPlayer("Dan Briggs");
+	jesse = new Player(0, "Jesse Briggs");
+	dan = new Player(0, "Dan Briggs");
 }
-loadPlayers();
+
+playersearch = new Players();
+playersearch.find([]);
+setTimeout('load_items(playersearch.players)', 1000);

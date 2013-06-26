@@ -13,8 +13,10 @@ function Team (id, name, player_id, season, sport) {
 				log(results.rows);
 				for (var i = 0; i < results.rows.length; i++) {
 					//NEED TO CONVERT THIS TO GAME OBJECT
-					that.games.push(results.rows.item(i));
+					var gg = new Game(results.rows.item(i).id);
+					that.games.push(gg);
 				}
+				log("finished this loop");
 			});	
 		}, errorHandler);
 
@@ -79,10 +81,12 @@ function Team (id, name, player_id, season, sport) {
 	
 	this.initialize = initialize;
 	function initialize() {
+		/*
 		if (this.id == 0) {
 			setTimeout(this.initialize(), 50);
 			return;
 		}
+		*/
 		this.populate();
 	}
 
@@ -91,7 +95,7 @@ function Team (id, name, player_id, season, sport) {
 		this.player_id = 	player_id;
 		this.season = 		season;
 		this.sport = 		sport;
-		this.create();
+		this.create(this.populate);
 	}
 	this.initialize();
 
@@ -146,10 +150,7 @@ if (reset == true) {
 createTeamTable(); //always call this in case there's no team table
 
 if (reset == true) {
-	newTeam("Cubs", currentPlayer, "2012", "baseball");
-	newTeam("Celtics", currentPlayer, "2013", "basketball");
+	new Team(0, "Cubs", 1, "2012", "baseball");
+	new Team(0, "Celtics", 1, "2013", "basketball");
 }
 
-loadTeams(currentPlayer);
-
-//t = new Team(1, "Cubs", 1, "2012", "baseball");
