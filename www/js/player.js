@@ -59,7 +59,6 @@ function Player (id, name) {
 	function create(cb) {
 		var that = this;
 		var Q = "INSERT INTO Player (name) VALUES ('" + this.name + "')";
-		log(Q);
 
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
@@ -72,12 +71,6 @@ function Player (id, name) {
 	
 	this.initialize = initialize;
 	function initialize() {
-		/*
-		if (this.id == 0) {
-			setTimeout(this.initialize(), 50);
-			return;
-		}
-		*/
 		this.populate();
 	}
 
@@ -112,32 +105,8 @@ function Players () {
 	this.find([]);
 }
 
-function loadPlayers() {
- //log("function loadPlayers");
- $("#playerlist").html("<li class='playerselect empty'>No players found</li>");
- db.transaction(function(transaction) { 
-   transaction.executeSql('SELECT * FROM Player;', [], 
-     function(transaction, result) { 
-      if (result != null && result.rows != null) { 
-        for (var i = 0; i < result.rows.length; i++) { 
-          var row = result.rows.item(i); 
-		  $("#playerlist .empty").remove();
-          $('#playerlist').append('<li class="playerselect forward" ><a href="#player">' + row.name + '<input type="hidden" value="' + row.id + '" /></a></li>'); 
-        } 
-      }
-     },errorHandler); 
- },errorHandler,nullHandler); 
- //log("Players loaded");
-}
-
-function newPlayer(player_name) {
-	Q = "INSERT INTO Player (name) VALUES ('" + player_name + "')";
-	query(Q, loadPlayers);
-	//log("Saved new player: " + player_name);
-}
-
 function createPlayerTable() {
-	Q = "CREATE TABLE IF NOT EXISTS Player(id INTEGER NOT NULL PRIMARY KEY, name TEXT NOT NULL)";
+	var Q = "CREATE TABLE IF NOT EXISTS Player(id INTEGER NOT NULL PRIMARY KEY, name TEXT NOT NULL)";
 	query(Q);
 }
 
