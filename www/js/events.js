@@ -1,20 +1,29 @@
 //Event handlers for different button clicks
 
 $(document).ready(function() {
-	$("#teamlist li a").live("click", function() {	//player is selected
-		currentTeam = $(this).find("input").val();
-		updateCurrentSport(currentTeam);
+	$("#teamlist li a").live("click", function() {	//team is selected
+		var team_id = $(this).find("input").val();
+		for (var i = 0; i < currentPlayer.teams.length; i++) {
+			if (currentPlayer.teams[i].id == team_id) {
+				currentTeam = currentPlayer.teams[i];
+			}
+		}
 		$("#team h1").text($(this).text());;
-		//$("#team-stats-link").attr("href", "#show-" + currentSport); //this needs to be fixed for async
-		//log("var currentPlayer = " + currentPlayer);
-		loadGames(currentTeam);
+		clear_items($("#gamelist"));
+		load_items(currentTeam.games);
 	});
+	
 	$("#playerlist li a").live("click", function() {	//player is selected
-		currentPlayer = $(this).find("input").val();
-		$("#player h1").text($(this).text());;
-		//log("var currentPlayer = " + currentPlayer);
-		loadTeams(currentPlayer);
+		var player_id = $(this).find("input").val();
+		for (var i = 0; i < playersearch.players.length; i++) { //find the proper player
+			if (playersearch.players[i].id == player_id) {
+				currentPlayer = playersearch.players[i]; //set the player to currentPlayer
+			}
+		}
+		$("#player h1").text($(this).text());
+		load_items(currentPlayer.teams);
 	});
+	
 	$("#gamelist li a").live("click", function() {
 		resetAllStats();
 		currentGame = $(this).find("input").val();
@@ -26,15 +35,18 @@ $(document).ready(function() {
 		$("#" + currentSport + "game h1").text($(this).text());
 		showScores(currentGame, currentSport, currentInning);
 	});
+	
 	$("#saveplayer").click(function() {		//save a new player
 		newPlayer($("#player_name").val());
 	});
+	
 	$("#saveteam").click(function() {		//save a new team
 		newTeam($("#team_name").val(),
 				currentPlayer,
 				$("#season").val(),
 				$("#sport").val()); 
 	});
+	
 	$("#savegame").click(function() {
 		//updateCurrentSport(currentTeam);
 		var at_home = ($("input[name=homeaway]:checked").val() == "home") ? 1 : 0;
