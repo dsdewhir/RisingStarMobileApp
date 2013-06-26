@@ -7,7 +7,7 @@ function Team (id, name, player_id, season, sport) {
 	this.populateGames = populateGames;
 	function populateGames() {
 		Q = "SELECT * FROM Game WHERE id = " + this.id;
-		that = this;
+		var that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
 				log(results.rows);
@@ -22,12 +22,12 @@ function Team (id, name, player_id, season, sport) {
 
 	this.populate = populate;
 	function populate() {
-		Q = "SELECT * FROM Team WHERE id = " + this.id;
-		that = this;
+		var Q = "SELECT * FROM Team WHERE id = " + this.id;
+		var that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
 				log(results.rows);
-				it = results.rows.item(0);
+				var it = results.rows.item(0);
 				log("populate result");
 				log(it);
 				that.name = it['name'];
@@ -41,7 +41,7 @@ function Team (id, name, player_id, season, sport) {
 
 	this.save = save;
 	function save(cb) {
-		Q = "UPDATE Team SET name='" + this.name + "', player_id='" + this.player_id + "', season='" + this.season + "', sport='" + this.sport + "' WHERE id=" + this.id;	
+		var Q = "UPDATE Team SET name='" + this.name + "', player_id='" + this.player_id + "', season='" + this.season + "', sport='" + this.sport + "' WHERE id=" + this.id;	
 		query(Q);
 		cb();
 	}
@@ -55,7 +55,7 @@ function Team (id, name, player_id, season, sport) {
 	function set_id(element) {
 		//We can't get an ID, but we can set one on the form
 		if (this.id == 0 || this.id == "undefined") {
-			that = this;
+			var that = this;
 			setTimeout(function() { that.set_id(element); }, 100);
 			return;
 		}
@@ -65,7 +65,7 @@ function Team (id, name, player_id, season, sport) {
 	this.create = create;
 	function create(cb) {
 		var that = this;
-		Q = "INSERT INTO Team (name, player_id, season, sport) VALUES ('" + this.name + "', '" + this.player_id + "', '" + this.season + "', '" + this.sport + "')";
+		var Q = "INSERT INTO Team (name, player_id, season, sport) VALUES ('" + this.name + "', '" + this.player_id + "', '" + this.season + "', '" + this.sport + "')";
 		log(Q);
 
 		db.transaction(function(tx) {
@@ -97,17 +97,21 @@ function Team (id, name, player_id, season, sport) {
 
 }
 
-var Teams = new function () {
+function Teams () {
+	this.teams = [];
+	
 	this.find = find;
-	function find(id, callback) {
-		Q = "SELECT * FROM Team WHERE id IN [" + id + "];"
+	function find(ids, callback) {
+		this.teams = [];
+		var Q = "SELECT * FROM Team WHERE id IN (" + String(ids) + ");"
 		log(Q);
+		var that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
 				//callback(results);
 				log(results.rows.length);
 				for (var i=0; i < results.rows.length; i++) {
-					res.push(results.rows.item(i));
+					that.teams.push(results.rows.item(i));
 				}
 			});	
 		}, errorHandler);
@@ -117,7 +121,7 @@ var Teams = new function () {
 
 function loadTeams(player_id) {
 	$("#teamlist").html("<li class='empty'>No teams found.</li>");
-	Q = 'SELECT * FROM Team WHERE player_id = ' + player_id + ';';
+	var Q = 'SELECT * FROM Team WHERE player_id = ' + player_id + ';';
 	act_on_results(Q, function(row) { 
 		$("#teamlist .empty").remove();
 		$('#teamlist').append('<li class="forward"><a href="#team">' + row.season + ' ' + row.name + '<input type="hidden" value="' + row.id + '" /></a></li>'); 
