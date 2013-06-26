@@ -38,6 +38,7 @@ function Team (id, name, player_id, season, sport) {
 				that.populateGames();
 			});	
 		}, errorHandler);
+		this.populateGames();
 	}
 
 	this.save = save;
@@ -121,17 +122,6 @@ function Teams () {
 	}
 }
 
-
-function loadTeams(player_id) {
-	$("#teamlist").html("<li class='empty'>No teams found.</li>");
-	var Q = 'SELECT * FROM Team WHERE player_id = ' + player_id + ';';
-	act_on_results(Q, function(row) { 
-		$("#teamlist .empty").remove();
-		$('#teamlist').append('<li class="forward"><a href="#team">' + row.season + ' ' + row.name + '<input type="hidden" value="' + row.id + '" /></a></li>'); 
-	}, function(){ console.log("No results"); });
-	//log("Teams loaded");
-}
-
 function newTeam(team_name, player_id, season, sport) {
 	Q = "INSERT INTO Team (name, player_id, season, sport) VALUES ('" + team_name + "', '" + player_id + "', '" + season + "', '" + sport + "')";
 	query(Q, function() { loadTeams(player_id); });
@@ -152,4 +142,3 @@ if (reset == true) {
 	new Team(0, "Cubs", 1, "2012", "baseball");
 	new Team(0, "Celtics", 1, "2013", "basketball");
 }
-
