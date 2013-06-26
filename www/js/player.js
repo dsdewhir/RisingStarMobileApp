@@ -58,7 +58,7 @@ function Player (id, name) {
 	function create(cb) {
 		var that = this;
 		var Q = "INSERT INTO Player (name) VALUES ('" + this.name + "')";
-
+		log(Q);
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
 				that.id = results.insertId;
@@ -88,6 +88,9 @@ function Players () {
 	
 	this.find = find;
 	function find(ids, callback) {
+		log("callback");
+		log(ids);
+		log(callback);
 		this.players = [];
 		var Q = "SELECT * FROM Player";
 		var that = this;
@@ -97,10 +100,10 @@ function Players () {
 					var pp = new Player(results.rows.item(i).id);
 					that.players.push(pp);
 				}
+				if (typeof(callback) != "undefined") { callback(); }
 			});	
 		}, errorHandler);
 	}
-	this.find([]);
 }
 
 function playerInitialize() {
@@ -124,5 +127,4 @@ function playerInitialize() {
 playerInitialize();
 
 playersearch = new Players();
-playersearch.find([]);
-setTimeout('load_items(playersearch.players)', 1000);
+playersearch.find([], function() { setTimeout('load_items(playersearch.players)', 500); });

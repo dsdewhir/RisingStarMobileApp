@@ -18,6 +18,7 @@ function empty_list(x) {
 }
 
 function load_items(item_arr) {
+	//log("Loading items for " + String(item_arr))
 	for (var i = 0; i < item_arr.length; i++) {
 		item_arr[i].listInsert();
 	}

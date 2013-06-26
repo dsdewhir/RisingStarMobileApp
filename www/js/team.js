@@ -26,8 +26,6 @@ function Team (id, name, player_id, season, sport) {
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
 				var it = results.rows.item(0);
-				log("populate result");
-				log(it);
 				that.name = it['name'];
 				that.season = it['season'];
 				that.player_id = it['player_id'];
