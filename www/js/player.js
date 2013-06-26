@@ -93,7 +93,6 @@ function Players () {
 		var that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
-				log(results.rows.length);
 				for (var i=0; i < results.rows.length; i++) {
 					var pp = new Player(results.rows.item(i).id);
 					that.players.push(pp);
@@ -104,20 +103,25 @@ function Players () {
 	this.find([]);
 }
 
-function createPlayerTable() {
-	var Q = "CREATE TABLE IF NOT EXISTS Player(id INTEGER NOT NULL PRIMARY KEY, name TEXT NOT NULL)";
-	query(Q);
+function playerInitialize() {
+	function createPlayerTable() {
+		var Q = "CREATE TABLE IF NOT EXISTS Player(id INTEGER NOT NULL PRIMARY KEY, name TEXT NOT NULL)";
+		query(Q);
+	}
+	
+	if (reset==true) {
+		query("DROP TABLE IF EXISTS Player");
+	}
+	
+	createPlayerTable();
+	
+	if (reset == true) {
+		jesse = new Player(0, "Jesse Briggs");
+		dan = new Player(0, "Dan Briggs");
+	}
 }
 
-if (reset==true) {
-	query("DROP TABLE IF EXISTS Player");
-}
-
-createPlayerTable();
-if (reset == true) {
-	jesse = new Player(0, "Jesse Briggs");
-	dan = new Player(0, "Dan Briggs");
-}
+playerInitialize();
 
 playersearch = new Players();
 playersearch.find([]);

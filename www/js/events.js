@@ -37,7 +37,10 @@ $(document).ready(function() {
 	});
 	
 	$("#saveplayer").click(function() {		//save a new player
-		newPlayer($("#player_name").val());
+		new Player($("#player_name").val());
+		playersearch.find([]);
+		clear_items($("#playerlist"));
+		setTimeout('load_items(playersearch.players)', 100);
 	});
 	
 	$("#saveteam").click(function() {		//save a new team

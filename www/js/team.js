@@ -9,13 +9,11 @@ function Team (id, name, player_id, season, sport) {
 		var that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
-				log(results.rows);
 				for (var i = 0; i < results.rows.length; i++) {
 					//NEED TO CONVERT THIS TO GAME OBJECT
 					var gg = new Game(results.rows.item(i).id);
 					that.games.push(gg);
 				}
-				log("finished this loop");
 			});	
 		}, errorHandler);
 
@@ -27,7 +25,6 @@ function Team (id, name, player_id, season, sport) {
 		var that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
-				log(results.rows);
 				var it = results.rows.item(0);
 				log("populate result");
 				log(it);
@@ -81,12 +78,6 @@ function Team (id, name, player_id, season, sport) {
 	
 	this.initialize = initialize;
 	function initialize() {
-		/*
-		if (this.id == 0) {
-			setTimeout(this.initialize(), 50);
-			return;
-		}
-		*/
 		this.populate();
 	}
 
@@ -122,23 +113,21 @@ function Teams () {
 	}
 }
 
-function newTeam(team_name, player_id, season, sport) {
-	Q = "INSERT INTO Team (name, player_id, season, sport) VALUES ('" + team_name + "', '" + player_id + "', '" + season + "', '" + sport + "')";
-	query(Q, function() { loadTeams(player_id); });
+function teamInitialize() {
+	function createTeamTable() {
+		//set up team table on a blank DB
+		Q = "CREATE TABLE IF NOT EXISTS Team(id INTEGER NOT NULL PRIMARY KEY, player_id INTEGER NOT NULL, name TEXT NOT NULL, season TEXT NOT NULL, sport TEXT NOT NULL)";
+		query(Q);
+	}
+	
+	if (reset == true) {
+		query("DROP TABLE IF EXISTS Team");
+	}
+	createTeamTable(); //always call this in case there's no team table
+	
+	if (reset == true) {
+		new Team(0, "Cubs", 1, "2012", "baseball");
+		new Team(0, "Celtics", 1, "2013", "basketball");
+	}
 }
-
-function createTeamTable() {
-	//set up team table on a blank DB
-	Q = "CREATE TABLE IF NOT EXISTS Team(id INTEGER NOT NULL PRIMARY KEY, player_id INTEGER NOT NULL, name TEXT NOT NULL, season TEXT NOT NULL, sport TEXT NOT NULL)";
-	query(Q);
-}
-
-if (reset == true) {
-	query("DROP TABLE IF EXISTS Team");
-}
-createTeamTable(); //always call this in case there's no team table
-
-if (reset == true) {
-	new Team(0, "Cubs", 1, "2012", "baseball");
-	new Team(0, "Celtics", 1, "2013", "basketball");
-}
+teamInitialize();
