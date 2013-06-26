@@ -21,6 +21,7 @@ $(document).ready(function() {
 			}
 		}
 		$("#player h1").text($(this).text());
+		clear_items($("#teamlist"));
 		load_items(currentPlayer.teams);
 	});
 	
@@ -44,10 +45,12 @@ $(document).ready(function() {
 	});
 	
 	$("#saveteam").click(function() {		//save a new team
-		newTeam($("#team_name").val(),
-				currentPlayer,
+		var t = new Team(0, $("#team_name").val(),
+				currentPlayer.id,
 				$("#season").val(),
 				$("#sport").val()); 
+		currentPlayer.teams.push(t);
+		t.listInsert();
 	});
 	
 	$("#savegame").click(function() {
