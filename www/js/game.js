@@ -1,4 +1,4 @@
-function Game (id, name) {
+function Game (id, team_id, opponent, sport, date, at_home) {
 	this.id = 			id;
 	this.list =			$("#gamelist");
 
@@ -27,6 +27,7 @@ function Game (id, name) {
 				that.team_id = it['team_id'];
 				that.opponent = it['opponent'];
 				that.sport = it['sport'];
+				that.date = it['date'];
 				that.at_home = it['at_home'];
 				//that.populateScores();
 			});	
@@ -99,6 +100,7 @@ function Games () {
 	function find(ids, callback) {
 		this.games = [];
 		var Q = "SELECT * FROM Games WHERE id IN (" + String(ids) + ");"
+		log(Q);
 		var that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
@@ -114,6 +116,7 @@ function Games () {
 
 
 
+/*
 function loadGames(team_id) {
 	log("function loadGames");
 	function list_game(row) {
@@ -131,6 +134,7 @@ function loadGames(team_id) {
 	log(Q);
 	act_on_results(Q, list_game, log_no_results);
 }
+*/
 
 function scoreShow(team_id) {
 	//loadify all teh scores!
@@ -144,24 +148,19 @@ function newGame(team_id, opponent, sport, date, at_home) {
 }
 
 function createGameTable() {
-	//id
-	//team_id
-	//opponent
-	//sport
-	//date
-	//at_home
 	Q = "CREATE TABLE IF NOT EXISTS Game(id INTEGER NOT NULL PRIMARY KEY, team_id TEXT NOT NULL, opponent TEXT NOT NULL, sport TEXT NOT NULL, date TEXT NOT NULL, at_home BOOLEAN NOT NULL)";
 	query(Q);
 }
 
-if (reset == true) {
-	query("DROP TABLE IF EXISTS Game");
-}
-createGameTable(); //always call this in case there's no game table (first load)
+function game_initialize() {
+	if (reset == true) {
+		query("DROP TABLE IF EXISTS Game");
+	}
+	
+	createGameTable();
 
-if (reset == true) {
-	newGame(currentTeam, "Bobcats", "baseball", "Mar 5, 2012", 0);
+	if (reset == true) {
+		newGame(0, 1, "Bobcats", "baseball", "Mar 5, 2012", 0);
+	}
 }
-
-loadGames(currentTeam);
-scoreShow(currentGame);
+game_initialize();
