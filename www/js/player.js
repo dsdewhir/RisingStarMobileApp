@@ -1,6 +1,5 @@
 function Player (id, name) {
 	this.id = 			id;
-	this.id_cached = 	id;
 	this.list =			$("#playerlist");
 	this.teams =		[];
 

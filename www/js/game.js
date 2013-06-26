@@ -1,6 +1,5 @@
 function Game (id, name) {
 	this.id = 			id;
-	this.id_cached = 	id;
 	this.list =			$("#gamelist");
 
 	this.populateScores = populateScores;
