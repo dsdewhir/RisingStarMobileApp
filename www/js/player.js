@@ -94,7 +94,6 @@ function Players () {
 	this.find = find;
 	function find(ids, callback) {
 		this.players = [];
-		//Q = "SELECT * FROM Players WHERE id IN (" + String(ids) + ");"
 		var Q = "SELECT * FROM Player";
 		var that = this;
 		db.transaction(function(tx) {
@@ -102,7 +101,6 @@ function Players () {
 				log(results.rows.length);
 				for (var i=0; i < results.rows.length; i++) {
 					var pp = new Player(results.rows.item(i).id);
-					//that.players.push(results.rows.item(i));
 					that.players.push(pp);
 				}
 			});	
