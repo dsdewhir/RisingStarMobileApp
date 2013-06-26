@@ -1,3 +1,120 @@
+function Game (id, name) {
+	this.id = 			id;
+	this.id_cached = 	id;
+	this.list =			$("#gamelist");
+
+	this.populateTeams = populateScores;
+	function populateScores() {
+		var Q = "SELECT * FROM Score WHERE team_id = " + this.id;
+		var that = this;
+		db.transaction(function(tx) {
+			tx.executeSql(Q, [], function(tx, results) {
+				for (var i = 0; i < results.rows.length; i++) {
+					var t = new Score(results.rows.item(i).id);
+					that.scores.push(t);
+				}
+			});	
+		}, errorHandler);
+
+	}
+
+	this.populate = populate;
+	function populate() {
+		var Q = "SELECT * FROM Game WHERE id = " + this.id;
+		var that = this;
+		db.transaction(function(tx) {
+			tx.executeSql(Q, [], function(tx, results) {
+				var it = results.rows.item(0);
+				that.team_id = it['team_id'];
+				that.opponent = it['opponent'];
+				that.sport = it['sport'];
+				that.at_home = it['at_home'];
+				that.populateScores();
+			});	
+		}, errorHandler);
+	}
+
+	this.save = save;
+	function save(cb) {
+		var Q = "UPDATE Game SET team_id='" + this.team_id + "', opponent='" + this.opponent + "', sport='" + this.sport + "', at_home='" + this.at_home + "' WHERE id=" + this.id;	
+		query(Q);
+		cb();
+	}
+
+	this.listInsert = listInsert;
+	function listInsert() {
+		this.list.append('<li class="forward"><a href="#' + this.sport + 'game">' + this.opponent + '<input type="hidden" value="' + this.id + '" /></a></li');
+	}
+	
+	this.set_id = set_id;
+	function set_id(element) {
+		//We can't get an ID, but we can set one on the form
+		if (this.id == 0 || this.id == "undefined") {
+			var that = this;
+			setTimeout(function() { that.set_id(element); }, 100);
+			return;
+		}
+		log(element + ": " + this.id);
+	}
+	
+	this.create = create;
+	function create(cb) {
+		var that = this;
+		var Q = "INSERT INTO Player (name) VALUES ('" + this.name + "')";
+		log(Q);
+
+		db.transaction(function(tx) {
+			tx.executeSql(Q, [], function(tx, results) {
+				that.id = results.insertId;
+			});	
+		}, errorHandler);
+
+		if (typeof(cb) != "undefined") { cb(); }
+	}
+	
+	this.initialize = initialize;
+	function initialize() {
+		if (this.id == 0) {
+			setTimeout(this.initialize(), 50);
+			return;
+		}
+		this.populate();
+	}
+
+	if (this.id == 0) {
+		this.team_id = 		name;
+		this.opponent = 	opponent;
+		this.sport = 		sport;
+		this.date = 		date;
+		this.at_home =		at_home;
+		this.create();
+	}
+	this.initialize();
+
+}
+
+function Games () {
+	this.games = [];
+	
+	this.find = find;
+	function find(ids, callback) {
+		this.games = [];
+		var Q = "SELECT * FROM Games WHERE id IN (" + String(ids) + ");"
+		var that = this;
+		db.transaction(function(tx) {
+			tx.executeSql(Q, [], function(tx, results) {
+				log(results.rows.length);
+				for (var i=0; i < results.rows.length; i++) {
+					var gg = new Game(results.rows.item(i).id);
+					that.games.push(gg);
+				}
+			});	
+		}, errorHandler);
+	}
+}
+
+
+
 function loadGames(team_id) {
 	log("function loadGames");
 	function list_game(row) {
