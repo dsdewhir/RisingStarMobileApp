@@ -22,3 +22,7 @@ function load_items(item_arr) {
 		item_arr[i].listInsert();
 	}
 }
+
+function clear_items(selector) {
+	selector.html("");
+}
