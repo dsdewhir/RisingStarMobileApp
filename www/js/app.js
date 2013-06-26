@@ -16,3 +16,9 @@ function empty_list(x) {
 		x.append("<li>Didn't find any</li>");
 	}
 }
+
+function load_items(item_arr) {
+	for (var i = 0; i < item_arr.length; i++) {
+		item_arr[i].listInsert();
+	}
+}
