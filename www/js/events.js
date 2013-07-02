@@ -84,6 +84,8 @@ $(document).ready(function() {
 		navigator.Camera.getPicture(onCameraSuccess, onCameraError, options);
 	});
 	*/
+	
+	$(".saveclear").click(function() { $("input[type=text]").val(""); });
 });
 
 function onCameraError(message) {
