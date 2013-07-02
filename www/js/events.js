@@ -86,6 +86,7 @@ $(document).ready(function() {
 	*/
 	
 	$(".saveclear").click(function() { $("input[type=text]").val(""); });
+	$("#player_photo").click(function() { getPicture(); });
 });
 
 function onCameraError(message) {
