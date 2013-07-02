@@ -43,7 +43,7 @@
                 cacheGetRequests: true,
                 debug: true,
                 defaultAnimation: 'slideleft',
-                fixedViewport: true,
+                fixedViewport: false,
                 formSelector: 'form',
                 fullScreen: true,
                 fullScreenClass: 'fullscreen',
