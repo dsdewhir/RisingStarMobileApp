@@ -86,6 +86,9 @@ $(document).ready(function() {
 		navigator.Camera.getPicture(onCameraSuccess, onCameraError, options);
 	});
 	*/
+	
+	$(".saveclear").click(function() { $("input[type=text]").val(""); });
+	$("#player_photo").click(function() { getPicture(); });
 });
 
 function onCameraError(message) {

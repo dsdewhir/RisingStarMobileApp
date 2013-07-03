@@ -49,7 +49,7 @@
 			<div id="player" class>
 				<div class="toolbar">
 					<h1></h1>
-					<a href="#" class="back" style>Back</a>
+					<a href="#home" class="goback" onclick="">Back</a>
                     <a class="button flip" id="infoButton" href="#home">Home</a>
 				</div>
 				<ul class="rounded" id="teamlist">
@@ -240,9 +240,10 @@
 				</div>
 				<ul class="edit rounded">
 					<li><input type="text" name="name" placeholder="Name" id="player_name"></li>
-					<!--<li><input type="text" name="name" placeholder="Photo" id="player_photo"><a href="#add" class="button add slideup" style="">+</a></li>-->
+					<li><input type="text" name="name" placeholder="Photo" id="player_photo"><a href="#add" class="button add slideup" style="">+</a></li>
+					<li><img src="" /></li>
                 </ul>
-				<a href="#home" id="saveplayer" class="whiteButton" style="">Save</a>
+				<a href="#home" id="saveplayer" class="whiteButton saveclear" style="">Save</a>
 			</div><!-- end id=newplayer -->
 			
 			<div id="newteam" class>
@@ -262,7 +263,7 @@
 					<!--<li><input type="text" name="name" placeholder="Sport" id="sport"></li>-->
 					<!--<li><input type="text" name="name" placeholder="Logo" id="team_logo"><a href="#add" class="button add slideup" style="">+</a></li>-->
                 </ul>
-				<a href="#player" id="saveteam" class="whiteButton" style="">Save</a>
+				<a href="#player" id="saveteam" class="whiteButton saveclear" style="">Save</a>
 			</div><!-- end id=newteam -->
 			
 			<div id="newgame" class>
@@ -282,7 +283,7 @@
 					<!--<li><input type="text" name="name" placeholder="Location" id="location"><a href="#add" class="button add slideup" style="">+</a></li>-->
 					<li><input type="text" name="opponent" placeholder="Opponent" id="gameopponent"></li>
                 </ul>
-				<a id="savegame" href="#team" class="whiteButton" style="">Save</a>
+				<a id="savegame" href="#team" class="whiteButton saveclear" style="">Save</a>
 			</div><!-- end id=newteam -->
 			
 			
@@ -300,6 +301,7 @@
 		<script type="text/javascript" src="js/basketball.js?v=3"></script>
 		<script type="text/javascript" src="js/game.js?v=3"></script>
 		<script type="text/javascript" src="js/score.js?v=3"></script>
+		<script type="text/javascript" src="js/camera.js?v=3"></script>
 		<script type="text/javascript" src="js/events.js?v=3"></script>
         <script type="text/javascript">
             app.initialize();
