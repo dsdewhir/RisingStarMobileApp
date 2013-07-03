@@ -60,7 +60,7 @@ function Game (id, team_id, opponent, sport, date, at_home) {
 	this.create = create;
 	function create(cb) {
 		var that = this;
-		var Q = "INSERT INTO Player (name) VALUES ('" + this.name + "')";
+		var Q = "INSERT INTO Game (team_id, opponent, sport, date, at_home) VALUES ('" + this.team_id + "', '" + this.opponent + "', '" + this.sport + "', '" + this.date + "', '" + this.at_home + "')";
 		log(Q);
 
 		db.transaction(function(tx) {
@@ -74,22 +74,19 @@ function Game (id, team_id, opponent, sport, date, at_home) {
 	
 	this.initialize = initialize;
 	function initialize() {
-		if (this.id == 0) {
-			setTimeout(this.initialize(), 50);
-			return;
-		}
 		this.populate();
 	}
 
 	if (this.id == 0) {
-		this.team_id = 		name;
+		this.team_id = 		team_id;
 		this.opponent = 	opponent;
 		this.sport = 		sport;
 		this.date = 		date;
 		this.at_home =		at_home;
 		this.create();
+	} else {
+		this.initialize();
 	}
-	this.initialize();
 
 }
 

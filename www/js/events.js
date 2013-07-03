@@ -56,11 +56,13 @@ $(document).ready(function() {
 	$("#savegame").click(function() {
 		//updateCurrentSport(currentTeam);
 		var at_home = ($("input[name=homeaway]:checked").val() == "home") ? 1 : 0;
-		newGame(currentTeam,
+		var g = new Game(0, currentTeam.id,
 				$("#gameopponent").val(),
-				currentSport,
+				currentTeam.sport,
 				$("#gamedate").val(),
 				at_home);
+		currentTeam.games.push(g);
+		g.listInsert();
 	});
 	$(".inning").live("click", function() {
 		resetAllStats();
