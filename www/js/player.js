@@ -57,10 +57,11 @@ function Player (id, name) {
 	this.create = create;
 	function create(cb) {
 		var that = this;
-		var Q = "INSERT INTO Player (name) VALUES ('" + this.name + "')";
+		var playerdata = [this.name];
+		var Q = "INSERT INTO Player (name) VALUES (?)";
 		log(Q);
 		db.transaction(function(tx) {
-			tx.executeSql(Q, [], function(tx, results) {
+			tx.executeSql(Q, playerdata, function(tx, results) {
 				that.id = results.insertId;
 			});	
 		}, errorHandler);

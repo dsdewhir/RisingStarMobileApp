@@ -60,12 +60,13 @@ function Game (id, team_id, opponent, sport, date, at_home) {
 	this.create = create;
 	function create(cb) {
 		var that = this;
-		var Q = "INSERT INTO Game (team_id, opponent, sport, date, at_home) VALUES ('" + this.team_id + "', '" + this.opponent + "', '" + this.sport + "', '" + this.date + "', '" + this.at_home + "')";
+		var gamedata = [this.team_id, this.opponent, this.sport, this.date, this.at_home];
+		var Q = "INSERT INTO Game (team_id, opponent, sport, date, at_home) VALUES (?, ?, ?, ?, ?)";
 		log(Q);
 
 		db.transaction(function(tx) {
-			tx.executeSql(Q, [], function(tx, results) {
-				that.id = results.insertId;
+			tx.executeSql(Q, gamedata, function(tx, results) {
+				that.id = results.insertId;				
 			});	
 		}, errorHandler);
 

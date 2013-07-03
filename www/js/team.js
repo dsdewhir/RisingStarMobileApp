@@ -62,11 +62,12 @@ function Team (id, name, player_id, season, sport) {
 	this.create = create;
 	function create(cb) {
 		var that = this;
-		var Q = "INSERT INTO Team (name, player_id, season, sport) VALUES ('" + this.name + "', '" + this.player_id + "', '" + this.season + "', '" + this.sport + "')";
+		var teamdata = [this.name, this.player_id, this.season, this.sport];
+		var Q = "INSERT INTO Team (name, player_id, season, sport) VALUES (?, ?,?, ?)";
 		log(Q);
 
 		db.transaction(function(tx) {
-			tx.executeSql(Q, [], function(tx, results) {
+			tx.executeSql(Q, teamdata, function(tx, results) {
 				that.id = results.insertId;
 				if (typeof(cb) != "undefined") { log(cb); cb(); }
 			});	
