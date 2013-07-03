@@ -32,31 +32,8 @@ function showScores(game_id, sport, inning) {
 	}
 }
 
-function updateCurrentSport(team_id) {
-	/*
-	Q = "SELECT team_id FROM Game WHERE id = " + game_id;
-	act_on_results(Q, function(row) {
-		update_sport(row.team_id);
-		log("TeamId: " + row.team_id);
-	});
-	*/
-	
-	function update_sport(team_id) {
-		Qx = "SELECT * FROM Team WHERE id = " + team_id;
-		log(Qx);
-		act_on_results(Qx, function(row) {
-			currentSport = row.sport;
-			//log(currentSport);
-		});
-		setTimeout(set_teamstat_link, 200);
-	}
-
-	function set_teamstat_link() {
-		$("#team-stats-link").attr("href", "#show-" + currentSport);
-		//log("Set link to " + currentSport);
-	}
-	
-	update_sport(team_id);
+function updateCurrentSport(team) {
+	currentSport = team.sport;	
 }
 
 function createScoreTable() {

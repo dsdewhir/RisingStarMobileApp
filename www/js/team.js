@@ -22,7 +22,6 @@ function Team (id, name, player_id, season, sport) {
 	this.populate = populate;
 	function populate() {
 		var Q = "SELECT * FROM Team WHERE id = " + this.id;
-		log(Q);
 		var that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
@@ -34,7 +33,7 @@ function Team (id, name, player_id, season, sport) {
 				that.populateGames();
 			});	
 		}, errorHandler);
-		//this.populateGames();
+		this.populateGames();
 	}
 
 	this.save = save;
@@ -100,12 +99,10 @@ function Teams () {
 	function find(ids, callback) {
 		this.teams = [];
 		var Q = "SELECT * FROM Team WHERE id IN (" + String(ids) + ");"
-		log(Q);
 		var that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
 				//callback(results);
-				log(results.rows.length);
 				for (var i=0; i < results.rows.length; i++) {
 					that.teams.push(results.rows.item(i));
 				}
