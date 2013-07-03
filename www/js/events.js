@@ -91,7 +91,7 @@ $(document).ready(function() {
 	$("#player_photo").click(function() { getPicture(); });
 
 	$("#gamedate").click(function() {
-		openGameDate();
+		openBirthDate();
 	});
 });
 
@@ -103,7 +103,24 @@ function onCameraSuccess(imageURI) {
 	$("#imagebox").attr("src", imageURI);
 }
 
-function openGameDate() {
+
+function openWeight() {
+	
+	var numbers = { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9 };
+	SpinningWheel.addSlot(numbers, 'right');
+	SpinningWheel.addSlot(numbers, 'right');
+	SpinningWheel.addSlot(numbers, 'right');
+	SpinningWheel.addSlot({ separator: '.' }, 'readonly shrink');
+	SpinningWheel.addSlot(numbers, 'right');
+	SpinningWheel.addSlot({ Kg: 'Kg', Lb: 'Lb', St: 'St' }, 'shrink');
+	
+	SpinningWheel.setCancelAction(cancel);
+	SpinningWheel.setDoneAction(done);
+	
+	SpinningWheel.open();
+}
+
+function openBirthDate() {
 	var now = new Date();
 	var days = { };
 	var years = { };
@@ -127,10 +144,22 @@ function openGameDate() {
 	SpinningWheel.open();
 }
 
+function openOneSlot() {
+	SpinningWheel.addSlot({1: 'Ichi', 2: 'Ni', 3: 'San', 4: 'Shi', 5: 'Go'});
+	
+	SpinningWheel.setCancelAction(cancel);
+	SpinningWheel.setDoneAction(done);
+	
+	SpinningWheel.open();
+}
+
 function done() {
 	var results = SpinningWheel.getSelectedValues();
-	alert('values:' + results.values.join(', ') + ' - keys: ' + results.keys.join(', '));
+	document.getElementById('result').innerHTML = 'values: ' + results.values.join(' ') + '<br />keys: ' + results.keys.join(', ');
 }
 
 function cancel() {
+	document.getElementById('result').innerHTML = 'cancelled!';
 }
+
+

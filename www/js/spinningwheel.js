@@ -16,7 +16,6 @@ var SpinningWheel = {
 	friction: 0.003,
 	slotData: [],
 
-
 	/**
 	 *
 	 * Event handler
