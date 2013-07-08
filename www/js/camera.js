@@ -6,8 +6,8 @@ function getPicture() {
 } 
 
 function onCameraSuccess(imageData) {
-    var image = document.getElementById('myImage');
-    image.src = "data:image/jpeg;base64," + imageData;
+    var image = $("#myImage");
+    image.attr("src", "data:image/jpeg;base64," + imageData);
 }
 
 function onCameraFail(message) {
