@@ -47,4 +47,5 @@
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
     
     <plugin name="Camera" value="CDVCamera" />
+    <plugin name="Capture" value="CDVCapture" />
 </widget>

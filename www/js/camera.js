@@ -4,6 +4,7 @@ function getPicture() {
 	    destinationType: Camera.DestinationType.FILE_URI,
 	    sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
 	 });
+	 alert("Done");
 } 
 
 function onCameraSuccess(imageData) {
