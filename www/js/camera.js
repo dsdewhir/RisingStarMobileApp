@@ -1,7 +1,8 @@
 function getPicture() {
 	alert("Getting picture");
 	navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 50,
-	    destinationType: Camera.DestinationType.FILE_URI
+	    destinationType: Camera.DestinationType.FILE_URI,
+	    sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
 	 });
 } 
 
