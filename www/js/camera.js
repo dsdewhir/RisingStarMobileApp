@@ -7,6 +7,7 @@ function getPicture() {
 } 
 
 function onCameraSuccess(imageData) {
+	alert("Camera success");
     var image = $("#myImage");
     image.attr("src", imageData);
     alert("img set to " + imageData);
