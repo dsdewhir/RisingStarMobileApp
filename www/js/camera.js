@@ -13,5 +13,5 @@ function onCameraSuccess(imageData) {
 }
 
 function onCameraFail(message) {
-    log('Failed because: ' + message);
+    alert('Failed because: ' + message);
 }
