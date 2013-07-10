@@ -95,14 +95,6 @@ $(document).ready(function() {
 	});
 });
 
-function onCameraError(message) {
-	log(message);
-}
-
-function onCameraSuccess(imageURI) {
-	$("#imagebox").attr("src", imageURI);
-}
-
 
 function openWeight() {
 	
