@@ -40,8 +40,13 @@ function Player (id, name) {
 
 	this.listInsert = listInsert;
 	function listInsert() {
-		this.list.find(".listblank").hide();
-		this.list.append('<li class="forward"><a href="#player">' + this.name + '<input type="hidden" value="' + this.id + '" /></a></li');
+		if (typeof(this.name) == "undefined") {
+			setTimeout(function() { this.listInsert();}, 10);
+			return;
+		} else {
+			this.list.find(".listblank").hide();
+			this.list.append('<li class="forward"><a href="#player">' + this.name + '<input type="hidden" value="' + this.id + '" /></a></li');
+		}
 	}
 	
 	this.set_id = set_id;
@@ -90,9 +95,6 @@ function Players () {
 	
 	this.find = find;
 	function find(ids, callback) {
-		log("callback");
-		log(ids);
-		log(callback);
 		this.players = [];
 		var Q = "SELECT * FROM Player";
 		var that = this;
@@ -102,7 +104,9 @@ function Players () {
 					var pp = new Player(results.rows.item(i).id);
 					that.players.push(pp);
 				}
-				if (typeof(callback) != "undefined") { callback(); }
+				if (typeof(callback) != "undefined") { 
+					callback();
+				}
 			});	
 		}, errorHandler);
 	}
@@ -129,4 +133,4 @@ function playerInitialize() {
 playerInitialize();
 
 playersearch = new Players();
-playersearch.find([], function() { setTimeout('load_items(playersearch.players)', 500); });
+playersearch.find([], function() { setTimeout('load_items(playersearch.players)', 250); });
