@@ -88,7 +88,7 @@ $(document).ready(function() {
 	*/
 	
 	$(".saveclear").click(function() { $("input[type=text]").val(""); });
-	$("#player_photo").click(function() { getPicture(); });
+	$("#player_photo").click(function() { log("getting picture"); getPicture(); });
 
 	$("#gamedate").click(function() {
 		openBirthDate();

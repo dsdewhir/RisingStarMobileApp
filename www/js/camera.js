@@ -1,5 +1,5 @@
 function getPicture() {
-	log("getpicture");
+	log("func getpicture");
 	navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 30,
 	    destinationType: Camera.DestinationType.FILE_URI,
 	    sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
@@ -11,7 +11,7 @@ function onCameraSuccess(imageData) {
 	setTimeout(function() {
 		var image = $("#myImage");
 		image.attr("src", imageData);
-	}, 100):
+	}, 100);
 }
 
 function onCameraFail(message) {
