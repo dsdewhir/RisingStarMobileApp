@@ -1,19 +1,18 @@
 function getPicture() {
-	log("Getting picture");
 	navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 30,
 	    destinationType: Camera.DestinationType.FILE_URI,
 	    sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
 	 });
-	 log("Done");
 } 
 
 function onCameraSuccess(imageData) {
-	log("Camera success");
-    var image = $("#myImage");
-    image.attr("src", imageData);
-    log("img set to " + imageData);
+	setTimeout(function() { log("Camera success"); }, 100);
+	setTimeout(function() {
+		var image = $("#myImage");
+		image.attr("src", imageData);
+	}, 100):
 }
 
 function onCameraFail(message) {
-    log('Failed because: ' + message);
+    setTimeout(function() { log('Failed because: ' + message); }, 100);
 }
