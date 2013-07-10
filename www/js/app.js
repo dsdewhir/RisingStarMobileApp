@@ -25,5 +25,5 @@ function load_items(item_arr) {
 }
 
 function clear_items(selector) {
-	selector.html("");
+	selector.html("<li class='listblank'>None found</li>");
 }

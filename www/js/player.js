@@ -40,6 +40,7 @@ function Player (id, name) {
 
 	this.listInsert = listInsert;
 	function listInsert() {
+		this.list.find(".listblank").hide();
 		this.list.append('<li class="forward"><a href="#player">' + this.name + '<input type="hidden" value="' + this.id + '" /></a></li');
 	}
 	

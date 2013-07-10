@@ -45,6 +45,7 @@ function Team (id, name, player_id, season, sport) {
 
 	this.listInsert = listInsert;
 	function listInsert() {
+		this.list.find(".listblank").hide();
 		this.list.append('<li class="forward"><a href="#team">' + this.season + ' ' + this.name + '<input type="hidden" value="' + this.id + '" /></a></li');
 	}
 	
