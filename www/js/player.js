@@ -1,4 +1,4 @@
-function Player (id, name) {
+function Player (id, name, photo) {
 	this.id = 			id;
 	this.list =			$("#playerlist");
 	this.teams =		[];
@@ -63,8 +63,8 @@ function Player (id, name) {
 	this.create = create;
 	function create(cb) {
 		var that = this;
-		var playerdata = [this.name];
-		var Q = "INSERT INTO Player (name) VALUES (?)";
+		var playerdata = [this.name, this.photo];
+		var Q = "INSERT INTO Player (name, photo) VALUES (?, ?)";
 		log(Q);
 		db.transaction(function(tx) {
 			tx.executeSql(Q, playerdata, function(tx, results) {
@@ -82,6 +82,7 @@ function Player (id, name) {
 
 	if (this.id == 0) {
 		this.name = 		name;
+		this.photo =		photo;
 		this.teams = 		[];
 		this.create(this.populate);
 	} else {

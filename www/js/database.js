@@ -11,7 +11,11 @@ if (reset == true) {
 }
 
 function errorHandler(transaction, error) { 
-   console.log('Error: ' + error.message + ' code: ' + error.code); 
+  if (typeof(error) != "undefined") {
+	   log('Error: ' + error.message + ' code: ' + error.code); 
+  } else {
+	log("Unspecified error with transaction");
+  }
 } 
 
 /*

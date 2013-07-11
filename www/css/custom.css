@@ -23,7 +23,7 @@
 #jqt .button.ninth { width: 9.5%; position: relative; float: left; left: 0px;}
 #jqt .inningwrap { margin: auto; }
 
-#jqt #myImage { height: 75px; width: 75px; }
+#jqt #player_photo { height: 75px; width: 75px; }
 
 #jqt .goback {
 	position: absolute;

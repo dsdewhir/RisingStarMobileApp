@@ -9,7 +9,7 @@ function getPicture() {
 function onCameraSuccess(imageData) {
 	setTimeout(function() { log("Camera success"); }, 100);
 	setTimeout(function() {
-		var image = $("#myImage");
+		var image = $("#player_photo");
 		image.attr("src", imageData);
 	}, 100);
 }

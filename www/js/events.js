@@ -38,7 +38,7 @@ $(document).ready(function() {
 	});
 	
 	$("#saveplayer").click(function() {		//save a new player
-		var p = new Player(0, $("#player_name").val());
+		var p = new Player(0, $("#player_name").val(), $("#player_photo").attr("src"));
 		clear_items($("#playerlist"));
 		playersearch.find([], function() { setTimeout('load_items(playersearch.players)', 500); });
 		//setTimeout('load_items(playersearch.players)', 300);
@@ -88,7 +88,7 @@ $(document).ready(function() {
 	*/
 	
 	$(".saveclear").click(function() { $("input[type=text]").val(""); });
-	$("#player_photo").click(function() { log("getting picture"); getPicture(); });
+	$("#player_photo").click(function() { getPicture(); });
 
 	$("#gamedate").click(function() {
 		openBirthDate();
