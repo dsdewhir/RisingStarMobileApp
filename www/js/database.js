@@ -4,7 +4,7 @@ var shortName = 'rising-star';
 var version = '1.0'; 
 var displayName = 'WebSqlDB'; 
 var maxSize = 65535; 
-var reset = false;
+var reset = true;
 
 if (reset == true) {
 	log("Tables are being reset.");
@@ -14,7 +14,7 @@ function errorHandler(transaction, error) {
   if (typeof(error) != "undefined") {
 	   log('Error: ' + error.message + ' code: ' + error.code); 
   } else {
-	log("Unspecified error with transaction");
+		log(transaction.message);
   }
 } 
 
