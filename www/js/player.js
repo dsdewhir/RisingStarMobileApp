@@ -132,8 +132,8 @@ function playerInitialize() {
 	createPlayerTable();
 	
 	if (reset == true) {
-		jesse = new Player(0, "Jesse Briggs", "jimage");
-		dan = new Player(0, "Dan Briggs", "dimage");
+		jesse = new Player(0, "Jesse", "jimage");
+		rachael = new Player(0, "Rachael", "dimage");
 	}
 }
 
