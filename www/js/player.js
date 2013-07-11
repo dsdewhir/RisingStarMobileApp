@@ -6,6 +6,7 @@ function Player (id, name, photo) {
 	this.populateTeams = populateTeams;
 	function populateTeams() {
 		var Q = "SELECT * FROM Team WHERE player_id = " + this.id;
+		log(Q);
 		var that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
@@ -20,12 +21,14 @@ function Player (id, name, photo) {
 
 	this.populate = populate;
 	function populate() {
-		var Q = "SELECT * FROM Player WHERE id = " + this.id;
 		var that = this;
+		var Q = "SELECT * FROM Player WHERE id = " + this.id;
+		log(Q);
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
 				var it = results.rows.item(0);
 				that.name = it['name'];
+				that.photo = it['photo'];
 				that.populateTeams();
 			});	
 		}, errorHandler);
@@ -34,6 +37,7 @@ function Player (id, name, photo) {
 	this.save = save;
 	function save(cb) {
 		var Q = "UPDATE Player SET name='" + this.name + "' WHERE id=" + this.id;	
+		log(Q);
 		query(Q);
 		cb();
 	}
@@ -65,14 +69,13 @@ function Player (id, name, photo) {
 		var that = this;
 		var playerdata = [this.name, this.photo];
 		var Q = "INSERT INTO Player (name, photo) VALUES (?, ?)";
-		log(Q);
+		log(Q + ", " + String(playerdata));
 		db.transaction(function(tx) {
 			tx.executeSql(Q, playerdata, function(tx, results) {
 				that.id = results.insertId;
+				if (typeof(cb) != "undefined") { log("calling populate"); cb(); }
 			});	
 		}, errorHandler);
-
-		if (typeof(cb) != "undefined") { cb(); }
 	}
 	
 	this.initialize = initialize;
@@ -81,11 +84,14 @@ function Player (id, name, photo) {
 	}
 
 	if (this.id == 0) {
+		log("brand new player: " + name);
 		this.name = 		name;
 		this.photo =		photo;
 		this.teams = 		[];
-		this.create(this.populate);
+		var that = this;
+		this.create(function() { that.populate; });
 	} else {
+		log("existing player: " + id);
 		this.initialize();
 	}
 
@@ -115,7 +121,7 @@ function Players () {
 
 function playerInitialize() {
 	function createPlayerTable() {
-		var Q = "CREATE TABLE IF NOT EXISTS Player(id INTEGER NOT NULL PRIMARY KEY, name TEXT NOT NULL)";
+		var Q = "CREATE TABLE IF NOT EXISTS Player(id INTEGER NOT NULL PRIMARY KEY, name TEXT NOT NULL, photo TEXT NOT NULL)";
 		query(Q);
 	}
 	
@@ -126,12 +132,12 @@ function playerInitialize() {
 	createPlayerTable();
 	
 	if (reset == true) {
-		jesse = new Player(0, "Jesse Briggs");
-		dan = new Player(0, "Dan Briggs");
+		jesse = new Player(0, "Jesse Briggs", "jimage");
+		dan = new Player(0, "Dan Briggs", "dimage");
 	}
 }
 
 playerInitialize();
 
 playersearch = new Players();
-playersearch.find([], function() { setTimeout('load_items(playersearch.players)', 250); });
+playersearch.find([], function() { setTimeout('load_items(playersearch.players)', 500); });
