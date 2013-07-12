@@ -5,6 +5,7 @@ function Team (id, name, player_id, season, sport) {
 
 	this.populateGames = populateGames;
 	function populateGames() {
+		log("team.populateGames()");
 		this.games = [];
 		var Q = "SELECT * FROM Game WHERE team_id = " + this.id;
 		var that = this;
@@ -34,7 +35,6 @@ function Team (id, name, player_id, season, sport) {
 				that.populateGames();
 			});	
 		}, errorHandler);
-		this.populateGames();
 	}
 
 	this.save = save;
@@ -71,7 +71,7 @@ function Team (id, name, player_id, season, sport) {
 		db.transaction(function(tx) {
 			tx.executeSql(Q, teamdata, function(tx, results) {
 				that.id = results.insertId;
-				if (typeof(cb) != "undefined") { log(cb); cb(); }
+				if (typeof(cb) != "undefined") { cb(); }
 			});	
 		}, errorHandler);
 
@@ -88,7 +88,7 @@ function Team (id, name, player_id, season, sport) {
 		this.season = 		season;
 		this.sport = 		sport;
 		var that = this;
-		this.create(function() { that.populate(); });
+		this.create(function() { that.populateGames(); });
 	} else {
 		this.initialize();
 	}
