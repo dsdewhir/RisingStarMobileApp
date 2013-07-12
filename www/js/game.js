@@ -2,24 +2,10 @@ function Game (id, team_id, opponent, sport, date, at_home) {
 	this.id = 			id;
 	this.list =			$("#gamelist");
 
-	this.populateScores = populateScores;
-	function populateScores() {
-		var Q = "SELECT * FROM Score WHERE team_id = " + this.id;
-		var that = this;
-		db.transaction(function(tx) {
-			tx.executeSql(Q, [], function(tx, results) {
-				for (var i = 0; i < results.rows.length; i++) {
-					var t = new Score(results.rows.item(i).id);
-					that.scores.push(t);
-				}
-			});	
-		}, errorHandler);
-
-	}
-
 	this.populate = populate;
 	function populate() {
 		var Q = "SELECT * FROM Game WHERE id = " + this.id;
+		log(Q);
 		var that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
@@ -29,7 +15,6 @@ function Game (id, team_id, opponent, sport, date, at_home) {
 				that.sport = it['sport'];
 				that.date = it['date'];
 				that.at_home = it['at_home'];
-				//that.populateScores();
 			});	
 		}, errorHandler);
 	}
@@ -63,11 +48,11 @@ function Game (id, team_id, opponent, sport, date, at_home) {
 		var that = this;
 		var gamedata = [this.team_id, this.opponent, this.sport, this.date, this.at_home];
 		var Q = "INSERT INTO Game (team_id, opponent, sport, date, at_home) VALUES (?, ?, ?, ?, ?)";
-		log(Q);
+		log(Q + ", " + String(gamedata));
 
 		db.transaction(function(tx) {
 			tx.executeSql(Q, gamedata, function(tx, results) {
-				that.id = results.insertId;				
+				that.id = results.insertId;				log(that.id);
 			});	
 		}, errorHandler);
 
@@ -148,7 +133,7 @@ function newGame(team_id, opponent, sport, date, at_home) {
 }
 
 function createGameTable() {
-	Q = "CREATE TABLE IF NOT EXISTS Game(id INTEGER NOT NULL PRIMARY KEY, team_id TEXT NOT NULL, opponent TEXT NOT NULL, sport TEXT NOT NULL, date TEXT NOT NULL, at_home BOOLEAN NOT NULL)";
+	Q = "CREATE TABLE IF NOT EXISTS Game(id INTEGER NOT NULL PRIMARY KEY, team_id INTEGER NOT NULL, opponent TEXT NOT NULL, sport TEXT NOT NULL, date TEXT NOT NULL, at_home BOOLEAN NOT NULL)";
 	query(Q);
 }
 
