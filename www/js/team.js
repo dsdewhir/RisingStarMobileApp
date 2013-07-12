@@ -5,12 +5,12 @@ function Team (id, name, player_id, season, sport) {
 
 	this.populateGames = populateGames;
 	function populateGames() {
-		Q = "SELECT * FROM Game WHERE id = " + this.id;
+		this.games = [];
+		var Q = "SELECT * FROM Game WHERE team_id = " + this.id;
 		var that = this;
 		db.transaction(function(tx) {
 			tx.executeSql(Q, [], function(tx, results) {
 				for (var i = 0; i < results.rows.length; i++) {
-					//NEED TO CONVERT THIS TO GAME OBJECT
 					var gg = new Game(results.rows.item(i).id);
 					that.games.push(gg);
 				}
@@ -21,6 +21,7 @@ function Team (id, name, player_id, season, sport) {
 
 	this.populate = populate;
 	function populate() {
+		log("team.populate()");
 		var Q = "SELECT * FROM Team WHERE id = " + this.id;
 		var that = this;
 		db.transaction(function(tx) {
@@ -64,7 +65,7 @@ function Team (id, name, player_id, season, sport) {
 	function create(cb) {
 		var that = this;
 		var teamdata = [this.name, this.player_id, this.season, this.sport];
-		var Q = "INSERT INTO Team (name, player_id, season, sport) VALUES (?, ?,?, ?)";
+		var Q = "INSERT INTO Team (name, player_id, season, sport) VALUES (?, ?, ?, ?)";
 		log(Q);
 
 		db.transaction(function(tx) {
