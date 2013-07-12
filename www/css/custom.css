@@ -60,3 +60,39 @@
 	left: 6px;
 	right: auto;
 }
+
+
+#jqt .goback:after {
+-webkit-box-shadow: rgba(0, 0, 0, 0.2) 1px 0 0 inset, rgba(0, 0, 0, 0.2) 0 -1px 0 inset;
+box-shadow: rgba(0, 0, 0, 0.2) 1px 0 0 inset, rgba(0, 0, 0, 0.2) 0 -1px 0 inset;
+}
+
+#jqt .goback:before {
+margin-left: -1px;
+background: #243346 none;
+}
+
+#jqt .goback:after, #jqt .goback:before {
+content: '';
+position: absolute;
+width: 20px;
+height: 20px;
+top: 1px;
+left: 1px;
+-webkit-transform: rotate(45deg) translate3d(0.2px, 0, 0);
+transform: rotate(45deg) translate3d(0.2px, 0, 0);
+-webkit-transform-origin: 0 0;
+transform-origin: 0 0;
+background-image: none;
+background-color: #50709a;
+background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #7c97bb), color-stop(50%, #5a7caa), color-stop(51%, #50709a), color-stop(100%, #476489));
+background-image: -webkit-linear-gradient(top left, #7c97bb, #5a7caa 50%, #50709a 51%, #476489);
+background-image: linear-gradient(top left, #7c97bb, #5a7caa 50%, #50709a 51%, #476489);
+background-size: 100% 98%;
+-webkit-border-radius: 0 0 0 2px;
+border-radius: 0 0 0 2px;
+-webkit-mask-image: -webkit-linear-gradient(45deg, black, black 15px, rgba(0, 0, 0, 0) 15px);
+-webkit-mask-image: -webkit-gradient(linear, left bottom, right top, from(black), color-stop(50%, black), color-stop(50%, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));
+-webkit-mask-clip: border-box;
+-webkit-background-clip: content-box;
+}
