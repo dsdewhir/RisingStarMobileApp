@@ -4,19 +4,23 @@ function Game (id, team_id, opponent, sport, date, at_home) {
 
 	this.populate = populate;
 	function populate() {
-		var Q = "SELECT * FROM Game WHERE id = " + this.id;
-		log(Q);
-		var that = this;
-		db.transaction(function(tx) {
-			tx.executeSql(Q, [], function(tx, results) {
-				var it = results.rows.item(0);
-				that.team_id = it['team_id'];
-				that.opponent = it['opponent'];
-				that.sport = it['sport'];
-				that.date = it['date'];
-				that.at_home = it['at_home'];
-			});	
-		}, errorHandler);
+		if (this.id != 0) {
+			var Q = "SELECT * FROM Game WHERE id = " + this.id;
+			log(Q);
+			var that = this;
+			db.transaction(function(tx) {
+				tx.executeSql(Q, [], function(tx, results) {
+					var it = results.rows.item(0);
+					that.team_id = it['team_id'];
+					that.opponent = it['opponent'];
+					that.sport = it['sport'];
+					that.date = it['date'];
+					that.at_home = it['at_home'];
+				});	
+			}, errorHandler);
+		} else {
+			log("Called populate() on Game object when id was 0");
+		}
 	}
 
 	this.save = save;
