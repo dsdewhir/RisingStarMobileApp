@@ -5,6 +5,7 @@ function Player (id, name, photo) {
 
 	this.populateTeams = populateTeams;
 	function populateTeams() {
+		this.teams = [];
 		var Q = "SELECT * FROM Team WHERE player_id = " + this.id;
 		log(Q);
 		var that = this;
