@@ -159,7 +159,10 @@ function game_initialize() {
 	createGameTable();
 
 	if (reset == true) {
-		newGame(0, 1, "Bobcats", "baseball", "Mar 5, 2012", 0);
+		newGame(0, 1, "Braves", "baseball", "Mar 5, 2012", 0);
+		newGame(0, 3, "Cardinals", "baseball", "Mar 5, 2012", 0);
+		newGame(0, 2, "Orlando Magic", "basketball", "Mar 5, 2012", 0);
+		newGame(0, 4, "Utah Jazz", "basketball", "Mar 5, 2012", 0);
 	}
 }
 game_initialize();

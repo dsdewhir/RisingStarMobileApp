@@ -116,7 +116,7 @@ function Teams () {
 function teamInitialize() {
 	function createTeamTable() {
 		//set up team table on a blank DB
-		Q = "CREATE TABLE IF NOT EXISTS Team(id INTEGER NOT NULL PRIMARY KEY, player_id INTEGER NOT NULL, name TEXT NOT NULL, season TEXT NOT NULL, sport TEXT NOT NULL)";
+		Q = "CREATE TABLE IF NOT EXISTS Team(id INTEGER NOT NULL PRIMARY KEY, player_id INTEGER NOT NULL, name TEXT NOT NULL, season TEXT NOT NULL, sport TEXT NOT NULL, photo TEXT)";
 		query(Q);
 	}
 	
@@ -128,6 +128,8 @@ function teamInitialize() {
 	if (reset == true) {
 		new Team(0, "Cubs", 1, "2012", "baseball");
 		new Team(0, "Celtics", 1, "2013", "basketball");
+		new Team(0, "Devil Rays", 2, "2012", "baseball");
+		new Team(0, "Miami Heat", 2, "2012", "basketball");
 	}
 }
 teamInitialize();
