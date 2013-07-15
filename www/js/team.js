@@ -1,4 +1,4 @@
-function Team (id, name, player_id, season, sport) {
+function Team (id, name, player_id, season, sport, logo) {
 	this.id = 			id;
 	this.list =			$("#teamlist");
 	this.games =		[];
@@ -32,6 +32,7 @@ function Team (id, name, player_id, season, sport) {
 				that.season = it['season'];
 				that.player_id = it['player_id'];
 				that.sport = it['sport'];
+				that.logo = it['photo'];
 				that.populateGames();
 			});	
 		}, errorHandler);
@@ -87,6 +88,7 @@ function Team (id, name, player_id, season, sport) {
 		this.player_id = 	player_id;
 		this.season = 		season;
 		this.sport = 		sport;
+		that.logo = 		logo;
 		var that = this;
 		this.create(function() { that.populateGames(); });
 	} else {
@@ -117,7 +119,7 @@ function Teams () {
 function teamInitialize() {
 	function createTeamTable() {
 		//set up team table on a blank DB
-		Q = "CREATE TABLE IF NOT EXISTS Team(id INTEGER NOT NULL PRIMARY KEY, player_id INTEGER NOT NULL, name TEXT NOT NULL, season TEXT NOT NULL, sport TEXT NOT NULL, photo TEXT)";
+		Q = "CREATE TABLE IF NOT EXISTS Team(id INTEGER NOT NULL PRIMARY KEY, player_id INTEGER NOT NULL, name TEXT NOT NULL, season TEXT NOT NULL, sport TEXT NOT NULL, logo TEXT)";
 		query(Q);
 	}
 	
