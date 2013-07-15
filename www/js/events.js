@@ -48,7 +48,8 @@ $(document).ready(function() {
 		var t = new Team(0, $("#team_name").val(),
 				currentPlayer.id,
 				$("#season").val(),
-				$("#sport").val()); 
+				$("#sport").val(),
+				$("#team_logo").attr("src")); 
 		currentPlayer.teams.push(t);
 		t.listInsert();
 	});
