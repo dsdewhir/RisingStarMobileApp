@@ -1,17 +1,27 @@
-function getPicture() {
-	log("func getpicture");
+function getLogo() {
+	log("func getlogo");
 	navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 30,
 	    destinationType: Camera.DestinationType.FILE_URI,
 	    sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
 	 });
 } 
 
-function onCameraSuccess(imageData) {
-	setTimeout(function() { log("Camera success"); }, 100);
-	setTimeout(function() {
-		var image = $("#player_photo");
-		image.attr("src", imageData);
-	}, 100);
+function getPicture() {
+	log("func getpicture");
+	navigator.camera.getPicture(playerPhotoSuccess, onCameraFail, { quality: 30,
+	    destinationType: Camera.DestinationType.FILE_URI,
+	    sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
+	 });
+} 
+
+function playerPhotoSuccess(imageData) {
+	var image = $("#player_photo");
+	image.attr("src", imageData);
+}
+
+function playerPhotoSuccess(imageData) {
+	var image = $("#team_logo");
+	image.attr("src", imageData);
 }
 
 function onCameraFail(message) {
