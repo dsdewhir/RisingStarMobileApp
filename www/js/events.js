@@ -9,8 +9,9 @@ $(document).ready(function() {
 			}
 		}
 		$("#team h1").text($(this).text());;
-		clear_items($("#gamelist"));
-		load_items(currentTeam.games);
+		clear_items($("#gamelist"), function() {
+			load_items(currentTeam.games);
+		});
 	});
 	
 	$("#playerlist li a").live("click", function() {	//player is selected
@@ -21,8 +22,9 @@ $(document).ready(function() {
 			}
 		}
 		$("#player h1").text($(this).text());
-		clear_items($("#teamlist"));
-		load_items(currentPlayer.teams);
+		clear_items($("#teamlist"), function() { 
+			load_items(currentPlayer.teams);
+		});
 	});
 	
 	$("#gamelist li a").live("click", function() {
