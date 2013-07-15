@@ -65,8 +65,8 @@ function Team (id, name, player_id, season, sport, logo) {
 	this.create = create;
 	function create(cb) {
 		var that = this;
-		var teamdata = [this.name, this.player_id, this.season, this.sport];
-		var Q = "INSERT INTO Team (name, player_id, season, sport) VALUES (?, ?, ?, ?)";
+		var teamdata = [this.name, this.player_id, this.season, this.sport, this.logo];
+		var Q = "INSERT INTO Team (name, player_id, season, sport, logo) VALUES (?, ?, ?, ?, ?)";
 		log(Q);
 
 		db.transaction(function(tx) {
@@ -88,7 +88,7 @@ function Team (id, name, player_id, season, sport, logo) {
 		this.player_id = 	player_id;
 		this.season = 		season;
 		this.sport = 		sport;
-		that.logo = 		logo;
+		this.logo = 		logo;
 		var that = this;
 		this.create(function() { that.populateGames(); });
 	} else {
@@ -129,10 +129,10 @@ function teamInitialize() {
 	createTeamTable(); //always call this in case there's no team table
 	
 	if (reset == true) {
-		new Team(0, "Cubs", 1, "2012", "baseball");
-		new Team(0, "Celtics", 1, "2013", "basketball");
-		new Team(0, "Devil Rays", 2, "2012", "baseball");
-		new Team(0, "Miami Heat", 2, "2012", "basketball");
+		new Team(0, "Cubs", 1, "2012", "baseball", "logo");
+		new Team(0, "Celtics", 1, "2013", "basketball", "logo");
+		new Team(0, "Devil Rays", 2, "2012", "baseball", "logo");
+		new Team(0, "Miami Heat", 2, "2012", "basketball", "logo");
 	}
 }
 teamInitialize();
