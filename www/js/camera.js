@@ -1,6 +1,6 @@
 function getLogo() {
 	log("func getlogo");
-	navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 30,
+	navigator.camera.getPicture(teamLogoSuccess, onCameraFail, { quality: 30,
 	    destinationType: Camera.DestinationType.FILE_URI,
 	    sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
 	 });
@@ -19,7 +19,7 @@ function playerPhotoSuccess(imageData) {
 	image.attr("src", imageData);
 }
 
-function playerPhotoSuccess(imageData) {
+function teamLogoSuccess(imageData) {
 	var image = $("#team_logo");
 	image.attr("src", imageData);
 }
