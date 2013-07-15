@@ -89,6 +89,7 @@ $(document).ready(function() {
 	
 	$(".saveclear").click(function() { $("input[type=text]").val(""); });
 	$("#player_photo").click(function() { getPicture(); });
+	$("#team_logo").click(function() { getLogo(); });
 
 	$("#gamedate").click(function() {
 		openBirthDate();
