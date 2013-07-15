@@ -39,7 +39,7 @@
             hairExtensions='',
             defaults = {
                 addGlossToIcon: true,
-                backSelector: '.back, .cancel, .goback',
+                backSelector: '.back, .cancel',
                 cacheGetRequests: true,
                 debug: true,
                 defaultAnimation: 'slideleft',
