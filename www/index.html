@@ -44,7 +44,7 @@
                         <li class="forward"><a href="#player">Babe Ruth</a></li>
 						-->
                     </ul>
-					<a href="#newplayer" class="whiteButton" style="">Create a new player</a>
+					<a href="#newplayer" class="whiteButton" style="">Create a New Player</a>
                 </div>
             </div><!--end id=home -->
 			
@@ -54,6 +54,7 @@
 					<a href="#home" class="goback slideright" onclick="">Back</a>
                     <a class="button flip" id="infoButton" href="#home">Home</a>
 				</div>
+				<h2>Teams</h2>
 				<ul class="rounded" id="teamlist">
 					<!--
 					<li class="forward"><a href="#team">2012 Red Sox</a></li>
@@ -61,7 +62,7 @@
 					<li class="forward"><a href="#team">2011 Knicks</a></li>
 					-->
                 </ul>
-				<a href="#newteam" class="whiteButton" style="">Create a new team</a>
+				<a href="#newteam" class="whiteButton" style="">Create a New Team</a>
 			</div><!--end id=player -->
 			
 			<div id="team" class>
@@ -69,10 +70,11 @@
 					<h1></h1>
 					<a href="#player" class="goback slideright" style>Back</a>
 				</div>
+				<h2>Games</h2>
 				<ul class="rounded" id="gamelist">
                 </ul>
                 <a id="team-stats-link" href="" class="whiteButton" style="">View Team Stats</a>
-				<a href="#newgame" class="whiteButton" style="">Create a new game</a>
+				<a href="#newgame" class="whiteButton" style="">Create a New Game</a>
 			</div><!-- end id=team -->
 			
 			<div id="baseballgame" class>
@@ -240,6 +242,7 @@
 					<h1>New Player</h1>
 					<a href="#home" class="goback slideright" style>Back</a>
 				</div>
+				<h2>Create a New Player</h2>
 				<ul class="edit rounded">
 					<li><input type="text" name="name" placeholder="Name" id="player_name"></li>
 					<!--<li><input type="text" name="name" placeholder="Photo" id="player_photo"><a href="#add" class="button add slideup" style="">+</a></li>-->
@@ -253,11 +256,13 @@
 					<h1>New Team</h1>
 					<a href="#player" class="goback slideright" style>Back</a>
 				</div>
+				<h2>Create a New Team</h2>
 				<ul class="edit rounded">
-					<li><input type="text" name="name" placeholder="Name" id="team_name"></li>
-					<li><input type="text" name="name" placeholder="Season" id="season"></li>
+					<li><input type="text" name="name" placeholder="Enter Team Name" id="team_name"></li>
+					<li><input type="text" name="name" placeholder="Enter Season" id="season"></li>
 					<li>
 						<select id="sport" name="sport">
+							<option value="">Choose Sport</option>
 							<option value="baseball">Baseball</option>
 							<option value="basketball">Basketball</option>
 						</select>
@@ -274,6 +279,7 @@
 					<h1>New Game</h1>
 					<a href="#team" class="goback slideright" style>Back</a>
 				</div>
+				<h2>Create a New Game</h2>
 				<ul class="edit rounded">
 					<li>
 					  <input id="gameathome" type="radio" name="homeaway" value="home" title="Home" checked>
@@ -283,7 +289,7 @@
 					</li>
 					<!--<li><span class="toggle"><input type="checkbox" /></span></li>-->
 					<!--<li id="gamedate"><div type="text" name="name" placeholder="Date" id="gamedate"></div></li>-->
-					<li><input type="text" name="opponent" placeholder="Opponent" id="gameopponent"></li>
+					<li><input type="text" name="opponent" placeholder="Enter Opponent" id="gameopponent"></li>
                 </ul>
 				<a id="savegame" href="#team" class="whiteButton saveclear" style="">Save</a>
 			</div><!-- end id=newteam -->
