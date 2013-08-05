@@ -30,10 +30,19 @@ function Game (id, team_id, opponent, sport, date, at_home) {
 		cb();
 	}
 
+	this.getOpponentListing = getOpponentListing;
+	function getOpponentListing() {
+		if(this.at_home) {
+			return "vs " + this.opponent;
+		} else {
+			return "@ " + this.opponent;
+		}
+	}
+
 	this.listInsert = listInsert;
 	function listInsert() {
 		this.list.find(".listblank").hide();
-		this.list.append('<li class="forward"><a href="#' + this.sport + 'game">' + this.opponent + '<input type="hidden" value="' + this.id + '" /></a></li');
+		this.list.append('<li class="forward"><a href="#' + this.sport + 'game">' + this.getOpponentListing() + '<input type="hidden" value="' + this.id + '" /></a></li');
 	}
 	
 	this.set_id = set_id;
@@ -149,9 +158,9 @@ function game_initialize() {
 	createGameTable();
 
 	if (reset == true) {
-		new Game(0, 1, "Braves", "baseball", "Mar 5, 2012", 0);
+		new Game(0, 1, "Braves", "baseball", "Mar 5, 2012", 1);
 		new Game(0, 3, "Cardinals", "baseball", "Mar 5, 2012", 0);
-		new Game(0, 2, "Orlando Magic", "basketball", "Mar 5, 2012", 0);
+		new Game(0, 2, "Orlando Magic", "basketball", "Mar 5, 2012", 1);
 		new Game(0, 4, "Utah Jazz", "basketball", "Mar 5, 2012", 0);
 	}
 }
