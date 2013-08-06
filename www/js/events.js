@@ -102,4 +102,13 @@ $(document).ready(function() {
 	$("#gamedate").click(function() {
 		openBirthDate();
 	});
+	$("#sw-cancel").live("click", function() {
+		log("cancel");
+		SpinningWheel.close();
+	});
+	$("#sw-done").live("click", function() {
+		log("done");
+		log(SpinningWheel.getSelectedValues());
+		SpinningWheel.close();
+	});
 });

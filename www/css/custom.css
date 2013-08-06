@@ -27,6 +27,8 @@
 
 #jqt ul li { border-top: none !important; }
 
+div#sw-wrapper { display: block !important; }
+
 
 /* ALL BELOW IS FOR .goback TO LOOK PROPER */
 
