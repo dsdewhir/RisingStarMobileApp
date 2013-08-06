@@ -12,6 +12,11 @@ $(document).ready(function() {
 		clear_items($("#gamelist"), function() {
 			load_items(currentTeam.games);
 		});
+		if(currentTeam.games.length < 1) {
+			$("#team-stats-link").hide();
+		} else {
+			$("#team-stats-link").show();
+		}
 	});
 	
 	$("#playerlist li a").live("click", function() {	//player is selected
