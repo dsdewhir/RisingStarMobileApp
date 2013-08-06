@@ -11,6 +11,11 @@
 }
 */
 .gamedate { color: #a62220; margin-left: 45px; }
+li span.li_gamedate { 
+	float: right;
+	margin-right: 25%;
+	color: red;
+}
 
 #jqt .playerselect { text-transform: none; }
 #jqt #teamlist li { text-transform: none; }
