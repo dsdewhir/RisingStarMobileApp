@@ -24,8 +24,8 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/custom.css" />
-        <link rel="stylesheet" type="text/css" href="css/spinningwheel.css" />
 		<style type="text/css" media="screen">@import "css/jqtouch.css";</style>
+		<script type="text/javascript" src="./js/sw/spinningwheel.js"></script>
         <title>Rising Star</title>
     </head>
     <body>
@@ -296,10 +296,11 @@
 					  <input id="gameaway" type="radio" name="homeaway" value="away" title="Away">
 					</li>
 					<!--<li><span class="toggle"><input type="checkbox" /></span></li>-->
-					<!--<li id="gamedate"><div type="text" name="name" placeholder="Date" id="gamedate"></div></li>-->
+					<li id="gamedate"><div type="text" name="name" placeholder="Date" id="gamedate"></div></li>
 					<li><input type="text" name="opponent" placeholder="Enter Opponent" id="gameopponent"></li>
                 </ul>
 				<a id="savegame" href="#team" class="whiteButton saveclear" style="">Save</a>
+				<p id="result">results</p>
 			</div><!-- end id=newteam -->
 			
 			
@@ -310,7 +311,6 @@
 		<script type="text/javascript" src="js/jquery-1.7.min.js?v=3"></script>
 		<script type="text/javascript" src="js/jqtouch.js?v=3"></script>
 		<script type="text/javascript" src="js/jqtouch-jquery.min.js?v=3"></script>
-        <script type="text/javascript" src="js/spinningwheel.js?v=3"></script>
 		<script type="text/javascript" src="js/app.js?v=3"></script>
 		<script type="text/javascript" src="js/database.js?v=3"></script>
 		<script type="text/javascript" src="js/team.js?v=3"></script>
@@ -321,6 +321,7 @@
 		<script type="text/javascript" src="js/camera.js?v=3"></script>
 		<script type="text/javascript" src="js/player.js?v=3"></script>
 		<script type="text/javascript" src="js/events.js?v=3"></script>
+		<link rel="stylesheet" href="sw/spinningwheel.css" type="text/css" media="all" />
         <script type="text/javascript">
             app.initialize();
 			$.jQTouch({
@@ -330,5 +331,70 @@
 			});
 			onBodyLoad();
         </script>
+		<script type="text/javascript">
+			function openWeight() {
+				
+				var numbers = { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9 };
+				SpinningWheel.addSlot(numbers, 'right');
+				SpinningWheel.addSlot(numbers, 'right');
+				SpinningWheel.addSlot(numbers, 'right');
+				SpinningWheel.addSlot({ separator: '.' }, 'readonly shrink');
+				SpinningWheel.addSlot(numbers, 'right');
+				SpinningWheel.addSlot({ Kg: 'Kg', Lb: 'Lb', St: 'St' }, 'shrink');
+				
+				SpinningWheel.setCancelAction(cancel);
+				SpinningWheel.setDoneAction(done);
+				
+				SpinningWheel.open();
+			}
+
+			function openBirthDate() {
+				log("asdfasdf");
+				var now = new Date();
+				var days = { };
+				var years = { };
+				var months = { 1: 'Gen', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec' };
+				
+				for( var i = 1; i < 32; i += 1 ) {
+					days[i] = i;
+				}
+
+				for( i = now.getFullYear()-100; i < now.getFullYear()+1; i += 1 ) {
+					years[i] = i;
+				}
+
+				SpinningWheel.addSlot(years, 'right', 1999);
+				SpinningWheel.addSlot(months, '', 4);
+				SpinningWheel.addSlot(days, 'right', 12);
+				
+				SpinningWheel.setCancelAction(cancel);
+				SpinningWheel.setDoneAction(done);
+				
+				SpinningWheel.open();
+				log("sw opened");
+			}
+
+			function openOneSlot() {
+				SpinningWheel.addSlot({1: 'Ichi', 2: 'Ni', 3: 'San', 4: 'Shi', 5: 'Go'});
+				
+				SpinningWheel.setCancelAction(cancel);
+				SpinningWheel.setDoneAction(done);
+				
+				SpinningWheel.open();
+			}
+
+			function done() {
+				var results = SpinningWheel.getSelectedValues();
+				document.getElementById('result').innerHTML = 'values: ' + results.values.join(' ') + '<br />keys: ' + results.keys.join(', ');
+			}
+
+			function cancel() {
+				document.getElementById('result').innerHTML = 'cancelled!';
+			}
+
+
+			window.addEventListener('load', function(){ setTimeout(function(){ window.scrollTo(0,0); }, 100); }, true);
+
+		</script>
     </body>
 </html>
