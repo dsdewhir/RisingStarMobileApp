@@ -108,7 +108,11 @@ $(document).ready(function() {
 	});
 	$("#sw-done").live("click", function() {
 		log("done");
-		log(SpinningWheel.getSelectedValues());
+		var results = SpinningWheel.getSelectedValues();
+		var month = results['values'][1];
+		var day = results['values'][2];
+		var year = results['values'][0];
+		$("#gamedate input").val(month + " " + day + ", " + year);
 		SpinningWheel.close();
 	});
 });
