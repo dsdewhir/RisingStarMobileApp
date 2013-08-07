@@ -117,7 +117,8 @@ var SpinningWheel = {
 		div.style.webkitTransitionProperty = '-webkit-transform';
 		div.innerHTML = '<div id="sw-header"><div id="sw-cancel">Cancel</' + 'div><div id="sw-done">Done</' + 'div></' + 'div><div id="sw-slots-wrapper"><div id="sw-slots"></' + 'div></' + 'div><div id="sw-frame"></' + 'div>';
 
-		document.body.appendChild(div);
+		//document.body.appendChild(div);
+		$(".current").append(div);
 
 		this.swWrapper = div;													// The SW wrapper
 		this.swSlotWrapper = document.getElementById('sw-slots-wrapper');		// Slots visible area
@@ -210,7 +211,8 @@ var SpinningWheel = {
 		
 		this.reset();
 		
-		document.body.removeChild(document.getElementById('sw-wrapper'));
+		//document.body.removeChild(document.getElementById('sw-wrapper'));
+		$('#sw-wrapper').remove();
 	},
 	
 	close: function () {

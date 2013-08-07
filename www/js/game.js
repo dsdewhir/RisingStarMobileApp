@@ -42,7 +42,7 @@ function Game (id, team_id, opponent, sport, date, at_home) {
 	this.listInsert = listInsert;
 	function listInsert() {
 		this.list.find(".listblank").hide();
-		this.list.append('<li class="forward"><a href="#' + this.sport + 'game">' + this.getOpponentListing() + '<input type="hidden" value="' + this.id + '" /></a></li');
+		this.list.append('<li class="forward"><a href="#' + this.sport + 'game">' + this.getOpponentListing() + "  <span class='li_gamedate'>" + this.date + '</span><input type="hidden" value="' + this.id + '" /></a></li');
 	}
 	
 	this.set_id = set_id;
