@@ -1328,28 +1328,46 @@ body {
   bottom: 5px;
   margin: 1px 0 0 -75px;
   width: 150px;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 21px;
+  font-weight: normal;
   line-height: 2em;
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #163f63 ;
   text-shadow: #fff 0 1px 0;
-  text-indent:-99999px;
-  background:url(../img/RisingStar_logo_blue.png) center center no-repeat;
+  /*text-indent:-99999px;
+  background:url(../img/RisingStar_logo_blue.png) center center no-repeat;*/
 }
 
 #jqt a.whiteButton {
-	background: -webkit-linear-gradient(top, #3d78a9, #163f63);
-	background: -moz-linear-gradient(top, #3d78a9, #163f63);
+	/*background: -webkit-linear-gradient(top, #3d78a9, #163f63);
+	background: -moz-linear-gradient(top, #3d78a9, #163f63);*/
 	color: #e9dccc;
 	text-shadow: none;
-	text-transform: none;
-	border:none;
-	font-size:16px;
-	width:50%;
+	text-transform: uppercase;
+	font-size:14px;
+	width:auto;
 	margin:20px auto;
+	
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+	margin: 40px;
+	/*border: 1px solid rgba(0,0,0,0.4) ;*/
+	box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.5),
+				0 0 1px 1px rgba(255,255,255,0.8),
+				0 0 0 6px rgba(0,0,0,0.06),
+				0 0 0 3px rgba(0,0,0,0.1);
+	
+	/*background: -moz-linear-gradient(top,  rgba(255,214,94,1) 0%, rgba(254,191,4,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,214,94,1)), color-stop(100%,rgba(254,191,4,1)));
+	background: -webkit-linear-gradient(top,  rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%);
+	background: -o-linear-gradient(top,  rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%);
+	background: linear-gradient(top,  rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd65e', endColorstr='#febf04',GradientType=0 );*/
+	background:#a7252c;
 }
 
 /* line 71, ../scss/include/_skeleton.scss */
@@ -1739,6 +1757,11 @@ body {
   z-index: 10;
   line-height: 0;
   pointer-events: none;
+}
+#jqt ul li.playerAvatar {
+	background:url(../img/avatar-baseball.png) 6px 50% no-repeat;
+	padding-left:55px;
+	
 }
 /* line 395, ../scss/include/_skeleton.scss */
 #jqt ul li.forward:after {
