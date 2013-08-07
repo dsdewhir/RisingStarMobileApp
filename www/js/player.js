@@ -50,7 +50,7 @@ function Player (id, name, photo) {
 			return;
 		} else {
 			this.list.find(".listblank").hide();
-			this.list.append('<li class="forward playerAvatar"><img src="../img/avatar-baseball.png"><a href="#player">' + this.name + '<input type="hidden" value="' + this.id + '" /></a></li');
+			this.list.append('<li class="forward playerAvatar"><img src="./img/avatar-baseball.png"><a href="#player">' + this.name + '<input type="hidden" value="' + this.id + '" /></a></li');
 		}
 	}
 	
