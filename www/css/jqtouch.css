@@ -1742,7 +1742,7 @@ body {
   margin-top: -12px;
   width: 24px;
   height: 24px;
-  -webkit-border-radius: 12px;
+  /*-webkit-border-radius: 12px;
   border-radius: 12px;
   background-image: none;
   background-color: #a72f2e;
@@ -1753,23 +1753,40 @@ body {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   -webkit-box-sizing: border-box;
-  padding: 0;
+  padding: 0;*/
   z-index: 10;
   line-height: 0;
   pointer-events: none;
 }
 #jqt ul li.playerAvatar {
-	
+	padding-top:30px;
+}
+#jqt ul li.playerAvatar a {
+	width:60%;
+	float:left;	
+	padding-top:10px;
+}
+#jqt ul li.playerAvatar img {
+	float:left;	
+	margin-right:3%;
+	margin-top:-15px;
+	-moz-border-radius: 15px;
+	border-radius: 25px;
+	border:3px solid #fff;
+	-moz-box-shadow:    0px 0px 5px 2px #000;
+  	-webkit-box-shadow: 0px 0px 5px 2px #ccc;
+  	box-shadow:         0px 0px 5px 2px #ccc;
 	
 }
 /* line 395, ../scss/include/_skeleton.scss */
 #jqt ul li.forward:after {
-  color: #e9dccc;
-  text-shadow: #2952a3 0 -1px 0;
+  color: #4e505a;
+  text-shadow: #fff 0 -1px 0;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
-  font-size: 24px;
-  padding-top:10px;
+  font-size: 32px;
+  padding-top:15px;
+  margin-right:3%;
 }
 /* line 404, ../scss/include/_skeleton.scss */
 #jqt ul.rounded, #jqt ul.individual li {
