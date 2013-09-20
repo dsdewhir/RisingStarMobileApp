@@ -1394,13 +1394,13 @@ body {
   text-decoration: none;
   white-space: nowrap;
   background: none;
-  bottom: 6px;
+  bottom: 12px;
   right: 10px;
   margin: 0;
   padding: 0 10px;
   color: #e9dccc;
   text-shadow: #3e5779 0 -1px 0;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.2) 0 1px 0, rgba(0, 0, 0, 0.2) 0 1px 2px inset;
+  /*-webkit-box-shadow: rgba(255, 255, 255, 0.2) 0 1px 0, rgba(0, 0, 0, 0.2) 0 1px 2px inset;
   box-shadow: rgba(255, 255, 255, 0.2) 0 1px 0, rgba(0, 0, 0, 0.2) 0 1px 2px inset;
   border: 1px solid #2d3f57;
   -webkit-border-radius: 5px;
@@ -1409,7 +1409,7 @@ body {
   background-color: #50709a;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7c97bb), color-stop(50%, #5a7caa), color-stop(51%, #50709a), color-stop(100%, #476489));
   background-image: -webkit-linear-gradient(top, #7c97bb, #5a7caa 50%, #50709a 51%, #476489);
-  background-image: linear-gradient(top, #7c97bb, #5a7caa 50%, #50709a 51%, #476489);
+  background-image: linear-gradient(top, #7c97bb, #5a7caa 50%, #50709a 51%, #476489);*/
 }
 /* line 107, ../scss/include/_skeleton.scss */
 #jqt .button.active, #jqt .back.active, #jqt .cancel.active, #jqt .add.active {
@@ -1759,8 +1759,7 @@ body {
   pointer-events: none;
 }
 #jqt ul li.playerAvatar {
-	background:url(../img/avatar-baseball.png) 6px 50% no-repeat;
-	padding-left:55px;
+	
 	
 }
 /* line 395, ../scss/include/_skeleton.scss */
