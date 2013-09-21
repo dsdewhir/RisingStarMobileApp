@@ -14,7 +14,7 @@
 li span.li_gamedate { 
 	float: right;
 	margin-right: 25%;
-	color: red;
+	
 }
 
 #jqt .playerselect { text-transform: none; }
@@ -25,8 +25,23 @@ li span.li_gamedate {
 
 #jqt .button.selected { color: yellow; background-image: none; background-color: red; }
 #jqt .button.quarter { width: 22%; position: relative; float: left; left: 0px;}
-#jqt .button.ninth { width: 9.5%; position: relative; float: left; left: 0px;}
-#jqt .inningwrap { margin: auto; }
+#jqt .button.ninth { 
+	/*width: 9.5%; position: relative; float: left; left: 0px;*/
+	width:42px;
+	height:32px;
+	background:#cec2b2;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	color:#0c3e64;
+	font-size:18px;
+	text-align:center;
+	padding:5px 0;
+	text-shadow: white 0 1px 0;
+	position:absolute;
+	right:30%;
+	top:-10px;
+	}
+#jqt .inningwrap { margin: auto; position:absolute; top:50%; right:10%; }
 
 #jqt #player_photo, #jqt #team_logo { 
 	height: 42px; 
@@ -38,6 +53,17 @@ li span.li_gamedate {
   	-webkit-box-shadow: 0px 0px 5px 2px #ccc;
   	box-shadow:         0px 0px 5px 2px #ccc;
 	}
+	
+#jqt #player_photo_large, #jqt #team_logo_large { 
+	height: 72px; 
+	width: 72px; 
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	border:3px solid #fff;
+	-moz-box-shadow:    0px 0px 5px 2px #000;
+  	-webkit-box-shadow: 0px 0px 5px 2px #ccc;
+  	box-shadow:         0px 0px 5px 2px #ccc;
+	}	
 
 #jqt ul li { border-top: none !important; }
 #jqt p#result { display: none; }
@@ -74,8 +100,8 @@ div#sw-wrapper { display: block !important; }
 }
 
 #jqt .goback:after {
-	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 1px 0 0 inset, rgba(0, 0, 0, 0.2) 0 -1px 0 inset;
-	box-shadow: rgba(0, 0, 0, 0.2) 1px 0 0 inset, rgba(0, 0, 0, 0.2) 0 -1px 0 inset;
+	/*-webkit-box-shadow: rgba(0, 0, 0, 0.2) 1px 0 0 inset, rgba(0, 0, 0, 0.2) 0 -1px 0 inset;
+	box-shadow: rgba(0, 0, 0, 0.2) 1px 0 0 inset, rgba(0, 0, 0, 0.2) 0 -1px 0 inset;*/
 }
 
 #jqt .goback:after, #jqt .goback:before {
@@ -90,7 +116,7 @@ div#sw-wrapper { display: block !important; }
 	-webkit-transform-origin: 0 0;
 	transform-origin: 0 0;
 	background-image: none;
-	background-color: #50709a;
+	/*background-color: #50709a;
 	background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0%, #7c97bb), color-stop(50%, #5a7caa), color-stop(51%, #50709a), color-stop(100%, #476489));
 	background-image: -webkit-linear-gradient(top left, #7c97bb, #5a7caa 50%, #50709a 51%, #476489);
 	background-image: linear-gradient(top left, #7c97bb, #5a7caa 50%, #50709a 51%, #476489);
@@ -100,12 +126,12 @@ div#sw-wrapper { display: block !important; }
 	-webkit-mask-image: -webkit-linear-gradient(45deg, black, black 15px, rgba(0, 0, 0, 0) 15px);
 	-webkit-mask-image: -webkit-gradient(linear, left bottom, right top, from(black), color-stop(50%, black), color-stop(50%, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));
 	-webkit-mask-clip: border-box;
-	-webkit-background-clip: content-box;
+	-webkit-background-clip: content-box;*/
 }
 
 #jqt .goback:before {
-	margin-left: -1px;
-	background: #243346 none;
+	/*margin-left: -1px;
+	background: #243346 none;*/
 }
 
 #jqt a {

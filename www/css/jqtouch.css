@@ -1267,7 +1267,7 @@ body {
 
 /* line 5, ../scss/include/_skeleton.scss */
 body {
-  background: black;
+  background: #0c3e64;
 }
 
 /* line 9, ../scss/include/_skeleton.scss */
@@ -1565,20 +1565,30 @@ body {
 }
 /* line 221, ../scss/include/_skeleton.scss */
 #jqt .add {
-  font-size: 24px;
+  /*font-size: 24px;
   line-height: 24px;
-  font-weight: bold;
+  font-weight: bold;*/
+  width:32px;
+	height:26px;
+	background:#0c3e64;
+	color:#ebe0d1;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	font-size:21px;
+	text-align:center;
+	padding:1px 0 5px 0;
 }
 /* line 229, ../scss/include/_skeleton.scss */
-#jqt ul {
+#jqt ul, .scoring_selector, .info {
   padding: 0;
   margin: 5px 10px 10px 10px;
   -webkit-margin-collapse: separate;
 }
+
 /* line 231, ../scss/include/_skeleton.scss */
-#jqt ul, #jqt ul.individual li {
+#jqt ul, #jqt ul.individual li, .scoring_selector, .info {
   background-color: #f5f2ed;
-  color: black;
+  color: #0c3e64;
   text-shadow: white 0 1px 0;
   border: 1px solid #d9d9d9;
   font: 16px "Helvetica Neue", Helvetica;
@@ -1588,11 +1598,11 @@ body {
   margin-top: 15px;
 }
 /* line 246, ../scss/include/_skeleton.scss */
-#jqt ul li {
+#jqt ul li, .scoring_selector, .info {
   border-top: 1px solid #f2f2f2;
   list-style-type: none;
   overflow: hidden;
-  padding: 20px 15px;
+  padding: 30px 15px;
   -webkit-transform: translate3d(0, 0, 0);
   border-bottom:1px solid #cec2b2;
   /* expensive way to avoid flickr */
@@ -1647,16 +1657,28 @@ body {
 }
 /* line 295, ../scss/include/_skeleton.scss */
 #jqt ul li small.counter {
-  background: #d9d9d9;
+  /*background: #d9d9d9;
   color: #595959;
   text-shadow: #e6e6e6 0 1px 0;
-  z-index: 10;
   font-size: 16px;
   font-weight: bold;
   -webkit-border-radius: 3px;
-  border-radius: 3px;
+  border-radius: 3px;*/
   display: block;
   width: auto;
+  z-index: 10;
+  width:32px;
+	height:19px;
+	background:#cec2b2;
+	color:#0c3e64;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	font-size:21px;
+	text-align:center;
+	padding: 8px 0 5px 0;
+	position:absolute;
+	right:30%;
+	top:30%;
 }
 /* line 311, ../scss/include/_skeleton.scss */
 #jqt ul li ::-webkit-input-placeholder {
@@ -1672,7 +1694,7 @@ body {
 #jqt ul li input[type="email"],
 #jqt ul li input[type="url"],
 #jqt ul li textarea, #jqt ul li select {
-  color: black;
+  color: #0c3e64;
   text-shadow: #e8ebee 0 1px 0;
   background: transparent url("data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==");
   border: 0;
@@ -1711,7 +1733,7 @@ body {
   line-height: 21px;
   width: 246px;
   margin: 0 0 0 17px;
-  color: black;
+  color: #0c3e64;
   text-shadow: #e8ebee 0 1px 0;
   padding-top:8px;
 }
@@ -1770,8 +1792,20 @@ body {
 	float:left;	
 	margin-right:3%;
 	margin-top:-15px;
-	-moz-border-radius: 15px;
+	-moz-border-radius: 25px;
 	border-radius: 25px;
+	border:3px solid #fff;
+	-moz-box-shadow:    0px 0px 5px 2px #000;
+  	-webkit-box-shadow: 0px 0px 5px 2px #ccc;
+  	box-shadow:         0px 0px 5px 2px #ccc;
+	
+}
+#jqt ul li.playerAvatarLarge img {
+	float:left;	
+	margin-right:3%;
+	margin-top:-15px;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
 	border:3px solid #fff;
 	-moz-box-shadow:    0px 0px 5px 2px #000;
   	-webkit-box-shadow: 0px 0px 5px 2px #ccc;
@@ -1789,13 +1823,13 @@ body {
   margin-right:3%;
 }
 /* line 404, ../scss/include/_skeleton.scss */
-#jqt ul.rounded, #jqt ul.individual li {
+#jqt ul.rounded, #jqt ul.individual li, .rounded{
   -webkit-box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0;
   box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0;
   border: 1px solid #cec2b2;
 }
 /* line 409, ../scss/include/_skeleton.scss */
-#jqt ul.rounded {
+#jqt ul.rounded, .rounded {
   -webkit-border-radius: 8px;
   border-radius: 8px;
 }
@@ -1967,12 +2001,18 @@ body {
 }
 /* line 583, ../scss/include/_skeleton.scss */
 #jqt .info {
-  font-size: 12px;
-  line-height: 16px;
-  text-align: center;
-  color: #444;
+  color: #0c3e64;
   padding: 15px;
-  font-weight: bold;
+  text-transform:none;
+}
+
+.statLabel {
+	padding:15px 0;
+	border-bottom:1px solid #cec2b2;
+}
+
+.statLabel span {
+	float:right;
 }
 
 /* line 13, ../scss/apple.scss */
@@ -2012,7 +2052,7 @@ body {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #aeb9c2), color-stop(10%, #bcc5cd), color-stop(65%, #cbd2d8), color-stop(100%, #ccd3d9));
   background-image: -webkit-linear-gradient(top, #aeb9c2, #bcc5cd 10%, #cbd2d8 65%, #ccd3d9);
   background-image: linear-gradient(top, #aeb9c2, #bcc5cd 10%, #cbd2d8 65%, #ccd3d9);
-  color: black;
+  color: #0c3e64;
   text-shadow: #e8ebee 0 1px 0;
   border-bottom: 1px solid #b5c1c9;
   border-top: 1px solid #b5c1c9;
@@ -2044,9 +2084,7 @@ body {
 }
 /* line 80, ../scss/apple.scss */
 #jqt .info {
-  background: #dce1eb;
-  text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
-  color: #4c566c;
+  /*background: #dce1eb;*/
   border-top: 1px solid rgba(76, 86, 108, 0.3);
 }
 

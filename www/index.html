@@ -52,8 +52,9 @@
 			<div id="player" class>
 				<div class="toolbar">
 					<h1></h1>
-					<a href="#home" class="goback slideright" onclick="">Back</a>
-                    <a class="button flip" id="infoButton" href="#home">Home</a>
+					<a href="#home" class="goback slideright" style><img src="img/button-back.png" /></a>
+                    <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
+                    
 				</div>
 				<h2>Teams</h2>
 				<ul class="rounded" id="teamlist">
@@ -69,8 +70,8 @@
 			<div id="team" class>
 				<div class="toolbar">
 					<h1></h1>
-					<a href="#player" class="goback slideright" style>Back</a>
-                    <a class="button flip" id="infoButton" href="#home">Home</a>
+					<a href="#player" class="goback slideright" style><img src="img/button-back.png" /></a>
+                    <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
 				</div>
 				<h2>Games</h2>
 				<ul class="rounded" id="gamelist">
@@ -82,12 +83,24 @@
 			<div id="baseballgame" class>
 				<div class="toolbar">
 					<h1></h1>
-					<a href="#team" class="goback slideright" style>Back</a>
-                    <a class="button flip" id="infoButton" href="#home">Home</a>
+					<a href="#team" class="goback slideright" style><img src="img/button-back.png" /></a>
+                    <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
+				</div>
+				<h2></h2>
+				<div class="rounded scoring_selector">
+					<li style="display:inline;">
+					<img class="playerAvatarLarge" src="img/avatar-baseball-large.png" id="player_photo_large" /></li>
+					<li style="display: inline; width:70%; position:absolute;top:50%; left:30%;">Inning</li>
+					<li id="baseball_innings">
+						<div class="inningwrap">
+							<a href="#" class="button inning ninth" style="">1<input type="hidden" value="1"></a>
+						</div>
+					</li>
+					
 				</div>
 				<ul class="rounded" id="statlist">
 					<li id="baseball_innings">
-						<div class="inningwrap">
+						<div class="inningwrap" style="display:none;">
 							<a href="#" class="button inning ninth" style="">1<input type="hidden" value="1"></a>
 							<a href="#" class="button inning ninth" style="">2<input type="hidden" value="2"></a>
 							<a href="#" class="button inning ninth" style="">3<input type="hidden" value="3"></a>
@@ -100,47 +113,51 @@
 						</div>
 					</li>
 					<li id="stat_single">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a>
-						<span style="left: 65px; position: absolute;">Single</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
+						<span style="left: 40%; top:40%; position: absolute;">Single</span>
 						<small id="amt_single" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
 					</li>
 					<li id="stat_double">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a>
-						<span style="left: 65px; position: absolute;">Double</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
+						<span style="left: 40%; top:40%; position: absolute;">Double</span>
 						<small id="amt_double" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
 					</li>
 					<li id="stat_triple">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a> 
-						<span style="left: 65px; position: absolute;">Triple</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+						<span style="left: 40%; top:40%; position: absolute;">Triple</span>
 						<small id="amt_triple" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+						
 					</li>
 					<li id="stat_homerun">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a> 
-						<span style="left: 65px; position: absolute;">Homerun</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+						<span style="left: 40%; top:40%; position: absolute;">Homerun</span>
 						<small id="amt_homerun" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+						
 					</li>
 					<li id="stat_walk">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a> 
-						<span style="left: 65px; position: absolute;">Walks</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+						<span style="left: 40%; top:40%; position: absolute;">Walks</span>
 						<small id="amt_walk" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
 					</li>
 					<li id="stat_strikeout">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a> 
-						<span style="left: 65px; position: absolute;">Strikeouts</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+						<span style="left: 40%; top:40%; position: absolute;">Strikeouts</span>
 						<small id="amt_strikeout" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
 					</li>
 					<li id="stat_basesteal">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a> 
-						<span style="left: 65px; position: absolute;">Steals</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+						<span style="left: 40%; top:40%; position: absolute;">Steals</span>
 						<small id="amt_basesteal" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+						
 					</li>
+					<li><!--deals with last child thing--></li>
                 </ul>
                 <a id="statshow-baseball" href="#show-baseball" class="whiteButton" style="">View Game Stats</a> 
 			</div><!--end id=baseballgame -->
@@ -148,9 +165,10 @@
 			<div id="basketballgame" class>
 				<div class="toolbar">
 					<h1></h1>
-					<a href="#team" class="goback slideright" style>Back</a>
-                    <a class="button flip" id="infoButton" href="#home">Home</a>
+					<a href="#team" class="goback slideright" style><img src="img/button-back.png" /></a>
+                    <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
 				</div>
+				<h2></h2>
 				<ul class="rounded" id="statlist">
 					<li id="basketball_innings">
 						<div class="inningwrap">
@@ -208,29 +226,37 @@
 			
 			<div id="show-baseball" style="height: 100%;">
 				<div class="toolbar">
-					<h1></h1>
-					<a href="#baseballgame" class="goback slideright">Back</a>
-                    <a class="button flip" id="infoButton" href="#home">Home</a>
+					<h1>Game Stats</h1>
+					<a href="#baseballgame" class="goback slideright"><img src="img/button-back.png" /></a>
+                    <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
+				</div>
+				<h2>[Player's Name]'s Stats</h2>
+				<div class="rounded info">
+					<li style="display:inline;">
+					<img class="playerAvatarLarge" src="img/avatar-baseball-large.png" id="player_photo_large" /></li>
+					<li style="display: inline; width:70%; position:absolute;top:30%; left:30%;">[@Team]<br>[Month, Day Year]</li>
+					
 				</div>
 				<div id="stat-container" class="rounded info" >
-					<div id="stat_display_atbats">At Bats: <span>0</span></div>
-					<div id="stat_display_hits">Hits: <span>0</span></div>
-					<div id="stat_display_single">Singles: <span>0</span></div>
-					<div id="stat_display_double">Doubles: <span>0</span></div>
-					<div id="stat_display_triple">Triples: <span>0</span></div>
-					<div id="stat_display_homerun">Homeruns: <span>0</span></div>
-					<div id="stat_display_walk">Walks: <span>0</span></div>
-					<div id="stat_display_strikeout">Strikeouts: <span>0</span></div>
-					<div id="stat_display_basesteal">Steals: <span>0</span></div>
+					<div id="stat_display_atbats" class="statLabel">At Bats: <span>0</span></div>
+					<div id="stat_display_hits" class="statLabel">Hits: <span>0</span></div>
+					<div id="stat_display_single" class="statLabel">Singles: <span>0</span></div>
+					<div id="stat_display_double" class="statLabel">Doubles: <span>0</span></div>
+					<div id="stat_display_triple" class="statLabel">Triples: <span>0</span></div>
+					<div id="stat_display_homerun" class="statLabel">Homeruns: <span>0</span></div>
+					<div id="stat_display_walk" class="statLabel">Walks: <span>0</span></div>
+					<div id="stat_display_strikeout" class="statLabel">Strikeouts: <span>0</span></div>
+					<div id="stat_display_basesteal" class="statLabel">Steals: <span>0</span></div>
 				</div>
 			</div>
 			
 			<div id="show-basketball" style="height: 100%;">
 				<div class="toolbar">
 					<h1></h1>
-					<a href="#basketballgame" class="goback slideright">Back</a>
-                    <a class="button flip" id="infoButton" href="#home">Home</a>
+					<a href="#basketballgame" class="goback slideright"><img src="img/button-back.png" /></a>
+                    <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
 				</div>
+				<h2></h2>
 				<div id="stat-container" class="rounded info" >
 					<div id="stat_display_totalpoints">Total Points: <span>0</span></div>
 					<div id="stat_display_fieldgoal">Field Goals: <span>0</span></div>
@@ -261,8 +287,8 @@
 			<div id="newteam" class>
 				<div class="toolbar">
 					<h1>New Team</h1>
-					<a href="#player" class="goback slideright" style>Back</a>
-                    <a class="button flip" id="infoButton" href="#home">Home</a>
+					<a href="#player" class="goback slideright" style><img src="img/button-back.png" /></a>
+                    <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
 				</div>
 				<h2>Create a New Team</h2>
 				<ul class="edit rounded">
@@ -285,8 +311,8 @@
 			<div id="newgame" class>
 				<div class="toolbar">
 					<h1>New Game</h1>
-					<a href="#team" class="goback slideright" style>Back</a>
-                    <a class="button flip" id="infoButton" href="#home">Home</a>
+					<a href="#team" class="goback slideright" style><img src="img/button-back.png" /></a>
+                    <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
 				</div>
 				<h2>Create a New Game</h2>
 				<ul class="edit rounded">
