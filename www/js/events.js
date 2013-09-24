@@ -83,7 +83,11 @@ $(document).ready(function() {
 		resetAllStats();
 		var setInning = parseInt($("#inningvalue").val());
 		log(setInning);
-		if (setInning < 9) {
+		max_inning = 9;
+		if(currentSport == "basketball") {
+			max_inning = 4;
+		}
+		if (setInning < max_inning) {
 			setInning += 1;
 		}
 		currentInning = setInning;
