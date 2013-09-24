@@ -79,6 +79,32 @@ $(document).ready(function() {
 		$(".button.inning input[value=" + String(currentInning) + "]").parent().addClass("selected");
 		showScores(currentGame, currentSport, currentInning);
 	});
+	$("#inningadd").live("click", function() {
+		resetAllStats();
+		var setInning = parseInt($("#inningvalue").val());
+		log(setInning);
+		if (setInning < 9) {
+			setInning += 1;
+		}
+		currentInning = setInning;
+		$("#inningvalue").val(setInning);
+		$("#inningvalue").val(setInning);
+		$("a.button.inning.ninth").text(setInning);
+		showScores(currentGame, currentSport, currentInning);
+	});
+	$("#inningminus").live("click", function() {
+		resetAllStats();
+		var setInning = parseInt($("#inningvalue").val());
+		log(setInning);
+		if (setInning > 1) {
+			setInning -= 1;
+		}
+		currentInning = setInning;
+		$("#inningvalue").val(setInning);
+		$("#inningvalue").val(setInning);
+		$("a.button.inning.ninth").text(setInning);
+		showScores(currentGame, currentSport, currentInning);
+	});
 	$("#statshow-baseball").live("click", function() {
 		loadBaseballStats(currentGame);
 		$("#show-baseball h2").text(currentPlayer.name + "'s Stats");
