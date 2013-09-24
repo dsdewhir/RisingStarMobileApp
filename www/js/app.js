@@ -28,3 +28,11 @@ function clear_items(selector, callback_function) {
 	selector.html("<li class='listblank'>None found</li>");
 	if (typeof(callback_function) != 'undefined') { callback_function(); }	
 }
+
+function execute_after_set(value, eval_code, callback) {
+	if (eval(eval_code) != undefined) {
+		callback();
+	} else {
+		setTimeout(function() { execute_after_set(value, eval_code, callback); }, 100);
+	}
+}

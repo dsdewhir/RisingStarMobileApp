@@ -33,17 +33,11 @@
             <div id="home" class="current">
                 <div class="toolbar">
                     <h1>Players</h1>
-                    <!--<a class="button slideup" id="infoButton" href="#about">About</a>-->
                 </div>
                 <div class="scroll">
 					<h2></h2>
                     <ul class="rounded" id="playerlist">
 						<li class="listblank">None found</li>
-						<!--
-                        <li class="forward"><a href="#player">Joe Dimaggio</a> </li>
-                        <li class="forward"><a href="#player">Magic Johnson</a></li>
-                        <li class="forward"><a href="#player">Babe Ruth</a></li>
-						-->
                     </ul>
 					<a href="#newplayer" class="whiteButton" style="">Add a New Player</a>
                 </div>
@@ -58,11 +52,6 @@
 				</div>
 				<h2>Teams</h2>
 				<ul class="rounded" id="teamlist">
-					<!--
-					<li class="forward"><a href="#team">2012 Red Sox</a></li>
-					<li class="forward"><a href="#team">2011 Red Sox</a></li>
-					<li class="forward"><a href="#team">2011 Knicks</a></li>
-					-->
                 </ul>
 				<a href="#newteam" class="whiteButton" style="">Create a New Team</a>
 			</div><!--end id=player -->
@@ -234,7 +223,7 @@
 				<div class="rounded info">
 					<li style="display:inline;">
 					<img class="playerAvatarLarge" src="img/avatar-baseball-large.png" id="player_photo_large" /></li>
-					<li style="display: inline; width:70%; position:absolute;top:30%; left:30%;">[@Team]<br>[Month, Day Year]</li>
+					<li id="baseball-team-info" style="display: inline; width:70%; position:absolute;top:30%; left:30%;">[@Team]<br>[Month, Day Year]</li>
 					
 				</div>
 				<div id="stat-container" class="rounded info" >

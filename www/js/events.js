@@ -81,6 +81,11 @@ $(document).ready(function() {
 	});
 	$("#statshow-baseball").live("click", function() {
 		loadBaseballStats(currentGame);
+		$("#show-baseball h2").text(currentPlayer.name + "'s Stats");
+		var game = new Game(currentGame);
+		execute_after_set(game, "value.date", function() {
+			$("li#baseball-team-info").html(currentTeam.name + "<br>" + game.date);
+		});
 	});
 	$("#statshow-basketball").live("click", function() {
 		loadBasketballStats(currentGame);
