@@ -163,7 +163,7 @@
 				<h2></h2>
 				<div class="rounded scoring_selector">
 					<li style="display:inline;">
-					<img class="playerAvatarLarge" src="img/avatar-baseball-large.png" id="player_photo_large" /></li>
+					<img class="playerAvatarLarge" src="img/avatar-basketball-large.png" id="player_photo_large" /></li>
 					<li id="baseball_innings">
 						<div class="inningwrap">
 							<p style="position: absolute; top:-35px; right:0;">Quarter</p>
@@ -192,42 +192,42 @@
 					</li>
 					<li id="stat_threepointer">
 						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
-						<span style="left: 65px; position: absolute;">3 Pointer</span>
+						<span style="left: 40%; top:40%; position: absolute;">3 Pointer</span>
 						<small id="amt_threepointer" class="counter">0</small>
 						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
 						
 					</li>
 					<li id="stat_freethrow">
 						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 65px; position: absolute;">Free Throw</span>
+						<span style="left: 40%; top:40%; position: absolute;">Free Throw</span>
 						<small id="amt_freethrow" class="counter">0</small>
 						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
 						
 					</li>
 					<li id="stat_rebound">
 						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 65px; position: absolute;">Rebound</span>
+						<span style="left: 40%; top:40%; position: absolute;">Rebound</span>
 						<small id="amt_rebound" class="counter">0</small>
 						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
 						
 					</li>
 					<li id="stat_steal">
 						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 65px; position: absolute;">Steal</span>
+						<span style="left: 40%; top:40%; position: absolute;">Steal</span>
 						<small id="amt_steal" class="counter">0</small>
 						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
 						
 					</li>
 					<li id="stat_block">
 						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 65px; position: absolute;">Block</span>
+						<span style="left: 40%; top:40%; position: absolute;">Block</span>
 						<small id="amt_block" class="counter">0</small>
 						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
 						
 					</li>
 					<li id="stat_turnover">
 						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 65px; position: absolute;">Turnover</span>
+						<span style="left: 40%; top:40%; position: absolute;">Turnover</span>
 						<small id="amt_turnover" class="counter">0</small>
 						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
 						
@@ -268,16 +268,22 @@
 					<a href="#basketballgame" class="goback slideright"><img src="img/button-back.png" /></a>
                     <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
 				</div>
-				<h2></h2>
+				<h2>[Player's Name]'s Stats</h2>
+				<div class="rounded info">
+					<li style="display:inline;">
+					<img class="playerAvatarLarge" src="img/avatar-basketball-large.png" id="player_photo_large" /></li>
+					<li id="baseball-team-info" style="display: inline; width:70%; position:absolute;top:30%; left:30%;">[@Team]<br>[Month, Day Year]</li>
+					
+				</div>
 				<div id="stat-container" class="rounded info" >
-					<div id="stat_display_totalpoints">Total Points: <span>0</span></div>
-					<div id="stat_display_fieldgoal">Field Goals: <span>0</span></div>
-					<div id="stat_display_threepointer">3 Pointers: <span>0</span></div>
-					<div id="stat_display_freethrow">Free Throws: <span>0</span></div>
-					<div id="stat_display_rebound">Rebounds: <span>0</span></div>
-					<div id="stat_display_steal">Steals: <span>0</span></div>
-					<div id="stat_display_block">Blocks: <span>0</span></div>
-					<div id="stat_display_turnover">Turnovers: <span>0</span></div>
+					<div id="stat_display_totalpoints" class="statLabel">Total Points: <span>0</span></div>
+					<div id="stat_display_fieldgoal" class="statLabel">Field Goals: <span>0</span></div>
+					<div id="stat_display_threepointer" class="statLabel">3 Pointers: <span>0</span></div>
+					<div id="stat_display_freethrow" class="statLabel">Free Throws: <span>0</span></div>
+					<div id="stat_display_rebound" class="statLabel">Rebounds: <span>0</span></div>
+					<div id="stat_display_steal" class="statLabel">Steals: <span>0</span></div>
+					<div id="stat_display_block" class="statLabel">Blocks: <span>0</span></div>
+					<div id="stat_display_turnover" class="statLabel">Turnovers: <span>0</span></div>
 				</div>
 			</div>
 			
