@@ -79,7 +79,6 @@
 				<div class="rounded scoring_selector">
 					<li style="display:inline;">
 					<img class="playerAvatarLarge" src="img/avatar-baseball-large.png" id="player_photo_large" /></li>
-					<li style="display: inline; display: none; width:70%; position:absolute;top:50%; left:30%;">Inning</li>
 					<li id="baseball_innings">
 						<div class="inningwrap">
 							<p style="position: absolute; top:-35px; right:0;">Inning</p>
@@ -165,13 +164,13 @@
 				<div class="rounded scoring_selector">
 					<li style="display:inline;">
 					<img class="playerAvatarLarge" src="img/avatar-baseball-large.png" id="player_photo_large" /></li>
-					<li style="display: inline; width:70%; position:absolute;top:50%; left:30%;">Quarter</li>
 					<li id="baseball_innings">
 						<div class="inningwrap">
-							<a href="#" id="inningminus" class="add" style="position:absolute; left: 10px;">-</a>
+							<p style="position: absolute; top:-35px; right:0;">Quarter</p>
+							<a href="#" id="inningminus" class="add" style="position:absolute; right: 50px; top:-5px; color:#4e505a; font-size:2em; background:none;">&lsaquo;</a>
 							<a href="#" class="button inning ninth" style="">1</a>
 							<input type="hidden" value="1" id="inningvalue">
-							<a href="#" id="inningadd" class="add" style="position:absolute; right: 10px;">+</a>
+							<a href="#" id="inningadd" class="add" style="position:absolute; left: 10px; top:-5px; color:#4e505a; font-size:2em; background:none;">&rsaquo;</a>
 						</div>
 					</li>
 					
@@ -186,46 +185,52 @@
 						</div>
 					</li>
 					<li id="stat_fieldgoal">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a>
-						<span style="left: 65px; position: absolute;">Field Goal</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
+						<span style="left: 40%; top:40%; position: absolute;">Field Goal</span>
 						<small id="amt_fieldgoal" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
 					</li>
 					<li id="stat_threepointer">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a>
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
 						<span style="left: 65px; position: absolute;">3 Pointer</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
 						<small id="amt_threepointer" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+						
 					</li>
 					<li id="stat_freethrow">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a> 
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
 						<span style="left: 65px; position: absolute;">Free Throw</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
 						<small id="amt_freethrow" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+						
 					</li>
 					<li id="stat_rebound">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a> 
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
 						<span style="left: 65px; position: absolute;">Rebound</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
 						<small id="amt_rebound" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+						
 					</li>
 					<li id="stat_steal">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a> 
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
 						<span style="left: 65px; position: absolute;">Steal</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
 						<small id="amt_steal" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+						
 					</li>
 					<li id="stat_block">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a> 
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
 						<span style="left: 65px; position: absolute;">Block</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
 						<small id="amt_block" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+						
 					</li>
 					<li id="stat_turnover">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px; width: 15px;">-</a> 
+						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
 						<span style="left: 65px; position: absolute;">Turnover</span>
-						<a href="#" class="button add plus" style="position:absolute; right: 45px; width: 15px;">+</a>
 						<small id="amt_turnover" class="counter">0</small>
+						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+						
 					</li>
                 </ul>
                 <a id="statshow-basketball" href="#show-basketball" class="whiteButton" style="">View Game Stats</a>
