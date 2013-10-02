@@ -48,4 +48,6 @@
     
     <plugin name="Camera" value="CDVCamera" />
     <plugin name="Capture" value="CDVCapture" />
+	<gap:plugin name="com.phonegap.plugins.hydration" />
+
 </widget>
