@@ -118,7 +118,12 @@ $(document).ready(function() {
 		});
 	});
 	$("#statshow-basketball").live("click", function() {
+		$("#show-basketball h2").text(currentPlayer.name + "'s Stats");
 		loadBasketballStats(currentGame);
+		var game = new Game(currentGame);
+		execute_after_set(game, "value.date", function() {
+			$("#show-basketball li#baseball-team-info").html(currentTeam.name + "<br>" + game.date);
+		});
 	});
 	$("#team-stats-link").live("click", function() {
 		loadTeamStats(currentTeam, currentSport);
