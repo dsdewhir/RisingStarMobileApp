@@ -40,7 +40,6 @@ $(document).ready(function() {
 		$(".button.inning").removeClass("selected");
 		$(".button.inning input[value=" + String(currentInning) + "]").parent().addClass("selected");
 		updateCurrentSport(currentTeam); //need to set the sport here, dont we?
-		log("#" + currentSport + "game h1");
 		$("#" + currentSport + "game h1").text($(this).text());
 		showScores(currentGame, currentSport, currentInning);
 		$("#show-" + currentTeam.sport + " a.goback").attr("href", "#" + currentTeam.sport + "game");
@@ -131,6 +130,8 @@ $(document).ready(function() {
 		resetAllStats();
 		loadTeamStats(currentTeam);
 		$("#show-" + currentTeam.sport + " a.goback").attr("href", "#team");
+		$("#show-" + currentTeam.sport + " h2").text(currentPlayer.name + "'s Stats");
+		$("#show-" + currentTeam.sport + " li#baseball-team-info").html(currentTeam.name);
 	});
 	/*
 	$("#playerphoto").bind("tap", function() {
