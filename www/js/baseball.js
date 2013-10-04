@@ -22,9 +22,8 @@ function loadBaseballTeamStats(team_id) {
 	});
 }
 
-function loadBaseballStats(game_id) { //fill values in the stats show
-	//resetBaseballStats();
-	//$("#show-baseball #stat-container #stat_display_atbats span")	
+function loadBaseballStats(game_id, append) { //fill values in the stats show
+	resetBaseballStats();	
 	Q = "SELECT * FROM Score WHERE game_id = " + game_id;
 	at_bats = 0;
 	hits = 0;

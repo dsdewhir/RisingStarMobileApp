@@ -15,6 +15,7 @@ $(document).ready(function() {
 		if(currentTeam.games.length < 1) {
 			$("#team-stats-link").hide();
 		} else {
+			$("#team-stats-link").attr("href", "#show-" + currentTeam.sport)
 			$("#team-stats-link").show();
 		}
 	});
@@ -126,7 +127,8 @@ $(document).ready(function() {
 		});
 	});
 	$("#team-stats-link").live("click", function() {
-		loadTeamStats(currentTeam, currentSport);
+		resetAllStats();
+		loadTeamStats(currentTeam);
 	});
 	/*
 	$("#playerphoto").bind("tap", function() {

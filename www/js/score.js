@@ -54,11 +54,11 @@ function resetAllStats() {
 	resetBasketballStats();
 }
 
-function loadTeamStats(team_id, sport) {
-	if (sport == "baseball") {
-		loadBaseballTeamStats(team_id);
-	} else if (sport == "basketball") {
-		loadBasketballTeamStats(team_id);
+function loadTeamStats(team) {
+	if (team.sport == "baseball") {
+		loadBaseballTeamStats(team.id);
+	} else if (team.sport == "basketball") {
+		loadBasketballTeamStats(team.id);
 	}
 }
 
