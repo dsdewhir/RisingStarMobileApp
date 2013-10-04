@@ -48,7 +48,7 @@ function Team (id, name, player_id, season, sport, logo) {
 	this.listInsert = listInsert;
 	function listInsert() {
 		this.list.find(".listblank").hide();
-		this.list.append('<li class="forward playerAvatar"><img src="./img/avatar-baseball.png"><a href="#team">' + this.season + ' ' + this.name + '<input type="hidden" value="' + this.id + '" /></a></li');
+		this.list.append('<li class="forward playerAvatar"><img src="./img/avatar-' + this.sport + '.png"><a href="#team">' + this.season + ' ' + this.name + '<input type="hidden" value="' + this.id + '" /></a></li');
 	}
 	
 	this.set_id = set_id;
