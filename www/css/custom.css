@@ -41,7 +41,7 @@ li span.li_gamedate {
 	right:30%;
 	top:-10px;
 	}
-#jqt .inningwrap { margin: auto; position:absolute; top:50%; left:50%; }
+#jqt .inningwrap { margin: auto; position:absolute; top:50%; left:70%; }
 
 #jqt #player_photo, #jqt #team_logo { 
 	height: 42px; 
