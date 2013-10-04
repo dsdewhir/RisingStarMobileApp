@@ -48,5 +48,5 @@
     
     <plugin name="Camera" value="CDVCamera" />
     <plugin name="Capture" value="CDVCapture" />
-
+	<gap:platform name="ios" />
 </widget>
