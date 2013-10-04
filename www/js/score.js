@@ -68,13 +68,11 @@ if (reset == true) {
 createScoreTable(); //always call this in case there's no team table
 
 if (reset == true) {
-	newScore(currentGame, "single", currentInning, 7);
-	newScore(currentGame, "double", currentInning, 0);
-	newScore(currentGame, "triple", currentInning, 0);
-	newScore(currentGame, "homerun", currentInning, 0);
-	newScore(currentGame, "walk", currentInning, 0);
-	newScore(currentGame, "strikeout", currentInning, 0);
-	newScore(currentGame, "steal", currentInning, 0);
+	newScore(1, "single", 1, 7);
+	newScore(1, "double", 1, 0);
+	newScore(1, "triple", 1, 0);
+	newScore(1, "homerun", 1, 0);
+	newScore(1, "walk", 1, 0);
+	newScore(1, "strikeout", 1, 0);
+	newScore(1, "steal", 1, 0);
 }
-
-showScores(currentGame, "baseball", currentInning);
