@@ -43,6 +43,7 @@ $(document).ready(function() {
 		log("#" + currentSport + "game h1");
 		$("#" + currentSport + "game h1").text($(this).text());
 		showScores(currentGame, currentSport, currentInning);
+		$("#show-" + currentTeam.sport + " a.goback").attr("href", "#" + currentTeam.sport + "game");
 	});
 	
 	$("#saveplayer").click(function() {		//save a new player
@@ -129,6 +130,7 @@ $(document).ready(function() {
 	$("#team-stats-link").live("click", function() {
 		resetAllStats();
 		loadTeamStats(currentTeam);
+		$("#show-" + currentTeam.sport + " a.goback").attr("href", "#team");
 	});
 	/*
 	$("#playerphoto").bind("tap", function() {

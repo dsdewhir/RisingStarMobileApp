@@ -159,6 +159,7 @@ function game_initialize() {
 
 	if (reset == true) {
 		new Game(0, 1, "Braves", "baseball", "Mar 5, 2012", 1);
+		new Game(0, 1, "Royals", "baseball", "Mar 6, 2012", 1);
 		new Game(0, 3, "Cardinals", "baseball", "Mar 5, 2012", 0);
 		new Game(0, 2, "Orlando Magic", "basketball", "Mar 5, 2012", 1);
 		new Game(0, 4, "Utah Jazz", "basketball", "Mar 5, 2012", 0);

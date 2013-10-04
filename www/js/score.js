@@ -75,4 +75,5 @@ if (reset == true) {
 	newScore(1, "walk", 1, 0);
 	newScore(1, "strikeout", 1, 0);
 	newScore(1, "steal", 1, 0);
+	newScore(2, "single", 1, 1);
 }
