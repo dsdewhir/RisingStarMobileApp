@@ -1,429 +1,426 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="css/jqtouch.css" />
-        <link rel="stylesheet" type="text/css" href="css/custom.css" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/custom.css" />
         <link rel="stylesheet" type="text/css" href="./js/sw/spinningwheel.css" />
-		
+                <style type="text/css" media="screen">@import "css/jqtouch.css";</style>
+                <script type="text/javascript" src="./js/sw/spinningwheel.js"></script>
         <title>Rising Star</title>
-        <script type="text/javascript" src="js/index.js?v=3"></script>
-		<script type="text/javascript" src="js/jqtouch.js?v=3"></script>
-		<script type="text/javascript" src="js/jquery-1.7.min.js?v=3"></script>
-		<script type="text/javascript" src="js/jqtouch-jquery.min.js?v=3"></script>
-        <script type="text/javascript">
-            app.initialize();
-			$.jQTouch({
-				icon: 'jqtouch.png',
-				statusBar: 'black-translucent',
-				preloadImages: []
-			});
-			onBodyLoad();
-        </script>
     </head>
     <body>
-    	
             <div id="home" class="current">
                 <div class="toolbar">
                     <h1>Players</h1>
                 </div>
                 <div class="scroll">
-					<h2></h2>
+                                        <h2></h2>
                     <ul class="rounded" id="playerlist">
-						<li class="listblank">None found</li>
+                                                <li class="listblank">None found</li>
                     </ul>
-					<a href="#newplayer" class="whiteButton" style="">Add a New Player</a>
+                                        <a href="#newplayer" class="whiteButton" style="">Add a New Player</a>
                 </div>
             </div><!--end id=home -->
-			
-			<div id="player" class>
-				<div class="toolbar">
-					<h1></h1>
-					<a href="#home" class="goback slideright" style><img src="img/button-back.png" /></a>
+                        
+                        <div id="player" class>
+                                <div class="toolbar">
+                                        <h1></h1>
+                                        <a href="#home" class="goback slideright" style><img src="img/button-back.png" /></a>
                     <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
                     
-				</div>
-				<h2>Teams</h2>
-				<ul class="rounded" id="teamlist">
+                                </div>
+                                <h2>Teams</h2>
+                                <ul class="rounded" id="teamlist">
                 </ul>
-				<a href="#newteam" class="whiteButton" style="">Create a New Team</a>
-			</div><!--end id=player -->
-			
-			<div id="team" class>
-				<div class="toolbar">
-					<h1></h1>
-					<a href="#player" class="goback slideright" style><img src="img/button-back.png" /></a>
+                                <a href="#newteam" class="whiteButton" style="">Create a New Team</a>
+                        </div><!--end id=player -->
+                        
+                        <div id="team" class>
+                                <div class="toolbar">
+                                        <h1></h1>
+                                        <a href="#player" class="goback slideright" style><img src="img/button-back.png" /></a>
                     <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
-				</div>
-				<h2>Games</h2>
-				<ul class="rounded" id="gamelist">
+                                </div>
+                                <h2>Games</h2>
+                                <ul class="rounded" id="gamelist">
                 </ul>
                 <a id="team-stats-link" href="" class="whiteButton" style="">All-Time Stats With Team</a>
-				<a href="#newgame" class="whiteButton" style="">Create a New Game</a>
-			</div><!-- end id=team -->
-			
-			<div id="baseballgame" class>
-				<div class="toolbar">
-					<h1></h1>
-					<a href="#team" class="goback slideright" style><img src="img/button-back.png" /></a>
+                                <a href="#newgame" class="whiteButton" style="">Create a New Game</a>
+                        </div><!-- end id=team -->
+                        
+                        <div id="baseballgame" class>
+                                <div class="toolbar">
+                                        <h1></h1>
+                                        <a href="#team" class="goback slideright" style><img src="img/button-back.png" /></a>
                     <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
-				</div>
-				<h2></h2>
-				<div class="rounded scoring_selector">
-					<li style="display:inline;">
-					<img class="playerAvatarLarge" src="img/avatar-baseball-large.png" id="player_photo_large" /></li>
-					<li id="baseball_innings">
-						<div class="inningwrap">
-							<p style="position: absolute; top:-35px; right:0;">Inning</p>
-							<a href="#" id="inningminus" class="add" style="position:absolute; right: 50px; top:-5px; color:#4e505a; font-size:2em; background:none;">&lsaquo;</a>
-							<a href="#" class="button inning ninth" style="">1</a>
-							<input type="hidden" value="1" id="inningvalue">
-							<a href="#" id="inningadd" class="add" style="position:absolute; left: 10px; top:-5px; color:#4e505a; font-size:2em; background:none;">&rsaquo;</a>
-						</div>
-					</li>
-					
-				</div>
-				<ul class="rounded" id="statlist">
-					<li id="baseball_innings">
-						<div class="inningwrap" style="display:none;">
-							<a href="#" class="button inning ninth" style="">1<input type="hidden" value="1"></a>
-							<a href="#" class="button inning ninth" style="">2<input type="hidden" value="2"></a>
-							<a href="#" class="button inning ninth" style="">3<input type="hidden" value="3"></a>
-							<a href="#" class="button inning ninth" style="">4<input type="hidden" value="4"></a>
-							<a href="#" class="button inning ninth" style="">5<input type="hidden" value="5"></a>
-							<a href="#" class="button inning ninth" style="">6<input type="hidden" value="6"></a>
-							<a href="#" class="button inning ninth" style="">7<input type="hidden" value="7"></a>
-							<a href="#" class="button inning ninth" style="">8<input type="hidden" value="8"></a>
-							<a href="#" class="button inning ninth" style="">9<input type="hidden" value="9"></a>
-						</div>
-					</li>
-					<li id="stat_single">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
-						<span style="left: 30%; top:40%; position: absolute;">Single</span>
-						<small id="amt_single" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-					</li>
-					<li id="stat_double">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
-						<span style="left: 30%; top:40%; position: absolute;">Double</span>
-						<small id="amt_double" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-					</li>
-					<li id="stat_triple">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 30%; top:40%; position: absolute;">Triple</span>
-						<small id="amt_triple" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-						
-					</li>
-					<li id="stat_homerun">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 30%; top:40%; position: absolute;">Homerun</span>
-						<small id="amt_homerun" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-						
-					</li>
-					<li id="stat_walk">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 30%; top:40%; position: absolute;">Walks</span>
-						<small id="amt_walk" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-					</li>
-					<li id="stat_strikeout">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 30%; top:40%; position: absolute;">Strikeouts</span>
-						<small id="amt_strikeout" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-					</li>
-					<li id="stat_basesteal">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 30%; top:40%; position: absolute;">Steals</span>
-						<small id="amt_basesteal" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-						
-					</li>
-					<li><!--deals with last child thing--></li>
+                                </div>
+                                <h2></h2>
+                                <div class="rounded scoring_selector">
+                                        <li style="display:inline;">
+                                        <img class="playerAvatarLarge" src="img/avatar-baseball-large.png" id="player_photo_large" /></li>
+                                        <li id="baseball_innings">
+                                                <div class="inningwrap">
+                                                        <p style="position: absolute; top:-35px; right:0;">Inning</p>
+                                                        <a href="#" id="inningminus" class="add" style="position:absolute; right: 50px; top:-5px; color:#4e505a; font-size:2em; background:none;">&lsaquo;</a>
+                                                        <a href="#" class="button inning ninth" style="">1</a>
+                                                        <input type="hidden" value="1" id="inningvalue">
+                                                        <a href="#" id="inningadd" class="add" style="position:absolute; left: 10px; top:-5px; color:#4e505a; font-size:2em; background:none;">&rsaquo;</a>
+                                                </div>
+                                        </li>
+                                        
+                                </div>
+                                <ul class="rounded" id="statlist">
+                                        <li id="baseball_innings">
+                                                <div class="inningwrap" style="display:none;">
+                                                        <a href="#" class="button inning ninth" style="">1<input type="hidden" value="1"></a>
+                                                        <a href="#" class="button inning ninth" style="">2<input type="hidden" value="2"></a>
+                                                        <a href="#" class="button inning ninth" style="">3<input type="hidden" value="3"></a>
+                                                        <a href="#" class="button inning ninth" style="">4<input type="hidden" value="4"></a>
+                                                        <a href="#" class="button inning ninth" style="">5<input type="hidden" value="5"></a>
+                                                        <a href="#" class="button inning ninth" style="">6<input type="hidden" value="6"></a>
+                                                        <a href="#" class="button inning ninth" style="">7<input type="hidden" value="7"></a>
+                                                        <a href="#" class="button inning ninth" style="">8<input type="hidden" value="8"></a>
+                                                        <a href="#" class="button inning ninth" style="">9<input type="hidden" value="9"></a>
+                                                </div>
+                                        </li>
+                                        <li id="stat_single">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
+                                                <span style="left: 30%; top:40%; position: absolute;">Single</span>
+                                                <small id="amt_single" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                        </li>
+                                        <li id="stat_double">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
+                                                <span style="left: 30%; top:40%; position: absolute;">Double</span>
+                                                <small id="amt_double" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                        </li>
+                                        <li id="stat_triple">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+                                                <span style="left: 30%; top:40%; position: absolute;">Triple</span>
+                                                <small id="amt_triple" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                                
+                                        </li>
+                                        <li id="stat_homerun">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+                                                <span style="left: 30%; top:40%; position: absolute;">Homerun</span>
+                                                <small id="amt_homerun" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                                
+                                        </li>
+                                        <li id="stat_walk">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+                                                <span style="left: 30%; top:40%; position: absolute;">Walks</span>
+                                                <small id="amt_walk" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                        </li>
+                                        <li id="stat_strikeout">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+                                                <span style="left: 30%; top:40%; position: absolute;">Strikeouts</span>
+                                                <small id="amt_strikeout" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                        </li>
+                                        <li id="stat_basesteal">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+                                                <span style="left: 30%; top:40%; position: absolute;">Steals</span>
+                                                <small id="amt_basesteal" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                                
+                                        </li>
+                                        <li><!--deals with last child thing--></li>
                 </ul>
                 <a id="statshow-baseball" href="#show-baseball" class="whiteButton" style="">View Game Stats</a> 
-			</div><!--end id=baseballgame -->
-			
-			<div id="basketballgame" class>
-				<div class="toolbar">
-					<h1></h1>
-					<a href="#team" class="goback slideright" style><img src="img/button-back.png" /></a>
+                        </div><!--end id=baseballgame -->
+                        
+                        <div id="basketballgame" class>
+                                <div class="toolbar">
+                                        <h1></h1>
+                                        <a href="#team" class="goback slideright" style><img src="img/button-back.png" /></a>
                     <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
-				</div>
-				<h2></h2>
-				<div class="rounded scoring_selector">
-					<li style="display:inline;">
-					<img class="playerAvatarLarge" src="img/avatar-basketball-large.png" id="player_photo_large" /></li>
-					<li id="baseball_innings">
-						<div class="inningwrap">
-							<p style="position: absolute; top:-35px; right:0;">Quarter</p>
-							<a href="#" id="inningminus" class="add" style="position:absolute; right: 50px; top:-5px; color:#4e505a; font-size:2em; background:none;">&lsaquo;</a>
-							<a href="#" class="button inning ninth" style="">1</a>
-							<input type="hidden" value="1" id="inningvalue">
-							<a href="#" id="inningadd" class="add" style="position:absolute; left: 10px; top:-5px; color:#4e505a; font-size:2em; background:none;">&rsaquo;</a>
-						</div>
-					</li>
-					
-				</div>
-				<ul class="rounded" id="statlist">
-					<li id="basketball_inningsxxx" style="display:none;">
-						<div class="inningwrap">
-							<a href="#" class="button inning quarter" style="">1<input type="hidden" value="1"></a>
-							<a href="#" class="button inning quarter" style="">2<input type="hidden" value="2"></a>
-							<a href="#" class="button inning quarter" style="">3<input type="hidden" value="3"></a>
-							<a href="#" class="button inning quarter" style="">4<input type="hidden" value="4"></a>
-						</div>
-					</li>
-					<li id="stat_fieldgoal">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
-						<span style="left: 25%; top:40%; position: absolute;">Field Goal</span>
-						<small id="amt_fieldgoal" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-					</li>
-					<li id="stat_threepointer">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
-						<span style="left: 25%; top:40%; position: absolute;">3 Pointer</span>
-						<small id="amt_threepointer" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-						
-					</li>
-					<li id="stat_freethrow">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 25%; top:40%; position: absolute;">Free Throw</span>
-						<small id="amt_freethrow" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-						
-					</li>
-					<li id="stat_rebound">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 25%; top:40%; position: absolute;">Rebound</span>
-						<small id="amt_rebound" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-						
-					</li>
-					<li id="stat_steal">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 25%; top:40%; position: absolute;">Steal</span>
-						<small id="amt_steal" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-						
-					</li>
-					<li id="stat_block">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 25%; top:40%; position: absolute;">Block</span>
-						<small id="amt_block" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-						
-					</li>
-					<li id="stat_turnover">
-						<a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
-						<span style="left: 25%; top:40%; position: absolute;">Turnover</span>
-						<small id="amt_turnover" class="counter">0</small>
-						<a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
-						
-					</li>
+                                </div>
+                                <h2></h2>
+                                <div class="rounded scoring_selector">
+                                        <li style="display:inline;">
+                                        <img class="playerAvatarLarge" src="img/avatar-basketball-large.png" id="player_photo_large" /></li>
+                                        <li id="baseball_innings">
+                                                <div class="inningwrap">
+                                                        <p style="position: absolute; top:-35px; right:0;">Quarter</p>
+                                                        <a href="#" id="inningminus" class="add" style="position:absolute; right: 50px; top:-5px; color:#4e505a; font-size:2em; background:none;">&lsaquo;</a>
+                                                        <a href="#" class="button inning ninth" style="">1</a>
+                                                        <input type="hidden" value="1" id="inningvalue">
+                                                        <a href="#" id="inningadd" class="add" style="position:absolute; left: 10px; top:-5px; color:#4e505a; font-size:2em; background:none;">&rsaquo;</a>
+                                                </div>
+                                        </li>
+                                        
+                                </div>
+                                <ul class="rounded" id="statlist">
+                                        <li id="basketball_inningsxxx" style="display:none;">
+                                                <div class="inningwrap">
+                                                        <a href="#" class="button inning quarter" style="">1<input type="hidden" value="1"></a>
+                                                        <a href="#" class="button inning quarter" style="">2<input type="hidden" value="2"></a>
+                                                        <a href="#" class="button inning quarter" style="">3<input type="hidden" value="3"></a>
+                                                        <a href="#" class="button inning quarter" style="">4<input type="hidden" value="4"></a>
+                                                </div>
+                                        </li>
+                                        <li id="stat_fieldgoal">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
+                                                <span style="left: 25%; top:40%; position: absolute;">Field Goal</span>
+                                                <small id="amt_fieldgoal" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                        </li>
+                                        <li id="stat_threepointer">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a>
+                                                <span style="left: 25%; top:40%; position: absolute;">3 Pointer</span>
+                                                <small id="amt_threepointer" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                                
+                                        </li>
+                                        <li id="stat_freethrow">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+                                                <span style="left: 25%; top:40%; position: absolute;">Free Throw</span>
+                                                <small id="amt_freethrow" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                                
+                                        </li>
+                                        <li id="stat_rebound">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+                                                <span style="left: 25%; top:40%; position: absolute;">Rebound</span>
+                                                <small id="amt_rebound" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                                
+                                        </li>
+                                        <li id="stat_steal">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+                                                <span style="left: 25%; top:40%; position: absolute;">Steal</span>
+                                                <small id="amt_steal" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                                
+                                        </li>
+                                        <li id="stat_block">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+                                                <span style="left: 25%; top:40%; position: absolute;">Block</span>
+                                                <small id="amt_block" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                                
+                                        </li>
+                                        <li id="stat_turnover">
+                                                <a href="#" class="button add minus" style="position:absolute; left: 10px;">-</a> 
+                                                <span style="left: 25%; top:40%; position: absolute;">Turnover</span>
+                                                <small id="amt_turnover" class="counter">0</small>
+                                                <a href="#" class="button add plus" style="position:absolute; right: 10px;">+</a>
+                                                
+                                        </li>
                 </ul>
                 <a id="statshow-basketball" href="#show-basketball" class="whiteButton" style="">View Game Stats</a>
-			</div><!--end id=basketballgame -->
-			
-			<div id="show-baseball" style="height: 100%;">
-				<div class="toolbar">
-					<h1>Game Stats</h1>
-					<a href="#baseballgame" class="goback slideright"><img src="img/button-back.png" /></a>
+                        </div><!--end id=basketballgame -->
+                        
+                        <div id="show-baseball" style="height: 100%;">
+                                <div class="toolbar">
+                                        <h1>Game Stats</h1>
+                                        <a href="#baseballgame" class="goback slideright"><img src="img/button-back.png" /></a>
                     <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
-				</div>
-				<h2>[Player's Name]'s Stats</h2>
-				<div class="rounded info">
-					<li style="display:inline;">
-					<img class="playerAvatarLarge" src="img/avatar-baseball-large.png" id="player_photo_large" /></li>
-					<li id="baseball-team-info" style="display: inline; width:70%; position:absolute;top:30%; left:50%;">[@Team]<br>[Month, Day Year]</li>
-					
-				</div>
-				<div id="stat-container" class="rounded info" >
-					<div id="stat_display_atbats" class="statLabel">At Bats: <span>0</span></div>
-					<div id="stat_display_hits" class="statLabel">Hits: <span>0</span></div>
-					<div id="stat_display_single" class="statLabel">Singles: <span>0</span></div>
-					<div id="stat_display_double" class="statLabel">Doubles: <span>0</span></div>
-					<div id="stat_display_triple" class="statLabel">Triples: <span>0</span></div>
-					<div id="stat_display_homerun" class="statLabel">Homeruns: <span>0</span></div>
-					<div id="stat_display_walk" class="statLabel">Walks: <span>0</span></div>
-					<div id="stat_display_strikeout" class="statLabel">Strikeouts: <span>0</span></div>
-					<div id="stat_display_basesteal" class="statLabel">Steals: <span>0</span></div>
-				</div>
-			</div>
-			
-			<div id="show-basketball" style="height: 100%;">
-				<div class="toolbar">
-					<h1>Game Stats</h1>
-					<a href="#basketballgame" class="goback slideright"><img src="img/button-back.png" /></a>
+                                </div>
+                                <h2>[Player's Name]'s Stats</h2>
+                                <div class="rounded info">
+                                        <li style="display:inline;">
+                                        <img class="playerAvatarLarge" src="img/avatar-baseball-large.png" id="player_photo_large" /></li>
+                                        <li id="baseball-team-info" style="display: inline; width:70%; position:absolute;top:30%; left:50%;">[@Team]<br>[Month, Day Year]</li>
+                                        
+                                </div>
+                                <div id="stat-container" class="rounded info" >
+                                        <div id="stat_display_atbats" class="statLabel">At Bats: <span>0</span></div>
+                                        <div id="stat_display_hits" class="statLabel">Hits: <span>0</span></div>
+                                        <div id="stat_display_single" class="statLabel">Singles: <span>0</span></div>
+                                        <div id="stat_display_double" class="statLabel">Doubles: <span>0</span></div>
+                                        <div id="stat_display_triple" class="statLabel">Triples: <span>0</span></div>
+                                        <div id="stat_display_homerun" class="statLabel">Homeruns: <span>0</span></div>
+                                        <div id="stat_display_walk" class="statLabel">Walks: <span>0</span></div>
+                                        <div id="stat_display_strikeout" class="statLabel">Strikeouts: <span>0</span></div>
+                                        <div id="stat_display_basesteal" class="statLabel">Steals: <span>0</span></div>
+                                </div>
+                        </div>
+                        
+                        <div id="show-basketball" style="height: 100%;">
+                                <div class="toolbar">
+                                        <h1>Game Stats</h1>
+                                        <a href="#basketballgame" class="goback slideright"><img src="img/button-back.png" /></a>
                     <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
-				</div>
-				<h2 id="stats-player-name"></h2>
-				<div class="rounded info">
-					<li style="display:inline;">
-					<img class="playerAvatarLarge" src="img/avatar-basketball-large.png" id="player_photo_large" /></li>
-					<li id="baseball-team-info" style="display: inline; width:70%; position:absolute;top:30%; left:30%;"><span id="team-name">[@Team]</span><br><span id="game-date">[Month, Day Year]</span></li>
-					
-				</div>
-				<div id="stat-container" class="rounded info" >
-					<div id="stat_display_totalpoints" class="statLabel">Total Points: <span>0</span></div>
-					<div id="stat_display_fieldgoal" class="statLabel">Field Goals: <span>0</span></div>
-					<div id="stat_display_threepointer" class="statLabel">3 Pointers: <span>0</span></div>
-					<div id="stat_display_freethrow" class="statLabel">Free Throws: <span>0</span></div>
-					<div id="stat_display_rebound" class="statLabel">Rebounds: <span>0</span></div>
-					<div id="stat_display_steal" class="statLabel">Steals: <span>0</span></div>
-					<div id="stat_display_block" class="statLabel">Blocks: <span>0</span></div>
-					<div id="stat_display_turnover" class="statLabel">Turnovers: <span>0</span></div>
-				</div>
-			</div>
-			
-			<div id="newplayer" class>
-				<div class="toolbar">
-					<h1>New Player</h1>
-					<a href="#home" class="goback slideright" style><img src="img/button-back.png" /></a>
+                                </div>
+                                <h2 id="stats-player-name"></h2>
+                                <div class="rounded info">
+                                        <li style="display:inline;">
+                                        <img class="playerAvatarLarge" src="img/avatar-basketball-large.png" id="player_photo_large" /></li>
+                                        <li id="baseball-team-info" style="display: inline; width:70%; position:absolute;top:30%; left:30%;"><span id="team-name">[@Team]</span><br><span id="game-date">[Month, Day Year]</span></li>
+                                        
+                                </div>
+                                <div id="stat-container" class="rounded info" >
+                                        <div id="stat_display_totalpoints" class="statLabel">Total Points: <span>0</span></div>
+                                        <div id="stat_display_fieldgoal" class="statLabel">Field Goals: <span>0</span></div>
+                                        <div id="stat_display_threepointer" class="statLabel">3 Pointers: <span>0</span></div>
+                                        <div id="stat_display_freethrow" class="statLabel">Free Throws: <span>0</span></div>
+                                        <div id="stat_display_rebound" class="statLabel">Rebounds: <span>0</span></div>
+                                        <div id="stat_display_steal" class="statLabel">Steals: <span>0</span></div>
+                                        <div id="stat_display_block" class="statLabel">Blocks: <span>0</span></div>
+                                        <div id="stat_display_turnover" class="statLabel">Turnovers: <span>0</span></div>
+                                </div>
+                        </div>
+                        
+                        <div id="newplayer" class>
+                                <div class="toolbar">
+                                        <h1>New Player</h1>
+                                        <a href="#home" class="goback slideright" style><img src="img/button-back.png" /></a>
                     <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
-				</div>
-				<h2>Add a New Player</h2>
-				<ul class="edit rounded">
-					<li><input type="text" name="name" placeholder="Name" id="player_name"></li>
-					<!--<li><input type="text" name="name" placeholder="Photo" id="player_photo"><a href="#add" class="button add slideup" style="">+</a></li>-->
-					<li><img src="img/avatar-baseball.png" id="player_photo"/></li>
+                                </div>
+                                <h2>Add a New Player</h2>
+                                <ul class="edit rounded">
+                                        <li><input type="text" name="name" placeholder="Name" id="player_name"></li>
+                                        <!--<li><input type="text" name="name" placeholder="Photo" id="player_photo"><a href="#add" class="button add slideup" style="">+</a></li>-->
+                                        <li><img src="img/avatar-baseball.png" id="player_photo"/></li>
                 </ul>
-				<a href="#home" id="saveplayer" class="whiteButton saveclear" style="">Save</a>
-			</div><!-- end id=newplayer -->
-			
-			<div id="newteam" class>
-				<div class="toolbar">
-					<h1>New Team</h1>
-					<a href="#player" class="goback slideright" style><img src="img/button-back.png" /></a>
+                                <a href="#home" id="saveplayer" class="whiteButton saveclear" style="">Save</a>
+                        </div><!-- end id=newplayer -->
+                        
+                        <div id="newteam" class>
+                                <div class="toolbar">
+                                        <h1>New Team</h1>
+                                        <a href="#player" class="goback slideright" style><img src="img/button-back.png" /></a>
                     <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
-				</div>
-				<h2>Create a New Team</h2>
-				<ul class="edit rounded">
-					<li><input type="text" name="name" placeholder="Enter Team Name" id="team_name"></li>
-					<li><input type="text" name="name" placeholder="Enter Season" id="season"></li>
-					<li>
-						<select id="sport" name="sport">
-							<option value="">Choose Sport</option>
-							<option value="baseball">Baseball</option>
-							<option value="basketball">Basketball</option>
-						</select>
-					</li>
-					<li><img src="" id="team_logo"/></li>
-					<!--<li><input type="text" name="name" placeholder="Sport" id="sport"></li>-->
-					<!--<li><input type="text" name="name" placeholder="Logo" id="team_logo"><a href="#add" class="button add slideup" style="">+</a></li>-->
+                                </div>
+                                <h2>Create a New Team</h2>
+                                <ul class="edit rounded">
+                                        <li><input type="text" name="name" placeholder="Enter Team Name" id="team_name"></li>
+                                        <li><input type="text" name="name" placeholder="Enter Season" id="season"></li>
+                                        <li>
+                                                <select id="sport" name="sport">
+                                                        <option value="">Choose Sport</option>
+                                                        <option value="baseball">Baseball</option>
+                                                        <option value="basketball">Basketball</option>
+                                                </select>
+                                        </li>
+                                        <li><img src="" id="team_logo"/></li>
+                                        <!--<li><input type="text" name="name" placeholder="Sport" id="sport"></li>-->
+                                        <!--<li><input type="text" name="name" placeholder="Logo" id="team_logo"><a href="#add" class="button add slideup" style="">+</a></li>-->
                 </ul>
-				<a href="#player" id="saveteam" class="whiteButton saveclear" style="">Save</a>
-			</div><!-- end id=newteam -->
-			
-			<div id="newgame" class>
-				<div class="toolbar">
-					<h1>New Game</h1>
-					<a href="#team" class="goback slideright" style><img src="img/button-back.png" /></a>
+                                <a href="#player" id="saveteam" class="whiteButton saveclear" style="">Save</a>
+                        </div><!-- end id=newteam -->
+                        
+                        <div id="newgame" class>
+                                <div class="toolbar">
+                                        <h1>New Game</h1>
+                                        <a href="#team" class="goback slideright" style><img src="img/button-back.png" /></a>
                     <a class="button flip" id="infoButton" href="#home"><img src="img/button-home.png" /></a>
-				</div>
-				<h2>Create a New Game</h2>
-				<ul class="edit rounded">
-					<li>
-					  <input id="gameathome" type="radio" name="homeaway" value="home" title="Home" checked>
-					</li>
-					<li>
-					  <input id="gameaway" type="radio" name="homeaway" value="away" title="Away">
-					</li>
-					<!--<li><span class="toggle"><input type="checkbox" /></span></li>-->
-					<li id="gamedate"><div><input type="text" name="name" placeholder="Date" id=""></div></li>
-					<li><input type="text" name="opponent" placeholder="Enter Opponent" id="gameopponent"></li>
+                                </div>
+                                <h2>Create a New Game</h2>
+                                <ul class="edit rounded">
+                                        <li>
+                                          <input id="gameathome" type="radio" name="homeaway" value="home" title="Home" checked>
+                                        </li>
+                                        <li>
+                                          <input id="gameaway" type="radio" name="homeaway" value="away" title="Away">
+                                        </li>
+                                        <!--<li><span class="toggle"><input type="checkbox" /></span></li>-->
+                                        <li id="gamedate"><div><input type="text" name="name" placeholder="Date" id=""></div></li>
+                                        <li><input type="text" name="opponent" placeholder="Enter Opponent" id="gameopponent"></li>
                 </ul>
-				<a id="savegame" href="#team" class="whiteButton saveclear" style="">Save</a>
-				<p id="result">results</p>
-			</div><!-- end id=newgame -->
-			
-			
-			
-        
-		<link rel="stylesheet" href="js/sw/spinningwheel.css" type="text/css" media="all" />
-	    <script type="text/javascript" src="./js/sw/spinningwheel.js"></script>
-		<script type="text/javascript" src="js/app.js?v=3"></script>
-		<script type="text/javascript" src="js/database.js?v=3"></script>
-		<script type="text/javascript" src="js/team.js?v=3"></script>
-		<script type="text/javascript" src="js/baseball.js?v=3"></script>
-		<script type="text/javascript" src="js/basketball.js?v=3"></script>
-		<script type="text/javascript" src="js/game.js?v=3"></script>
-		<script type="text/javascript" src="js/score.js?v=3"></script>
-		<script type="text/javascript" src="js/camera.js?v=3"></script>
-		<script type="text/javascript" src="js/player.js?v=3"></script>
-		<script type="text/javascript" src="js/events.js?v=3"></script>
-		<!--<script src="phonegap.js"></script>-->
+                                <a id="savegame" href="#team" class="whiteButton saveclear" style="">Save</a>
+                                <p id="result">results</p>
+                        </div><!-- end id=newgame -->
+                        
+                        
+                        
+        <script src="phonegap.js"></script>
         <script type="text/javascript" src="cordova.ios.js"></script>
-		<script type="text/javascript">
-			function openWeight() {
-				
-				var numbers = { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9 };
-				SpinningWheel.addSlot(numbers, 'right');
-				SpinningWheel.addSlot(numbers, 'right');
-				SpinningWheel.addSlot(numbers, 'right');
-				SpinningWheel.addSlot({ separator: '.' }, 'readonly shrink');
-				SpinningWheel.addSlot(numbers, 'right');
-				SpinningWheel.addSlot({ Kg: 'Kg', Lb: 'Lb', St: 'St' }, 'shrink');
-				
-				SpinningWheel.setCancelAction(cancel);
-				SpinningWheel.setDoneAction(done);
-				
-				SpinningWheel.open();
-			}
+        <script type="text/javascript" src="js/index.js?v=3"></script>
+                <script type="text/javascript" src="js/jquery-1.7.min.js?v=3"></script>
+                <script type="text/javascript" src="js/jqtouch.js?v=3"></script>
+                <script type="text/javascript" src="js/jqtouch-jquery.min.js?v=3"></script>
+                <script type="text/javascript" src="js/app.js?v=3"></script>
+                <script type="text/javascript" src="js/database.js?v=3"></script>
+                <script type="text/javascript" src="js/team.js?v=3"></script>
+                <script type="text/javascript" src="js/baseball.js?v=3"></script>
+                <script type="text/javascript" src="js/basketball.js?v=3"></script>
+                <script type="text/javascript" src="js/game.js?v=3"></script>
+                <script type="text/javascript" src="js/score.js?v=3"></script>
+                <script type="text/javascript" src="js/camera.js?v=3"></script>
+                <script type="text/javascript" src="js/player.js?v=3"></script>
+                <script type="text/javascript" src="js/events.js?v=3"></script>
+                <link rel="stylesheet" href="js/sw/spinningwheel.css" type="text/css" media="all" />
+        <script type="text/javascript">
+            app.initialize();
+                        $.jQTouch({
+                                icon: 'jqtouch.png',
+                                statusBar: 'black-translucent',
+                                preloadImages: []
+                        });
+                        onBodyLoad();
+        </script>
+                <script type="text/javascript">
+                        function openWeight() {
+                                
+                                var numbers = { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9 };
+                                SpinningWheel.addSlot(numbers, 'right');
+                                SpinningWheel.addSlot(numbers, 'right');
+                                SpinningWheel.addSlot(numbers, 'right');
+                                SpinningWheel.addSlot({ separator: '.' }, 'readonly shrink');
+                                SpinningWheel.addSlot(numbers, 'right');
+                                SpinningWheel.addSlot({ Kg: 'Kg', Lb: 'Lb', St: 'St' }, 'shrink');
+                                
+                                SpinningWheel.setCancelAction(cancel);
+                                SpinningWheel.setDoneAction(done);
+                                
+                                SpinningWheel.open();
+                        }
 
-			function openBirthDate() {
-				log("asdfasdf");
-				var now = new Date();
-				var days = { };
-				var years = { };
-				var months = { 1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec' };
-				
-				for( var i = 1; i < 32; i += 1 ) {
-					days[i] = i;
-				}
+                        function openBirthDate() {
+                                log("asdfasdf");
+                                var now = new Date();
+                                var days = { };
+                                var years = { };
+                                var months = { 1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec' };
+                                
+                                for( var i = 1; i < 32; i += 1 ) {
+                                        days[i] = i;
+                                }
 
-				for( i = now.getFullYear()-10; i < now.getFullYear()+1; i += 1 ) {
-					years[i] = i;
-				}
+                                for( i = now.getFullYear()-10; i < now.getFullYear()+1; i += 1 ) {
+                                        years[i] = i;
+                                }
 
-				SpinningWheel.addSlot(years, 'right', 1999);
-				SpinningWheel.addSlot(months, '', 4);
-				SpinningWheel.addSlot(days, 'right', 12);
-				
-				SpinningWheel.setCancelAction(cancel);
-				SpinningWheel.setDoneAction(done);
-				
-				SpinningWheel.open();
-				log("sw opened");
-			}
+                                SpinningWheel.addSlot(years, 'right', 1999);
+                                SpinningWheel.addSlot(months, '', 4);
+                                SpinningWheel.addSlot(days, 'right', 12);
+                                
+                                SpinningWheel.setCancelAction(cancel);
+                                SpinningWheel.setDoneAction(done);
+                                
+                                SpinningWheel.open();
+                                log("sw opened");
+                        }
 
-			function openOneSlot() {
-				SpinningWheel.addSlot({1: 'Ichi', 2: 'Ni', 3: 'San', 4: 'Shi', 5: 'Go'});
-				
-				SpinningWheel.setCancelAction(cancel);
-				SpinningWheel.setDoneAction(done);
-				
-				SpinningWheel.open();
-			}
+                        function openOneSlot() {
+                                SpinningWheel.addSlot({1: 'Ichi', 2: 'Ni', 3: 'San', 4: 'Shi', 5: 'Go'});
+                                
+                                SpinningWheel.setCancelAction(cancel);
+                                SpinningWheel.setDoneAction(done);
+                                
+                                SpinningWheel.open();
+                        }
 
-			function done() {
-				var results = SpinningWheel.getSelectedValues();
-				document.getElementById('result').innerHTML = 'values: ' + results.values.join(' ') + '<br />keys: ' + results.keys.join(', ');
-			}
+                        function done() {
+                                var results = SpinningWheel.getSelectedValues();
+                                document.getElementById('result').innerHTML = 'values: ' + results.values.join(' ') + '<br />keys: ' + results.keys.join(', ');
+                        }
 
-			function cancel() {
-				document.getElementById('result').innerHTML = 'cancelled!';
-			}
+                        function cancel() {
+                                document.getElementById('result').innerHTML = 'cancelled!';
+                        }
 
 
-			window.addEventListener('load', function(){ setTimeout(function(){ window.scrollTo(0,0); }, 100); }, true);
+                        window.addEventListener('load', function(){ setTimeout(function(){ window.scrollTo(0,0); }, 100); }, true);
 
-		</script>
+                </script>
     </body>
 </html>
