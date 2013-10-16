@@ -1,15 +1,27 @@
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/jqtouch.css" />
         <link rel="stylesheet" type="text/css" href="css/custom.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link rel="stylesheet" type="text/css" href="css/jqtouch.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="./js/sw/spinningwheel.css" />
 		
         <title>Rising Star</title>
-
+        <script type="text/javascript" src="js/index.js?v=3"></script>
+		<script type="text/javascript" src="js/jqtouch.js?v=3"></script>
+		<script type="text/javascript" src="js/jquery-1.7.min.js?v=3"></script>
+		<script type="text/javascript" src="js/jqtouch-jquery.min.js?v=3"></script>
+        <script type="text/javascript">
+            app.initialize();
+			$.jQTouch({
+				icon: 'jqtouch.png',
+				statusBar: 'black-translucent',
+				preloadImages: []
+			});
+			onBodyLoad();
+        </script>
     </head>
     <body>
     	
@@ -336,20 +348,6 @@
         
 		<link rel="stylesheet" href="js/sw/spinningwheel.css" type="text/css" media="all" />
 	    <script type="text/javascript" src="./js/sw/spinningwheel.js"></script>
-		<script src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js?v=3"></script>
-		<script type="text/javascript" src="js/jquery-1.7.min.js?v=3"></script>
-		<script type="text/javascript" src="js/jqtouch.js?v=3"></script>
-		<script type="text/javascript" src="js/jqtouch-jquery.min.js?v=3"></script>
-        <script type="text/javascript">
-            app.initialize();
-			$.jQTouch({
-				icon: 'jqtouch.png',
-				statusBar: 'black-translucent',
-				preloadImages: []
-			});
-			onBodyLoad();
-        </script>
 		<script type="text/javascript" src="js/app.js?v=3"></script>
 		<script type="text/javascript" src="js/database.js?v=3"></script>
 		<script type="text/javascript" src="js/team.js?v=3"></script>
@@ -360,6 +358,7 @@
 		<script type="text/javascript" src="js/camera.js?v=3"></script>
 		<script type="text/javascript" src="js/player.js?v=3"></script>
 		<script type="text/javascript" src="js/events.js?v=3"></script>
+		<!--<script src="phonegap.js"></script>-->
         <script type="text/javascript" src="cordova.ios.js"></script>
 		<script type="text/javascript">
 			function openWeight() {
