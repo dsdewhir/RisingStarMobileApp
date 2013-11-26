@@ -30,6 +30,18 @@ function showScores(game_id, sport, inning) {
 	} else if (sport == "basketball") {
 		loadBasketballScores(game_id, inning);
 	}
+	max_inning = 9;
+	if(currentSport == "basketball") {
+		max_inning = 4;
+	}
+	if(1 < inning && inning < max_inning) {
+		log(inning);
+		$("#statshow-baseball").hide();
+		$("#statshow-basketball").hide();
+	} else {
+		$("#statshow-baseball").show();
+		$("#statshow-basketball").show();
+	}
 }
 
 function updateCurrentSport(team) {
