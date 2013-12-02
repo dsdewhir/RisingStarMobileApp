@@ -6,7 +6,7 @@ var app = {
         document.addEventListener('deviceready', this.deviceready, false);
     },
     deviceready: function() {
-		this.splashscreen.hide();
+		navigator.splashscreen.show();
         app.report('deviceready');
     },
     report: function(id) {
