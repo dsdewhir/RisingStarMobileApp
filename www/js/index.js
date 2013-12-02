@@ -6,8 +6,10 @@ var app = {
         document.addEventListener('deviceready', this.deviceready, false);
     },
     deviceready: function() {
-		navigator.splashscreen.show();
         app.report('deviceready');
+		setTimeout(function() {
+			navigator.splashscreen.hide();
+		}, 3000);
     },
     report: function(id) {
         // Report the event in the console
